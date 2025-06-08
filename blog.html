@@ -1,0 +1,650 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Pure Everest - Contact</title>-->
+<!--    <style>-->
+<!--        /* Reset CSS */-->
+<!--        * {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            line-height: 1.6;-->
+<!--        }-->
+<!--        ul {-->
+<!--            list-style: none;-->
+<!--        }-->
+<!--        a {-->
+<!--            text-decoration: none;-->
+<!--            color: inherit;-->
+<!--        }-->
+<!--        button {-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--        img {-->
+<!--            max-width: 100%;-->
+<!--            height: auto;-->
+<!--        }-->
+
+<!--        /* Header Styles */-->
+<!--        .header {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            padding: 20px 50px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);-->
+<!--            position: fixed;-->
+<!--            width: 100%;-->
+<!--            top: 0;-->
+<!--            z-index: 1000;-->
+<!--        }-->
+<!--        .logo-img {-->
+<!--            height: 40px;-->
+<!--        }-->
+<!--        .nav-list {-->
+<!--            display: flex;-->
+<!--            gap: 30px;-->
+<!--        }-->
+<!--        .nav-item a {-->
+<!--            color: #333;-->
+<!--            font-size: 16px;-->
+<!--            transition: color 0.3s;-->
+<!--        }-->
+<!--        .nav-item a:hover {-->
+<!--            color: #007bff;-->
+<!--        }-->
+<!--        .get-quote-btn {-->
+<!--            background-color: #2c3e50;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            font-size: 14px;-->
+<!--        }-->
+
+<!--        /* Main Content Styles */-->
+<!--        .contact {-->
+<!--            padding: 100px 20px 50px;-->
+<!--            text-align: center;-->
+<!--            background-color: #fff;-->
+<!--            margin-top: 80px; /* Adjust for fixed header */-->
+<!--        }-->
+<!--        .contact-title {-->
+<!--            font-size: 36px;-->
+<!--            color: #2c3e50;-->
+<!--            margin-bottom: 15px;-->
+<!--        }-->
+<!--        .contact-subtitle {-->
+<!--            font-size: 16px;-->
+<!--            color: #7f8c8d;-->
+<!--            margin-bottom: 30px;-->
+<!--            max-width: 600px;-->
+<!--            margin-left: auto;-->
+<!--            margin-right: auto;-->
+<!--        }-->
+<!--        .contact-form {-->
+<!--            max-width: 500px;-->
+<!--            margin: 0 auto;-->
+<!--            text-align: left;-->
+<!--        }-->
+<!--        .contact-form label {-->
+<!--            display: block;-->
+<!--            font-weight: bold;-->
+<!--            margin-top: 10px;-->
+<!--            color: #2c3e50;-->
+<!--        }-->
+<!--        .contact-form input,-->
+<!--        .contact-form textarea {-->
+<!--            width: 100%;-->
+<!--            padding: 8px;-->
+<!--            margin-top: 5px;-->
+<!--            margin-bottom: 15px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
+<!--        .contact-form textarea {-->
+<!--            height: 150px;-->
+<!--            resize: vertical;-->
+<!--        }-->
+<!--        .contact-form button {-->
+<!--            background-color: #2c3e50;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            font-size: 16px;-->
+<!--            cursor: pointer;-->
+<!--            transition: background-color 0.3s;-->
+<!--        }-->
+<!--        .contact-form button:hover {-->
+<!--            background-color: #1a252f;-->
+<!--        }-->
+
+<!--        /* Footer Styles */-->
+<!--        .footer {-->
+<!--            background-color: #2c3e50;-->
+<!--            color: #fff;-->
+<!--            padding: 40px 50px;-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--        .footer-content {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            flex-wrap: wrap;-->
+<!--            gap: 30px;-->
+<!--            max-width: 1200px;-->
+<!--            margin: 0 auto;-->
+<!--        }-->
+<!--        .footer-section {-->
+<!--            flex: 1;-->
+<!--            min-width: 200px;-->
+<!--        }-->
+<!--        .footer-section h3 {-->
+<!--            font-size: 20px;-->
+<!--            margin-bottom: 15px;-->
+<!--        }-->
+<!--        .footer-section p,-->
+<!--        .footer-section ul {-->
+<!--            font-size: 14px;-->
+<!--            line-height: 1.8;-->
+<!--        }-->
+<!--        .footer-links {-->
+<!--            list-style: none;-->
+<!--        }-->
+<!--        .footer-links li a {-->
+<!--            color: #bdc3c7;-->
+<!--            transition: color 0.3s;-->
+<!--        }-->
+<!--        .footer-links li a:hover {-->
+<!--            color: #ecf0f1;-->
+<!--        }-->
+<!--        .footer-bottom {-->
+<!--            text-align: center;-->
+<!--            padding-top: 20px;-->
+<!--            border-top: 1px solid #34495e;-->
+<!--            margin-top: 20px;-->
+<!--            font-size: 12px;-->
+<!--        }-->
+
+<!--        /* Mobile Responsiveness */-->
+<!--        @media (max-width: 768px) {-->
+<!--            .header {-->
+<!--                flex-direction: column;-->
+<!--                padding: 10px 20px;-->
+<!--                gap: 10px;-->
+<!--            }-->
+<!--            .nav-list {-->
+<!--                flex-direction: row;-->
+<!--                justify-content: center;-->
+<!--                gap: 15px;-->
+<!--            }-->
+<!--            .get-quote-btn {-->
+<!--                width: 100%;-->
+<!--                margin-top: 10px;-->
+<!--            }-->
+<!--            .contact {-->
+<!--                padding: 100px 10px 30px;-->
+<!--                margin-top: 80px;-->
+<!--            }-->
+<!--            .contact-title {-->
+<!--                font-size: 28px;-->
+<!--            }-->
+<!--            .contact-form {-->
+<!--                max-width: 100%;-->
+<!--                padding: 0 10px;-->
+<!--            }-->
+<!--            .footer {-->
+<!--                padding: 20px;-->
+<!--            }-->
+<!--            .footer-content {-->
+<!--                flex-direction: column;-->
+<!--                text-align: center;-->
+<!--                gap: 20px;-->
+<!--            }-->
+<!--            .footer-section {-->
+<!--                min-width: 100%;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<header class="header">-->
+<!--    <div class="logo">-->
+<!--        <img src="images/logo.png" alt="Pure Everest Logo" class="logo-img">-->
+<!--    </div>-->
+<!--    <nav class="nav">-->
+<!--        <ul class="nav-list">-->
+<!--            <li class="nav-item"><a href="index.html">Home</a></li>-->
+<!--            <li class="nav-item"><a href="products.html">Products</a></li>-->
+<!--            <li class="nav-item"><a href="blog.html">Blog</a></li>-->
+<!--            <li class="nav-item"><a href="contact.html">Contact</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--    <button class="get-quote-btn">Get Quote</button>-->
+<!--</header>-->
+
+<!--<section class="contact">-->
+<!--    <h2 class="contact-title">Contact Us</h2>-->
+<!--    <p class="contact-subtitle">We’d love to hear from you! Reach out to Pure Everest for inquiries about our premium Nepali food products or to request a quote. Our team is here to assist you with any questions.</p>-->
+<!--    <form class="contact-form" action="#" method="post">-->
+<!--        <label for="name">Name:</label>-->
+<!--        <input type="text" id="name" name="name" required>-->
+
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" id="email" name="email" required>-->
+
+<!--        <label for="subject">Subject:</label>-->
+<!--        <input type="text" id="subject" name="subject" required>-->
+
+<!--        <label for="message">Message:</label>-->
+<!--        <textarea id="message" name="message" required></textarea>-->
+
+<!--        <button type="submit">Send Message</button>-->
+<!--    </form>-->
+<!--</section>-->
+
+<!--<footer class="footer">-->
+<!--    <div class="footer-content">-->
+<!--        <div class="footer-section">-->
+<!--            <h3>Contact Us</h3>-->
+<!--            <p>Email: info@pureeverest.com</p>-->
+<!--            <p>Phone: +977-1-1234567</p>-->
+<!--            <p>Address: Kathmandu, Nepal</p>-->
+<!--        </div>-->
+<!--        <div class="footer-section">-->
+<!--            <h3>Quick Links</h3>-->
+<!--            <ul class="footer-links">-->
+<!--                <li><a href="index.html">Home</a></li>-->
+<!--                <li><a href="products.html">Products</a></li>-->
+<!--                <li><a href="blog.html">Blog</a></li>-->
+<!--                <li><a href="contact.html">Contact</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="footer-section">-->
+<!--            <h3>Follow Us</h3>-->
+<!--            <p>Social media links can go here (e.g., Facebook, Instagram).</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="footer-bottom">-->
+<!--        <p>© <script>document.write(new Date().getFullYear());</script> Pure Everest. All rights reserved.</p>-->
+<!--    </div>-->
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Everest - Blog | Authentic Nepali Food Insights</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            border: none;
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-img {
+            height: 40px;
+        }
+        .nav-list {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-item a {
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-item a:hover {
+            color: #007bff;
+        }
+        .get-quote-btn {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Main Content Styles */
+        .blog {
+            padding: 100px 20px 50px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 80px; /* Adjust for fixed header */
+        }
+        .blog-title {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .blog-subtitle {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .blog-card {
+            position: relative;
+            min-height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+        .blog-card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 90%;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        .modal-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .modal-text {
+            font-size: 16px;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 40px 50px;
+            margin-top: 50px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .footer-section p,
+        .footer-section ul {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li a {
+            color: #bdc3c7;
+            transition: color 0.3s;
+        }
+        .footer-links li a:hover {
+            color: #ecf0f1;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 10px 20px;
+                gap: 10px;
+            }
+            .nav-list {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+            }
+            .get-quote-btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .blog {
+                padding: 100px 10px 30px;
+                margin-top: 90px;
+            }
+            .blog-title {
+                font-size: 28px;
+            }
+            .blog-cards {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            .footer {
+                padding: 20px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .footer-section {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="images/logo.png" alt="Pure Everest Logo" class="logo-img">
+    </div>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="products.html">Products</a></li>
+            <li class="nav-item"><a href="blog.html">Blog</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="get-quote-btn">Get Quote</button>
+</header>
+
+<section class="blog">
+    <h2 class="blog-title">Blog</h2>
+    <p class="blog-subtitle">Explore the latest insights and stories about authentic Nepali food culture and exports from Pure Everest.</p>
+    <div class="blog-cards" id="blog-cards">
+        <!-- Blog cards will be dynamically inserted here via JavaScript -->
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: info@pureeverest.com</p>
+            <p>Phone: +977-1-1234567</p>
+            <p>Address: Kathmandu, Nepal</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <p>Social media links can go here (e.g., Facebook, Instagram).</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© <script>document.write(new Date().getFullYear());</script> Pure Everest. All rights reserved.</p>
+    </div>
+</footer>
+
+<div id="blog-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">×</span>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <p class="modal-text" id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+    // Static Blog Array with SEO-friendly content
+    const blogs = [
+        {
+            id: 1,
+            title: 'The Traditional Process of Making Puffed Rice in Nepal',
+            text: '' +
+                'Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality. Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality. Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality. Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality.' +
+                ''
+        },
+        {
+            id: 2,
+            title: 'Exploring the Rich Flavors of Nepali Pickles',
+            text: 'Dive into the vibrant world of Nepali pickles, crafted with authentic spices by Pure Everest. This blog highlights their cultural significance and global appeal, especially in international markets. Keywords: Nepali pickles, authentic recipes, food export.'
+        },
+        {
+            id: 3,
+            title: 'The Health Benefits of Traditional Nepali Grains',
+            text: 'Uncover the nutritional benefits of traditional Nepali grains offered by Pure Everest. From beaten rice to other staples, learn how these superfoods support health and are exported worldwide. Keywords: Nepali grains, health benefits, organic exports.'
+        },
+        {
+            id: 4,
+            title: 'Sustainable Practices in Nepali Food Exports',
+            text: 'Explore how Pure Everest implements sustainable practices in exporting Nepali foods. This blog covers eco-friendly farming and packaging methods that benefit both the environment and global consumers. Keywords: sustainable food export, Nepali agriculture, eco-friendly.'
+        }
+    ];
+
+    // Render Blogs
+    const blogCards = document.getElementById('blog-cards');
+    blogs.forEach(blog => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.setAttribute('data-blog-id', blog.id);
+        card.innerHTML = `<span class="blog-card-title">${blog.title}</span>`;
+        card.addEventListener('click', () => showBlogDetails(blog));
+        blogCards.appendChild(card);
+    });
+
+    // Show Blog Details in Modal
+    function showBlogDetails(blog) {
+        const modal = document.getElementById('blog-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalText = document.getElementById('modal-text');
+
+        modalTitle.textContent = blog.title;
+        modalText.textContent = blog.text;
+        modal.style.display = 'block';
+    }
+
+    // Close Modal
+    const closeBtn = document.querySelector('.close-btn');
+    closeBtn.addEventListener('click', () => {
+        document.getElementById('blog-modal').style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('blog-modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>
