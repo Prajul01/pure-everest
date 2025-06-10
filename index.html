@@ -1,393 +1,1668 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pure Everest - Premium Nepali Foods</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Reset CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Reset and Variables */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            /* Brand Colors - Orange, Black, Gray */
+            --primary-orange: #FF6B35;
+            --primary-orange-dark: #E5532B;
+            --secondary-orange: #FF8C42;
+            --accent-orange: #FFB366;
+            --light-orange: #FFF4F0;
+
+            --primary-black: #1A1A1A;
+            --secondary-black: #2D2D2D;
+            --soft-black: #3A3A3A;
+
+            --primary-gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --medium-gray: #9CA3AF;
+            --dark-gray: #4B5563;
+            --border-gray: #E5E7EB;
+
+            --white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+            --gradient-hero: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 50%, var(--primary-orange) 100%);
+            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+            --gradient-orange-soft: linear-gradient(135deg, var(--light-orange) 0%, var(--accent-orange) 100%);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.2);
+            --shadow-orange-lg: 0 20px 40px rgba(255, 107, 53, 0.3);
+
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-        }
-        ul {
-            list-style: none;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        button {
-            border: none;
-            cursor: pointer;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
+            color: var(--primary-black);
+            background: var(--light-gray);
+            overflow-x: hidden;
         }
 
-        /* Header Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-gray);
             z-index: 1000;
-        }
-        .logo-img {
-            height: 40px;
-        }
-        .nav-list {
-            display: flex;
-            gap: 30px;
-        }
-        .nav-item a {
-            color: #333;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        .nav-item a:hover {
-            color: #007bff;
-        }
-        .get-quote-btn {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 14px;
+            transition: var(--transition);
+            padding: 0 2rem;
         }
 
-        /* Hero Styles */
-        .hero {
-            height: 100vh;
-            position: relative;
+        .header.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 80px;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--primary-black);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-orange);
+            transition: var(--transition);
+            padding-top: 10px;
+        }
+
+        .logo:hover .logo-icon {
+            box-shadow: var(--shadow-orange-lg);
+            transform: rotate(5deg);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            position: relative;
             overflow: hidden;
         }
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+            z-index: -1;
         }
-        .hero-logo {
-            height: 80px;
-            margin-bottom: 20px;
+
+        .nav-link:hover::before {
+            left: 0;
         }
-        .hero-title {
-            font-size: 48px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 20px;
+
+        .nav-link:hover {
+            color: white;
+            transform: translateY(-2px);
         }
-        .hero-subtitle {
-            font-size: 18px;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin-bottom: 30px;
+
+        .nav-link.active {
+            background: var(--light-orange);
+            color: var(--primary-orange);
         }
-        .hero-buttons {
+
+        .header-actions {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 1rem;
         }
-        .view-products-btn, .request-quote-btn {
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
+
+        .cta-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-orange);
+            position: relative;
+            overflow: hidden;
         }
-        .view-products-btn {
-            background-color: #2c3e50;
-            color: #fff;
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-orange) 0%, var(--primary-orange-dark) 100%);
+            transition: var(--transition);
         }
-        .view-products-btn:hover {
-            background-color: #1a252f;
+
+        .cta-btn:hover::before {
+            left: 0;
         }
-        .request-quote-btn {
-            background-color: #fff;
-            color: #2c3e50;
-            border: 1px solid #2c3e50;
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange-lg);
         }
-        .request-quote-btn:hover {
-            background-color: #f1f1f1;
+
+        .cta-btn span {
+            position: relative;
+            z-index: 1;
         }
-        .hero-background {
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hero-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,140,66,0.15)"/><circle cx="5" cy="25" r="1" fill="rgba(255,179,102,0.1)"/><circle cx="25" cy="5" r="1.5" fill="rgba(255,107,53,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hero-pattern)"/></svg>');
+            animation: float 25s infinite;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
             z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 140, 66, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 140, 66, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--secondary-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
             overflow: hidden;
         }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: white;
+            box-shadow: var(--shadow-orange-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.4);
+            background: var(--primary-orange-dark);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, white 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-image-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: rotate(3deg);
+            transition: var(--transition);
+        }
+
+        .hero-image-container:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
         .hero-image {
             width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
-            opacity: 0.3;
+            display: block;
         }
 
-        /* Products Styles */
-        .products {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #fff;
-        }
-        .products-title {
-            font-size: 36px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        .products-subtitle {
-            font-size: 16px;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-        }
-        .product-cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .product-card {
-            position: relative;
-            width: 300px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .product-card:hover {
-            transform: scale(1.05);
-        }
-        .product-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .product-label {
+        .floating-elements {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            color: #2c3e50;
+            width: 100%;
+            height: 100%;
         }
 
-        /* Footer Styles */
-        .footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 40px 50px;
-            margin-top: 50px;
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            color: var(--primary-black);
+            animation: floatCard 6s ease-in-out infinite;
+            border: 1px solid rgba(255, 140, 66, 0.2);
         }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1200px;
+
+        .floating-card-1 {
+            top: 20%;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 50%;
+            left: -20px;
+            animation-delay: 3s;
+        }
+
+        .floating-card h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-orange);
+        }
+
+        .floating-card p {
+            font-size: 0.875rem;
+            margin: 0;
+            color: var(--dark-gray);
+        }
+
+        /* Products Preview Section */
+        .products-preview {
+            padding: 8rem 2rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .products-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
         }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-orange);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--primary-black);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--primary-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid var(--border-gray);
+            group: hover;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-orange);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background: var(--gradient-card);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.15);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 0.9;
+        }
+
+        .view-product {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .product-card:hover .view-product {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            color: var(--primary-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: var(--shadow-orange);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--primary-gray);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-orange);
+            position: relative;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--warning);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            font-weight: 600;
+            color: var(--primary-black);
+        }
+
+        .author-info p {
+            margin: 0;
+            color: var(--primary-gray);
+            font-size: 0.875rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cta-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,140,66,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23cta-pattern)"/></svg>');
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-orange);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-outline-white {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-black);
+            color: var(--light-gray);
+            padding: 5rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            grid-column: 1;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-brand p {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary-black);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange);
+        }
+
         .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
         }
-        .footer-section p,
-        .footer-section ul {
-            font-size: 14px;
-            line-height: 1.8;
-        }
+
         .footer-links {
             list-style: none;
         }
-        .footer-links li a {
-            color: #bdc3c7;
-            transition: color 0.3s;
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
         }
-        .footer-links li a:hover {
-            color: #ecf0f1;
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            transform: translateX(5px);
+        }
+
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            margin-top: 20px;
-            font-size: 12px;
+            padding-top: 3rem;
+            border-top: 1px solid var(--secondary-black);
+            margin-top: 3rem;
+            color: var(--medium-gray);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding: 10px 20px;
-                gap: 10px;
+            .header-content {
+                padding: 0.75rem 0;
             }
-            .nav-list {
-                flex-direction: row;
-                justify-content: center;
-                gap: 15px;
+
+            .nav {
+                display: none;
             }
-            .get-quote-btn {
-                width: 100%;
-                margin-top: 10px;
-            }
-            .hero {
-                height: auto;
-                padding: 60px 20px;
-                margin-top: 120px;
-            }
-            .hero-content {
-                padding: 15px;
-            }
-            .hero-logo {
-                height: 60px;
-            }
-            .hero-title {
-                font-size: 32px;
-            }
-            .hero-subtitle {
-                font-size: 14px;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .view-products-btn, .request-quote-btn {
-                width: 100%;
-            }
-            .products {
-                padding: 30px 10px;
-            }
-            .products-title {
-                font-size: 28px;
-            }
-            .product-card {
-                width: 100%;
-                max-width: 300px;
-            }
-            .product-img {
-                height: 150px;
-            }
-            .footer {
-                padding: 20px;
-            }
-            .footer-content {
-                flex-direction: column;
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
                 text-align: center;
-                gap: 20px;
             }
-            .footer-section {
-                min-width: 100%;
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .products-preview {
+                padding: 4rem 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-section {
+                padding: 4rem 1rem;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 250px;
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-brand {
+                grid-column: 1;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="logo">
-        <img src="images/logo.png" alt="Pure Everest Logo" class="logo-img">
+<!-- Header -->
+<header class="header" id="header">
+    <div class="header-content">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <img src="images/logo.png" style="height: 100px !important; width: 100px !important;">
+<!--                <i class="fas fa-mountain"></i>-->
+            </div>
+<!--            Pure Everest-->
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="cta-btn">
+                <span>Get Quote</span>
+            </button>
+        </div>
     </div>
-    <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#home">Home</a></li>
-            <li class="nav-item"><a href="products.html">Products</a></li>
-            <li class="nav-item"><a href="#export-markets">Blog</a></li>
-            <li class="nav-item"><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <button class="get-quote-btn">Get Quote</button>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
-    <div class="hero-content">
-        <img src="images/logo.png" alt="Pure Everest Logo" class="hero-logo">
-        <h1 class="hero-title">Premium Nepali Foods Exported Worldwide</h1>
-        <p class="hero-subtitle">Pure Everest specializes in exporting authentic Nepali food products including puffed rice, beaten rice, and traditional pickles to Japan and the UK with uncompromising quality standards.</p>
-        <div class="hero-buttons">
-            <button class="view-products-btn"> <a href="products.html">View Products</a> <span>→</span></button>
-            <button class="request-quote-btn">Request Quote</button>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                Premium Quality Since 2020
+            </div>
+
+            <h1 class="hero-title">
+                Premium <span class="gradient-text">Nepali Foods</span><br>
+                Exported Worldwide
+            </h1>
+
+            <p class="hero-subtitle">
+                Pure Everest specializes in exporting authentic Nepali food products including puffed rice, beaten rice, and traditional pickles to Japan and the UK with uncompromising quality standards.
+            </p>
+
+            <div class="hero-actions">
+                <a href="products.html" class="btn btn-primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Products</span>
+                </a>
+                <button class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    <span>Request Quote</span>
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Products Exported</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Countries Served</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Quality Assured</span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="hero-background">
-        <img src="images/banner.png" alt="Nepali Food Products (Puffed Rice, Beaten Rice, Pickles)" class="hero-image">
+
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" alt="Premium Nepali Food Products" class="hero-image">
+            </div>
+
+            <div class="floating-elements">
+                <div class="floating-card floating-card-1">
+                    <h4><i class="fas fa-shipping-fast"></i> Global Export</h4>
+                    <p>Shipping to Japan & UK</p>
+                </div>
+                <div class="floating-card floating-card-2">
+                    <h4><i class="fas fa-certificate"></i> Certified Quality</h4>
+                    <p>100% Organic & Natural</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="products">
-    <h2 class="products-title">Our Premium Products</h2>
-    <p class="products-subtitle">Discover our range of authentic Nepali food products exported to Japan and the UK</p>
-    <div class="product-cards">
-        <div class="product-card">
-            <img src="images/product/Flattened-Rice.png" alt="Cereal Products" class="product-img">
-            <span class="product-label">Flattened Rice</span>
+<!-- Products Preview Section -->
+<section class="products-preview">
+    <div class="products-container">
+        <div class="section-header">
+            <span class="section-badge">Our Specialties</span>
+            <h2 class="section-title">Premium Product Range</h2>
+            <p class="section-subtitle">
+                Discover our carefully curated selection of authentic Nepali food products, each crafted with traditional methods and modern quality standards.
+            </p>
         </div>
-        <div class="product-card">
-            <img src="images/product/Green-Chilly-Pickle.png" alt="Green-Chilly-Pickle" class="product-img">
-            <span class="product-label">Green-Chilly-Pickle</span>
+
+        <div class="products-grid">
+            <div class="product-card" onclick="location.href='products.html'">
+                <div class="product-image-container">
+                    <img src="/images/product/Flattened-Rice.png" alt="Flattened Rice" class="product-image">
+                    <div class="product-overlay">
+                            <span class="view-product">
+                                <i class="fas fa-eye"></i> View Details
+                            </span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Flattened Rice (Chiura)</h3>
+                    <p class="product-description">
+                        A light and crispy traditional Nepali delicacy made from flattened rice grains, perfect as a quick snack or breakfast option.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Organic</span>
+                        <span class="feature-tag">Gluten-Free</span>
+                        <span class="feature-tag">Traditional</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="location.href='products.html'">
+                <div class="product-image-container">
+                    <img src="/images/product/Green-Chilly-Pickle.png" alt="Green Chilly Pickle" class="product-image">
+                    <div class="product-overlay">
+                            <span class="view-product">
+                                <i class="fas fa-eye"></i> View Details
+                            </span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Green Chilly Pickle</h3>
+                    <p class="product-description">
+                        A spicy and tangy pickle crafted from fresh green chilies, blended with authentic Nepali spices for the perfect kick.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Spicy</span>
+                        <span class="feature-tag">Preservative-Free</span>
+                        <span class="feature-tag">Authentic</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="location.href='products.html'">
+                <div class="product-image-container">
+                    <img src="/images/product/soya-chunks.png" alt="Soya Chunks" class="product-image">
+                    <div class="product-overlay">
+                            <span class="view-product">
+                                <i class="fas fa-eye"></i> View Details
+                            </span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Soya Chunks</h3>
+                    <p class="product-description">
+                        Versatile soy protein chunks, a great meat substitute perfect for curries and stir-fries with high protein content.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">High Protein</span>
+                        <span class="feature-tag">Vegan</span>
+                        <span class="feature-tag">Nutritious</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="location.href='products.html'">
+                <div class="product-image-container">
+                    <img src="/images/product/Suji.png" alt="Suji Semolina" class="product-image">
+                    <div class="product-overlay">
+                            <span class="view-product">
+                                <i class="fas fa-eye"></i> View Details
+                            </span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Suji (Semolina)</h3>
+                    <p class="product-description">
+                        Fine semolina used in traditional Nepali sweets and savory dishes like halwa or upma, offering rich texture and taste.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Versatile</span>
+                        <span class="feature-tag">Fine Quality</span>
+                        <span class="feature-tag">Traditional</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-card">
-            <img src="images/product/soya-chunks.png" alt="Cereal Products" class="product-img">
-            <span class="product-label">Soya-Chunks</span>
-        </div>
-        <div class="product-card">
-            <img src="images/product/Suji.png" alt="Cereal Products" class="product-img">
-            <span class="product-label">Suji</span>
+
+        <div style="text-align: center;">
+            <a href="products.html" class="btn btn-primary" style="display: inline-flex;">
+                <i class="fas fa-arrow-right"></i>
+                <span>View All Products</span>
+            </a>
         </div>
     </div>
 </section>
 
+<!-- Features Section -->
+<section class="features-section">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <div class="section-header">
+            <span class="section-badge">Why Choose Us</span>
+            <h2 class="section-title">Excellence in Every Step</h2>
+            <p class="section-subtitle">
+                From sourcing to delivery, we maintain the highest standards of quality and authenticity in everything we do.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="feature-title">Premium Quality</h3>
+                <p class="feature-description">Carefully selected ingredients and traditional processing methods ensure authentic taste and superior quality.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <h3 class="feature-title">Global Reach</h3>
+                <p class="feature-description">Trusted by customers in Japan, UK, and expanding to more countries with reliable shipping and delivery.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="feature-title">100% Natural</h3>
+                <p class="feature-description">No artificial preservatives or chemicals. Pure, natural ingredients sourced directly from Nepali farms.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header">
+            <span class="section-badge">Customer Reviews</span>
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">
+                Hear from our satisfied customers around the world who trust Pure Everest for authentic Nepali flavors.
+            </p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"The flattened rice from Pure Everest brings back memories of home. Excellent quality and fast delivery to Tokyo!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">YT</div>
+                    <div class="author-info">
+                        <h4>Yuki Tanaka</h4>
+                        <p>Tokyo, Japan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Amazing authentic pickles! The green chilly pickle is absolutely delicious. Highly recommend Pure Everest products."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JS</div>
+                    <div class="author-info">
+                        <h4>James Smith</h4>
+                        <p>London, UK</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Pure Everest has become our go-to supplier. Consistent quality and reliable service. Perfect for our restaurant needs."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SP</div>
+                    <div class="author-info">
+                        <h4>Sarah Patel</h4>
+                        <p>Manchester, UK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2 class="cta-title">Ready to Experience Authentic Nepali Flavors?</h2>
+        <p class="cta-subtitle">
+            Join thousands of satisfied customers worldwide who trust Pure Everest for premium quality Nepali food products.
+        </p>
+        <div class="cta-actions">
+            <a href="products.html" class="btn btn-white">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Shop Now</span>
+            </a>
+            <button class="btn btn-outline-white">
+                <i class="fas fa-phone"></i>
+                <span>Contact Us</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-section">
-            <h3>Contact Us</h3>
-            <p>Email: info@pureeverest.com</p>
-            <p>Phone: +977-1-1234567</p>
-            <p>Address: Kathmandu, Nepal</p>
+        <div class="footer-brand">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                Pure Everest
+            </div>
+            <p>
+                Bringing authentic Nepali flavors to the world with premium quality food products.
+                Trusted by customers in Japan, UK, and expanding globally.
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
         </div>
+
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
+
         <div class="footer-section">
-            <h3>Follow Us</h3>
-            <p>Social media links can go here (e.g., Facebook, Instagram).</p>
+            <h3>Products</h3>
+            <ul class="footer-links">
+                <li><a href="products.html"><i class="fas fa-seedling"></i> Flattened Rice</a></li>
+                <li><a href="products.html"><i class="fas fa-pepper-hot"></i> Pickles</a></li>
+                <li><a href="products.html"><i class="fas fa-cookie"></i> Lentils & Dal</a></li>
+                <li><a href="products.html"><i class="fas fa-wheat"></i> Snacks</a></li>
+                <li><a href="products.html"><i class="fas fa-leaf"></i> Grains</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                info@pureeverest.com
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                +977-1-1234567
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                Kathmandu, Nepal
+            </div>
+            <div>
+                <i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                Mon-Fri: 9AM-6PM
+            </div>
         </div>
     </div>
+
     <div class="footer-bottom">
-        <p>© 2025 Pure Everest. All rights reserved.</p>
+        <p>&copy; 2025 Pure Everest. All rights reserved. Made with ❤️ in Nepal</p>
     </div>
 </footer>
+
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const animateElements = document.querySelectorAll('.product-card, .section-header, .feature-card, .testimonial-card');
+        animateElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    });
+
+    // Add click effects with ripple animation
+    document.querySelectorAll('.btn, .product-card, .feature-card').forEach(element => {
+        element.addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    pointer-events: none;
+                `;
+
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add ripple animation CSS
+    const style = document.createElement('style');
+    style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+    document.head.appendChild(style);
+
+    // Loading animation
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'translateY(0)';
+    });
+
+    // Initial body styles for loading animation
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(20px)';
+    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+    // Enhanced hover effects for interactive elements
+    document.addEventListener('mouseover', function(e) {
+        if (e.target.closest('.product-card')) {
+            const card = e.target.closest('.product-card');
+            const image = card.querySelector('.product-image');
+            const overlay = card.querySelector('.product-overlay');
+
+            if (image) image.style.transform = 'scale(1.15)';
+            if (overlay) overlay.style.opacity = '0.9';
+        }
+
+        if (e.target.closest('.feature-card')) {
+            const card = e.target.closest('.feature-card');
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = 'var(--shadow-xl)';
+        }
+    });
+
+    document.addEventListener('mouseout', function(e) {
+        if (e.target.closest('.product-card')) {
+            const card = e.target.closest('.product-card');
+            const image = card.querySelector('.product-image');
+            const overlay = card.querySelector('.product-overlay');
+
+            if (image) image.style.transform = 'scale(1)';
+            if (overlay) overlay.style.opacity = '0';
+        }
+
+        if (e.target.closest('.feature-card')) {
+            const card = e.target.closest('.feature-card');
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = 'var(--shadow)';
+        }
+    });
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.hero::before');
+        const speed = scrolled * 0.5;
+
+        if (parallax) {
+            parallax.style.transform = `translateY(${speed}px)`;
+        }
+    });
+
+    // Counter animation for statistics
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 100;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current) + (target >= 100 ? '+' : '%');
+        }, 20);
+    }
+
+    // Trigger counter animation when stats come into view
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach((stat, index) => {
+                    const targets = [500, 50, 100];
+                    setTimeout(() => {
+                        animateCounter(stat, targets[index]);
+                    }, index * 200);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            statsObserver.observe(heroStats);
+        }
+    });
+
+    // Toast notifications for better UX
+    function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--success)' : 'var(--primary-orange)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                z-index: 3000;
+                animation: slideInRight 0.3s ease;
+                box-shadow: var(--shadow-xl);
+                font-weight: 600;
+            `;
+        toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                ${message}
+            `;
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 3000);
+    }
+
+    // Add toast animation styles
+    const toastStyle = document.createElement('style');
+    toastStyle.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+    document.head.appendChild(toastStyle);
+
+    // Show welcome toast on page load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            showToast('Welcome to Pure Everest! 🇳🇵', 'success');
+        }, 1500);
+    });
+</script>
 </body>
 </html>
-

@@ -1,403 +1,603 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>Pure Everest - Contact</title>-->
-<!--    <style>-->
-<!--        /* Reset CSS */-->
-<!--        * {-->
-<!--            margin: 0;-->
-<!--            padding: 0;-->
-<!--            box-sizing: border-box;-->
-<!--        }-->
-<!--        body {-->
-<!--            font-family: Arial, sans-serif;-->
-<!--            line-height: 1.6;-->
-<!--        }-->
-<!--        ul {-->
-<!--            list-style: none;-->
-<!--        }-->
-<!--        a {-->
-<!--            text-decoration: none;-->
-<!--            color: inherit;-->
-<!--        }-->
-<!--        button {-->
-<!--            border: none;-->
-<!--            cursor: pointer;-->
-<!--        }-->
-<!--        img {-->
-<!--            max-width: 100%;-->
-<!--            height: auto;-->
-<!--        }-->
-
-<!--        /* Header Styles */-->
-<!--        .header {-->
-<!--            display: flex;-->
-<!--            justify-content: space-between;-->
-<!--            align-items: center;-->
-<!--            padding: 20px 50px;-->
-<!--            background-color: #fff;-->
-<!--            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);-->
-<!--            position: fixed;-->
-<!--            width: 100%;-->
-<!--            top: 0;-->
-<!--            z-index: 1000;-->
-<!--        }-->
-<!--        .logo-img {-->
-<!--            height: 40px;-->
-<!--        }-->
-<!--        .nav-list {-->
-<!--            display: flex;-->
-<!--            gap: 30px;-->
-<!--        }-->
-<!--        .nav-item a {-->
-<!--            color: #333;-->
-<!--            font-size: 16px;-->
-<!--            transition: color 0.3s;-->
-<!--        }-->
-<!--        .nav-item a:hover {-->
-<!--            color: #007bff;-->
-<!--        }-->
-<!--        .get-quote-btn {-->
-<!--            background-color: #2c3e50;-->
-<!--            color: #fff;-->
-<!--            padding: 10px 20px;-->
-<!--            border-radius: 5px;-->
-<!--            font-size: 14px;-->
-<!--        }-->
-
-<!--        /* Main Content Styles */-->
-<!--        .contact {-->
-<!--            padding: 100px 20px 50px;-->
-<!--            text-align: center;-->
-<!--            background-color: #fff;-->
-<!--            margin-top: 80px; /* Adjust for fixed header */-->
-<!--        }-->
-<!--        .contact-title {-->
-<!--            font-size: 36px;-->
-<!--            color: #2c3e50;-->
-<!--            margin-bottom: 15px;-->
-<!--        }-->
-<!--        .contact-subtitle {-->
-<!--            font-size: 16px;-->
-<!--            color: #7f8c8d;-->
-<!--            margin-bottom: 30px;-->
-<!--            max-width: 600px;-->
-<!--            margin-left: auto;-->
-<!--            margin-right: auto;-->
-<!--        }-->
-<!--        .contact-form {-->
-<!--            max-width: 500px;-->
-<!--            margin: 0 auto;-->
-<!--            text-align: left;-->
-<!--        }-->
-<!--        .contact-form label {-->
-<!--            display: block;-->
-<!--            font-weight: bold;-->
-<!--            margin-top: 10px;-->
-<!--            color: #2c3e50;-->
-<!--        }-->
-<!--        .contact-form input,-->
-<!--        .contact-form textarea {-->
-<!--            width: 100%;-->
-<!--            padding: 8px;-->
-<!--            margin-top: 5px;-->
-<!--            margin-bottom: 15px;-->
-<!--            border: 1px solid #ccc;-->
-<!--            border-radius: 5px;-->
-<!--            box-sizing: border-box;-->
-<!--        }-->
-<!--        .contact-form textarea {-->
-<!--            height: 150px;-->
-<!--            resize: vertical;-->
-<!--        }-->
-<!--        .contact-form button {-->
-<!--            background-color: #2c3e50;-->
-<!--            color: #fff;-->
-<!--            padding: 10px 20px;-->
-<!--            border-radius: 5px;-->
-<!--            font-size: 16px;-->
-<!--            cursor: pointer;-->
-<!--            transition: background-color 0.3s;-->
-<!--        }-->
-<!--        .contact-form button:hover {-->
-<!--            background-color: #1a252f;-->
-<!--        }-->
-
-<!--        /* Footer Styles */-->
-<!--        .footer {-->
-<!--            background-color: #2c3e50;-->
-<!--            color: #fff;-->
-<!--            padding: 40px 50px;-->
-<!--            margin-top: 50px;-->
-<!--        }-->
-<!--        .footer-content {-->
-<!--            display: flex;-->
-<!--            justify-content: space-between;-->
-<!--            flex-wrap: wrap;-->
-<!--            gap: 30px;-->
-<!--            max-width: 1200px;-->
-<!--            margin: 0 auto;-->
-<!--        }-->
-<!--        .footer-section {-->
-<!--            flex: 1;-->
-<!--            min-width: 200px;-->
-<!--        }-->
-<!--        .footer-section h3 {-->
-<!--            font-size: 20px;-->
-<!--            margin-bottom: 15px;-->
-<!--        }-->
-<!--        .footer-section p,-->
-<!--        .footer-section ul {-->
-<!--            font-size: 14px;-->
-<!--            line-height: 1.8;-->
-<!--        }-->
-<!--        .footer-links {-->
-<!--            list-style: none;-->
-<!--        }-->
-<!--        .footer-links li a {-->
-<!--            color: #bdc3c7;-->
-<!--            transition: color 0.3s;-->
-<!--        }-->
-<!--        .footer-links li a:hover {-->
-<!--            color: #ecf0f1;-->
-<!--        }-->
-<!--        .footer-bottom {-->
-<!--            text-align: center;-->
-<!--            padding-top: 20px;-->
-<!--            border-top: 1px solid #34495e;-->
-<!--            margin-top: 20px;-->
-<!--            font-size: 12px;-->
-<!--        }-->
-
-<!--        /* Mobile Responsiveness */-->
-<!--        @media (max-width: 768px) {-->
-<!--            .header {-->
-<!--                flex-direction: column;-->
-<!--                padding: 10px 20px;-->
-<!--                gap: 10px;-->
-<!--            }-->
-<!--            .nav-list {-->
-<!--                flex-direction: row;-->
-<!--                justify-content: center;-->
-<!--                gap: 15px;-->
-<!--            }-->
-<!--            .get-quote-btn {-->
-<!--                width: 100%;-->
-<!--                margin-top: 10px;-->
-<!--            }-->
-<!--            .contact {-->
-<!--                padding: 100px 10px 30px;-->
-<!--                margin-top: 80px;-->
-<!--            }-->
-<!--            .contact-title {-->
-<!--                font-size: 28px;-->
-<!--            }-->
-<!--            .contact-form {-->
-<!--                max-width: 100%;-->
-<!--                padding: 0 10px;-->
-<!--            }-->
-<!--            .footer {-->
-<!--                padding: 20px;-->
-<!--            }-->
-<!--            .footer-content {-->
-<!--                flex-direction: column;-->
-<!--                text-align: center;-->
-<!--                gap: 20px;-->
-<!--            }-->
-<!--            .footer-section {-->
-<!--                min-width: 100%;-->
-<!--            }-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--<header class="header">-->
-<!--    <div class="logo">-->
-<!--        <img src="images/logo.png" alt="Pure Everest Logo" class="logo-img">-->
-<!--    </div>-->
-<!--    <nav class="nav">-->
-<!--        <ul class="nav-list">-->
-<!--            <li class="nav-item"><a href="index.html">Home</a></li>-->
-<!--            <li class="nav-item"><a href="products.html">Products</a></li>-->
-<!--            <li class="nav-item"><a href="blog.html">Blog</a></li>-->
-<!--            <li class="nav-item"><a href="contact.html">Contact</a></li>-->
-<!--        </ul>-->
-<!--    </nav>-->
-<!--    <button class="get-quote-btn">Get Quote</button>-->
-<!--</header>-->
-
-<!--<section class="contact">-->
-<!--    <h2 class="contact-title">Contact Us</h2>-->
-<!--    <p class="contact-subtitle">We’d love to hear from you! Reach out to Pure Everest for inquiries about our premium Nepali food products or to request a quote. Our team is here to assist you with any questions.</p>-->
-<!--    <form class="contact-form" action="#" method="post">-->
-<!--        <label for="name">Name:</label>-->
-<!--        <input type="text" id="name" name="name" required>-->
-
-<!--        <label for="email">Email:</label>-->
-<!--        <input type="email" id="email" name="email" required>-->
-
-<!--        <label for="subject">Subject:</label>-->
-<!--        <input type="text" id="subject" name="subject" required>-->
-
-<!--        <label for="message">Message:</label>-->
-<!--        <textarea id="message" name="message" required></textarea>-->
-
-<!--        <button type="submit">Send Message</button>-->
-<!--    </form>-->
-<!--</section>-->
-
-<!--<footer class="footer">-->
-<!--    <div class="footer-content">-->
-<!--        <div class="footer-section">-->
-<!--            <h3>Contact Us</h3>-->
-<!--            <p>Email: info@pureeverest.com</p>-->
-<!--            <p>Phone: +977-1-1234567</p>-->
-<!--            <p>Address: Kathmandu, Nepal</p>-->
-<!--        </div>-->
-<!--        <div class="footer-section">-->
-<!--            <h3>Quick Links</h3>-->
-<!--            <ul class="footer-links">-->
-<!--                <li><a href="index.html">Home</a></li>-->
-<!--                <li><a href="products.html">Products</a></li>-->
-<!--                <li><a href="blog.html">Blog</a></li>-->
-<!--                <li><a href="contact.html">Contact</a></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--        <div class="footer-section">-->
-<!--            <h3>Follow Us</h3>-->
-<!--            <p>Social media links can go here (e.g., Facebook, Instagram).</p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="footer-bottom">-->
-<!--        <p>© <script>document.write(new Date().getFullYear());</script> Pure Everest. All rights reserved.</p>-->
-<!--    </div>-->
-<!--</footer>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pure Everest - Blog | Authentic Nepali Food Insights</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Reset CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Reset and Variables */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            /* Brand Colors - Orange, Black, Gray */
+            --primary-orange: #FF6B35;
+            --primary-orange-dark: #E5532B;
+            --secondary-orange: #FF8C42;
+            --accent-orange: #FFB366;
+            --light-orange: #FFF4F0;
+
+            --primary-black: #1A1A1A;
+            --secondary-black: #2D2D2D;
+            --soft-black: #3A3A3A;
+
+            --primary-gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --medium-gray: #9CA3AF;
+            --dark-gray: #4B5563;
+            --border-gray: #E5E7EB;
+
+            --white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+            --gradient-hero: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 50%, var(--primary-orange) 100%);
+            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+            --gradient-orange-soft: linear-gradient(135deg, var(--light-orange) 0%, var(--accent-orange) 100%);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.2);
+            --shadow-orange-lg: 0 20px 40px rgba(255, 107, 53, 0.3);
+
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-        }
-        ul {
-            list-style: none;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        button {
-            border: none;
-            cursor: pointer;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
+            color: var(--primary-black);
+            background: var(--light-gray);
+            overflow-x: hidden;
         }
 
-        /* Header Styles */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loader */
+        .loader {
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
-        }
-        .logo-img {
-            height: 40px;
-        }
-        .nav-list {
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 9999;
             display: flex;
-            gap: 30px;
-        }
-        .nav-item a {
-            color: #333;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        .nav-item a:hover {
-            color: #007bff;
-        }
-        .get-quote-btn {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
         }
 
-        /* Main Content Styles */
-        .blog {
-            padding: 100px 20px 50px;
+        .loader-content {
             text-align: center;
-            background-color: #fff;
-            margin-top: 80px; /* Adjust for fixed header */
         }
-        .blog-title {
-            font-size: 36px;
-            color: #2c3e50;
-            margin-bottom: 15px;
+
+        .loader-icon {
+            width: 80px;
+            height: 80px;
+            /*background: var(--gradient-primary);*/
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: loaderPulse 2s infinite;
         }
-        .blog-subtitle {
-            font-size: 16px;
-            color: #7f8c8d;
-            margin-bottom: 30px;
+
+        .loader-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-gray);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 0 2rem;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-black);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-orange);
+            transition: var(--transition);
+            padding-top: 10px;
+        }
+
+        .logo:hover .logo-icon {
+            box-shadow: var(--shadow-orange-lg);
+            transform: rotate(5deg);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .nav-link:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--light-orange);
+            color: var(--primary-orange);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cta-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-orange) 0%, var(--primary-orange-dark) 100%);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange-lg);
+        }
+
+        .cta-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hero-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,140,66,0.15)"/><circle cx="5" cy="25" r="1" fill="rgba(255,179,102,0.1)"/><circle cx="25" cy="5" r="1.5" fill="rgba(255,107,53,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hero-pattern)"/></svg>');
+            animation: float 25s infinite;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 140, 66, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 140, 66, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--secondary-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.7;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-        .blog-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
+
+        /* Search Section */
+        .search-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .search-container {
+            max-width: 800px;
             margin: 0 auto;
-        }
-        .blog-card {
-            position: relative;
-            min-height: 200px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-            background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .blog-card:hover {
-            transform: scale(1.05);
-        }
-        .blog-card-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2c3e50;
-            padding: 10px;
             text-align: center;
         }
 
-        /* Modal Styles */
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 50px;
+            background: var(--white);
+            outline: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            transform: scale(1.02);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--medium-gray);
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--primary-orange);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 2rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .categories-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .categories-list {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border-gray);
+            border-radius: 30px;
+            color: var(--dark-gray);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        .category-btn.active::before,
+        .category-btn:hover::before {
+            left: 0;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            color: white;
+            border-color: var(--primary-orange);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .category-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-orange);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid var(--border-gray);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-orange);
+        }
+
+        .blog-card-header {
+            position: relative;
+            height: 200px;
+            background: var(--gradient-orange-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .blog-card-icon {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .blog-category-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--primary-orange);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .read-time {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-card-excerpt {
+            color: var(--primary-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more {
+            color: var(--primary-orange);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            transform: translateX(5px);
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -405,246 +605,882 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-            text-align: left;
-            overflow-y: auto;
-            max-height: 90%;
-        }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #2c3e50;
-        }
-        .modal-title {
-            font-size: 24px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        .modal-text {
-            font-size: 16px;
-            color: #7f8c8d;
-            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
         }
 
-        /* Footer Styles */
-        .footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 40px 50px;
-            margin-top: 50px;
+        .modal-content {
+            background: var(--white);
+            margin: 2% auto;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: var(--shadow-xl);
         }
-        .footer-content {
+
+        .modal-header {
+            padding: 2rem 2rem 0;
+            position: relative;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--dark-gray);
+            font-size: 1.2rem;
         }
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
+
+        .close-btn:hover {
+            background: var(--primary-orange);
+            color: white;
+            transform: scale(1.1);
         }
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-black);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
-        .footer-section p,
-        .footer-section ul {
-            font-size: 14px;
+
+        .modal-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+
+        .modal-body {
+            padding: 0 2rem 2rem;
+        }
+
+        .modal-text {
+            color: var(--dark-gray);
             line-height: 1.8;
+            font-size: 1.1rem;
         }
+
+        .modal-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-black);
+            color: var(--light-gray);
+            padding: 4rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
         .footer-links {
             list-style: none;
         }
-        .footer-links li a {
-            color: #bdc3c7;
-            transition: color 0.3s;
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
         }
-        .footer-links li a:hover {
-            color: #ecf0f1;
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            transform: translateX(5px);
+        }
+
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            margin-top: 20px;
-            font-size: 12px;
+            padding-top: 2rem;
+            border-top: 1px solid var(--secondary-black);
+            margin-top: 2rem;
+            color: var(--medium-gray);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-black);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding: 10px 20px;
-                gap: 10px;
+            .header-content {
+                padding: 0.75rem 0;
             }
-            .nav-list {
-                flex-direction: row;
-                justify-content: center;
-                gap: 15px;
+
+            .nav {
+                display: none;
             }
-            .get-quote-btn {
-                width: 100%;
-                margin-top: 10px;
+
+            .hero {
+                padding: 6rem 1rem 4rem;
             }
+
+            .search-section {
+                padding: 3rem 1rem;
+            }
+
+            .categories {
+                padding: 1.5rem 1rem;
+            }
+
+            .categories-list {
+                gap: 0.75rem;
+            }
+
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
             .blog {
-                padding: 100px 10px 30px;
-                margin-top: 90px;
+                padding: 3rem 1rem;
             }
-            .blog-title {
-                font-size: 28px;
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            .blog-cards {
-                grid-template-columns: 1fr; /* Single column on mobile */
+
+            .modal-content {
+                margin: 5% auto;
+                width: 95%;
             }
-            .footer {
-                padding: 20px;
+
+            .modal-header {
+                padding: 1.5rem;
             }
+
+            .modal-body {
+                padding: 0 1.5rem 1.5rem;
+            }
+
             .footer-content {
-                flex-direction: column;
                 text-align: center;
-                gap: 20px;
             }
-            .footer-section {
-                min-width: 100%;
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .search-wrapper {
+                max-width: 100%;
+            }
+
+            .blog-card-content {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-<header class="header">
-    <div class="logo">
-        <img src="images/logo.png" alt="Pure Everest Logo" class="logo-img">
+<!--<div class="loader" id="loader">-->
+<!--    <div class="loader-content">-->
+<!--        <div class="loader-icon">-->
+<!--            <img src="images/logo.png" style="height: 100px !important; width: 100px !important;">-->
+<!--            &lt;!&ndash;      <i class="fas fa-mountain"></i>&ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;    <h2>Pure Everest</h2>&ndash;&gt;-->
+<!--        <p>Loading premium products...</p>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- Header -->
+<header class="header" id="header">
+    <div class="header-content">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <img src="images/logo.png" style="height: 70px !important; width: 100px !important;">
+                <!--                <i class="fas fa-mountain"></i>-->
+            </div>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="blog.html" class="nav-link active">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="cta-btn">
+                <span>Get Quote</span>
+            </button>
+        </div>
     </div>
-    <nav class="nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="index.html">Home</a></li>
-            <li class="nav-item"><a href="products.html">Products</a></li>
-            <li class="nav-item"><a href="blog.html">Blog</a></li>
-            <li class="nav-item"><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <button class="get-quote-btn">Get Quote</button>
 </header>
 
-<section class="blog">
-    <h2 class="blog-title">Blog</h2>
-    <p class="blog-subtitle">Explore the latest insights and stories about authentic Nepali food culture and exports from Pure Everest.</p>
-    <div class="blog-cards" id="blog-cards">
-        <!-- Blog cards will be dynamically inserted here via JavaScript -->
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-edit"></i>
+            Latest Food Insights
+        </div>
+
+        <h1 class="hero-title">
+            <span class="gradient-text">Food Stories</span> & Insights
+        </h1>
+
+        <p class="hero-subtitle">
+            Explore the latest insights and stories about authentic Nepali food culture,
+            traditional recipes, and global food export trends from Pure Everest.
+        </p>
     </div>
 </section>
 
+<!-- Search Section -->
+<section class="search-section">
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search articles..." id="search-input">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="categories">
+    <div class="categories-container">
+        <div class="categories-list">
+            <button class="category-btn active" data-category="all">
+                <span>All Articles</span>
+            </button>
+            <button class="category-btn" data-category="traditional">
+                <span>Traditional Recipes</span>
+            </button>
+            <button class="category-btn" data-category="health">
+                <span>Health & Nutrition</span>
+            </button>
+            <button class="category-btn" data-category="export">
+                <span>Export Insights</span>
+            </button>
+            <button class="category-btn" data-category="culture">
+                <span>Food Culture</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog">
+    <div class="blog-container">
+        <div class="section-header">
+            <span class="section-badge">Latest Articles</span>
+            <h2 class="section-title">Discover Food Stories</h2>
+        </div>
+
+        <div class="blog-grid" id="blog-grid">
+            <!-- Blog cards will be dynamically inserted here -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-section">
-            <h3>Contact Us</h3>
-            <p>Email: info@pureeverest.com</p>
-            <p>Phone: +977-1-1234567</p>
-            <p>Address: Kathmandu, Nepal</p>
+            <h3><i class="fas fa-mountain" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>Pure Everest</h3>
+            <p>Bringing authentic Nepali flavors to the world with premium quality food products and rich cultural stories.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
         </div>
+
         <div class="footer-section">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
+
         <div class="footer-section">
-            <h3>Follow Us</h3>
-            <p>Social media links can go here (e.g., Facebook, Instagram).</p>
+            <h3>Blog Categories</h3>
+            <ul class="footer-links">
+                <li><a href="#"><i class="fas fa-utensils"></i> Traditional Recipes</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Health & Nutrition</a></li>
+                <li><a href="#"><i class="fas fa-globe"></i> Export Insights</a></li>
+                <li><a href="#"><i class="fas fa-star"></i> Food Culture</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> info@pureeverest.com</p>
+            <p><i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> +977-1-1234567</p>
+            <p><i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Kathmandu, Nepal</p>
         </div>
     </div>
+
     <div class="footer-bottom">
-        <p>© <script>document.write(new Date().getFullYear());</script> Pure Everest. All rights reserved.</p>
+        <p>&copy; 2025 Pure Everest. All rights reserved. Made with ❤️ in Nepal</p>
     </div>
 </footer>
 
+<!-- Blog Modal -->
 <div id="blog-modal" class="modal">
     <div class="modal-content">
-        <span class="close-btn">×</span>
-        <h2 class="modal-title" id="modal-title"></h2>
-        <p class="modal-text" id="modal-text"></p>
+        <div class="modal-header">
+            <button class="close-btn" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <div class="modal-meta">
+                <span><i class="fas fa-calendar"></i> <span id="modal-date"></span></span>
+                <span><i class="fas fa-clock"></i> <span id="modal-read-time"></span></span>
+                <span><i class="fas fa-tag"></i> <span id="modal-category"></span></span>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="modal-text" id="modal-text"></div>
+        </div>
     </div>
 </div>
 
 <script>
-    // Static Blog Array with SEO-friendly content
+    // Enhanced Blog Data with Categories and Rich Content
     const blogs = [
         {
             id: 1,
             title: 'The Traditional Process of Making Puffed Rice in Nepal',
-            text: '' +
-                'Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality. Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality. Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality. Discover the ancient techniques behind puffed rice production in Nepal, a staple food exported by Pure Everest. Learn how local farmers use traditional methods to create this crispy delight, popular in Japan and the UK. Keywords: puffed rice, Nepali food, export quality.' +
-                ''
+            category: 'traditional',
+            excerpt: 'Discover the ancient techniques behind puffed rice production in Nepal, a staple food that has been perfected over generations.',
+            readTime: '5 min read',
+            date: 'Jan 15, 2025',
+            icon: 'fas fa-seedling',
+            text: `
+                    <p>Puffed rice, known locally as "Bhuja" in Nepal, represents one of the most cherished traditional snacks that has sustained Nepali communities for centuries. At Pure Everest, we honor these time-tested methods while ensuring the highest quality standards for our international customers.</p>
+
+                    <p>The process begins with selecting the finest quality rice grains, typically harvested from the fertile valleys of Nepal. Local farmers have perfected the art of rice cultivation, using sustainable farming practices that have been passed down through generations.</p>
+
+                    <p><strong>The Traditional Method:</strong></p>
+                    <p>The transformation of rice into the crispy, light snack involves heating the grains in large iron pans over controlled fires. The temperature must be precisely maintained to ensure even puffing without burning. Master craftsmen can judge the perfect moment by the sound and aroma of the rice.</p>
+
+                    <p>What makes Nepali puffed rice special is the attention to detail and the use of traditional wood-fired ovens that impart a subtle smoky flavor. This ancient technique creates a product that is not only delicious but also highly nutritious, rich in carbohydrates and easy to digest.</p>
+
+                    <p>Today, Pure Everest exports this traditional delicacy to Japan and the UK, where it has gained popularity as a healthy snack option. Our commitment to preserving traditional methods while meeting international food safety standards makes our puffed rice a bridge between authentic Nepali culture and global culinary appreciation.</p>
+                `
         },
         {
             id: 2,
             title: 'Exploring the Rich Flavors of Nepali Pickles',
-            text: 'Dive into the vibrant world of Nepali pickles, crafted with authentic spices by Pure Everest. This blog highlights their cultural significance and global appeal, especially in international markets. Keywords: Nepali pickles, authentic recipes, food export.'
+            category: 'traditional',
+            excerpt: 'Dive into the vibrant world of Nepali pickles, where every jar tells a story of tradition, spice mastery, and cultural heritage.',
+            readTime: '7 min read',
+            date: 'Jan 12, 2025',
+            icon: 'fas fa-pepper-hot',
+            text: `
+                    <p>Nepali pickles, or "Achar," are far more than mere condiments – they are an integral part of Nepali cuisine that transforms every meal into a flavorful journey. Each region of Nepal has its own signature pickle recipes, reflecting the diverse cultural tapestry of this beautiful Himalayan nation.</p>
+
+                    <p>At Pure Everest, we specialize in creating authentic pickles that capture the essence of traditional Nepali flavors. Our green chilly pickle, mango pickle, and mixed vegetable pickles are crafted using recipes that have been refined over generations.</p>
+
+                    <p><strong>The Art of Spice Blending:</strong></p>
+                    <p>The secret to exceptional Nepali pickles lies in the careful balance of spices. We use a combination of mustard seeds, fenugreek, turmeric, and other aromatic spices that are ground fresh to preserve their potency. The fermentation process, which can take several weeks, develops complex flavors that are both tangy and deeply satisfying.</p>
+
+                    <p>Our traditional methods involve sun-drying ingredients to concentrate flavors and using mustard oil, which acts as a natural preservative while adding its distinctive taste. The result is a pickle that not only enhances the flavor of meals but also aids in digestion.</p>
+
+                    <p>International customers in Japan and the UK have embraced these authentic flavors, incorporating Nepali pickles into their daily meals and discovering new ways to enjoy these versatile condiments. From rice dishes to sandwiches, our pickles add an exciting dimension to any culinary creation.</p>
+                `
         },
         {
             id: 3,
             title: 'The Health Benefits of Traditional Nepali Grains',
-            text: 'Uncover the nutritional benefits of traditional Nepali grains offered by Pure Everest. From beaten rice to other staples, learn how these superfoods support health and are exported worldwide. Keywords: Nepali grains, health benefits, organic exports.'
+            category: 'health',
+            excerpt: 'Uncover the nutritional powerhouse of traditional Nepali grains and their role in promoting wellness and sustainable nutrition.',
+            readTime: '6 min read',
+            date: 'Jan 10, 2025',
+            icon: 'fas fa-heart',
+            text: `
+                    <p>Traditional Nepali grains have sustained mountain communities for millennia, providing essential nutrition in challenging high-altitude environments. Modern nutritional science is now validating what Nepali people have known intuitively – these grains are nutritional powerhouses.</p>
+
+                    <p>Flattened rice (Chiura), one of our flagship products, is not just a convenient snack but a source of easily digestible carbohydrates, essential minerals, and B-vitamins. Its low glycemic index makes it an excellent choice for people managing blood sugar levels.</p>
+
+                    <p><strong>Nutritional Profile:</strong></p>
+                    <p>Semolina (Suji) provides protein, fiber, and important minerals like iron and magnesium. When consumed as part of a balanced diet, it supports digestive health and provides sustained energy. Our traditional processing methods preserve these nutrients while creating products with extended shelf life.</p>
+
+                    <p>The fermentation processes used in some traditional preparations increase the bioavailability of nutrients and introduce beneficial probiotics. This ancient wisdom of food preparation is now recognized by modern nutrition science as contributing to gut health and overall wellness.</p>
+
+                    <p>As global interest in functional foods grows, Nepali grains offer a perfect combination of tradition, nutrition, and sustainability. Pure Everest is proud to bring these ancient superfoods to international markets, supporting both global health trends and traditional Nepali agriculture.</p>
+                `
         },
         {
             id: 4,
             title: 'Sustainable Practices in Nepali Food Exports',
-            text: 'Explore how Pure Everest implements sustainable practices in exporting Nepali foods. This blog covers eco-friendly farming and packaging methods that benefit both the environment and global consumers. Keywords: sustainable food export, Nepali agriculture, eco-friendly.'
+            category: 'export',
+            excerpt: 'Learn how Pure Everest champions sustainable farming and eco-friendly practices in bringing authentic Nepali foods to global markets.',
+            readTime: '8 min read',
+            date: 'Jan 8, 2025',
+            icon: 'fas fa-leaf',
+            text: `
+                    <p>Sustainability is not just a modern concept for Pure Everest – it's deeply rooted in traditional Nepali farming practices that have maintained soil health and biodiversity for centuries. Our commitment to sustainable exports reflects our responsibility to both the environment and future generations.</p>
+
+                    <p>We work directly with small-scale farmers across Nepal, implementing practices that protect the environment while ensuring fair compensation for agricultural communities. This approach creates a sustainable supply chain that benefits everyone involved.</p>
+
+                    <p><strong>Environmental Stewardship:</strong></p>
+                    <p>Our packaging uses biodegradable and recyclable materials wherever possible. We've eliminated unnecessary plastic packaging and work with suppliers who share our environmental values. Transportation is optimized to reduce carbon footprint while maintaining product quality.</p>
+
+                    <p>Traditional farming methods used by our partner farmers naturally incorporate crop rotation, minimal chemical inputs, and water conservation techniques. These practices not only produce healthier food but also maintain the ecological balance of Nepal's diverse agricultural regions.</p>
+
+                    <p>Quality certifications and organic standards are maintained throughout our supply chain, ensuring that international customers receive products that meet the highest safety and environmental standards. This commitment to sustainability has helped establish trust with retailers and consumers in Japan and the UK.</p>
+
+                    <p>By choosing Pure Everest products, consumers support sustainable agriculture, fair trade practices, and the preservation of traditional farming knowledge that is invaluable for global food security.</p>
+                `
+        },
+        {
+            id: 5,
+            title: 'Food Culture and Festivals: How Nepali Traditions Shape Global Tastes',
+            category: 'culture',
+            excerpt: 'Explore how traditional Nepali festivals and cultural practices influence modern food trends and international culinary appreciation.',
+            readTime: '6 min read',
+            date: 'Jan 5, 2025',
+            icon: 'fas fa-star',
+            text: `
+                    <p>Nepali food culture is inseparable from its festivals and traditions, where each celebration brings unique flavors and special preparations that reflect the country's rich cultural heritage. These traditional practices are now influencing global culinary trends.</p>
+
+                    <p>During Dashain, Nepal's most important festival, families prepare special pickles and snacks that are shared across communities. These traditional recipes, perfected over generations, form the foundation of Pure Everest's authentic product line.</p>
+
+                    <p><strong>Cultural Significance:</strong></p>
+                    <p>The preparation of traditional foods is a communal activity that strengthens social bonds and preserves cultural knowledge. Recipes are passed down through families, each adding their own subtle variations while maintaining the essential character of the dishes.</p>
+
+                    <p>Tihar, the festival of lights, brings its own set of traditional foods, including various types of seasoned grains and pickled vegetables. These festival foods showcase the diversity and complexity of Nepali cuisine, inspiring international chefs to explore new flavor combinations.</p>
+
+                    <p>The global appreciation for authentic, culturally-rooted foods has created new opportunities for traditional Nepali products. International consumers are increasingly seeking foods with stories, cultural significance, and authentic preparation methods.</p>
+
+                    <p>Pure Everest serves as a cultural ambassador, bringing not just products but the stories and traditions behind them to international markets. This cultural exchange enriches global food culture while supporting Nepali communities and preserving traditional knowledge.</p>
+                `
+        },
+        {
+            id: 6,
+            title: 'The Journey from Himalayan Farms to International Tables',
+            category: 'export',
+            excerpt: 'Follow the fascinating journey of how Pure Everest transforms traditional Nepali ingredients into globally appreciated food products.',
+            readTime: '7 min read',
+            date: 'Jan 3, 2025',
+            icon: 'fas fa-globe',
+            text: `
+                    <p>The journey of Pure Everest products begins in the terraced fields of Nepal, where farmers cultivate ingredients using methods that have been refined over centuries. From these humble beginnings, our products travel thousands of miles to reach dining tables in Japan and the UK.</p>
+
+                    <p>Each stage of this journey is carefully managed to preserve the authentic flavors and nutritional value that make Nepali foods special. Our supply chain represents a bridge between traditional agriculture and modern international trade.</p>
+
+                    <p><strong>Quality Assurance:</strong></p>
+                    <p>From farm to package, every step involves rigorous quality control. We work with certified facilities that maintain international food safety standards while preserving traditional preparation methods. This balance between authenticity and safety is crucial for international success.</p>
+
+                    <p>Cold chain management and specialized packaging ensure that products reach international markets with their quality intact. We've invested in logistics that protect product integrity during the long journey from Nepal to global destinations.</p>
+
+                    <p>Market education is equally important – we work with international retailers and food service partners to help them understand and appreciate the unique qualities of Nepali foods. This includes sharing preparation methods, cultural context, and nutritional information.</p>
+
+                    <p>The success of this journey is measured not just in sales figures, but in the smiles of international customers who discover new flavors and the economic impact on farming communities in Nepal. This is the true measure of Pure Everest's mission.</p>
+                `
         }
     ];
 
-    // Render Blogs
-    const blogCards = document.getElementById('blog-cards');
-    blogs.forEach(blog => {
-        const card = document.createElement('div');
-        card.className = 'blog-card';
-        card.setAttribute('data-blog-id', blog.id);
-        card.innerHTML = `<span class="blog-card-title">${blog.title}</span>`;
-        card.addEventListener('click', () => showBlogDetails(blog));
-        blogCards.appendChild(card);
+    let currentFilter = 'all';
+    let filteredBlogs = blogs;
+
+    // DOM Elements
+    const loader = document.getElementById('loader');
+
+    const blogGrid = document.getElementById('blog-grid');
+    const searchInput = document.getElementById('search-input');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const modal = document.getElementById('blog-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const header = document.getElementById('header');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 1500);
+
+        renderBlogs();
+
+        // renderProducts();
+        setupEventListeners();
+        // updateCartDisplay();
+        // updateWishlistDisplay();
     });
+    // Initialize
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     renderBlogs();
+    //     setupEventListeners();
+    // });
 
-    // Show Blog Details in Modal
-    function showBlogDetails(blog) {
-        const modal = document.getElementById('blog-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalText = document.getElementById('modal-text');
+    function setupEventListeners() {
+        // Category buttons
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                setActiveCategory(btn);
+                filterByCategory(category);
+            });
+        });
 
-        modalTitle.textContent = blog.title;
-        modalText.textContent = blog.text;
-        modal.style.display = 'block';
+        // Search functionality
+        searchInput.addEventListener('input', handleSearch);
+
+        // Modal close
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', handleScroll);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
     }
 
-    // Close Modal
-    const closeBtn = document.querySelector('.close-btn');
-    closeBtn.addEventListener('click', () => {
-        document.getElementById('blog-modal').style.display = 'none';
-    });
+    function renderBlogs() {
+        blogGrid.innerHTML = filteredBlogs.map(blog => createBlogCard(blog)).join('');
 
-    window.addEventListener('click', (event) => {
-        const modal = document.getElementById('blog-modal');
-        if (event.target === modal) {
-            modal.style.display = 'none';
+        // Add stagger animation
+        const cards = document.querySelectorAll('.blog-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    }
+
+    function createBlogCard(blog) {
+        return `
+                <div class="blog-card" onclick="showBlogModal(${blog.id})">
+                    <div class="blog-card-header">
+                        <div class="blog-category-badge">${blog.category}</div>
+                        <div class="read-time"><i class="fas fa-clock"></i> ${blog.readTime}</div>
+                        <i class="${blog.icon} blog-card-icon"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">${blog.title}</h3>
+                        <p class="blog-card-excerpt">${blog.excerpt}</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                ${blog.date}
+                            </div>
+                            <a href="#" class="read-more" onclick="event.stopPropagation(); showBlogModal(${blog.id})">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function setActiveCategory(activeBtn) {
+        categoryBtns.forEach(btn => btn.classList.remove('active'));
+        activeBtn.classList.add('active');
+    }
+
+    function filterByCategory(category) {
+        currentFilter = category;
+        applyFilters();
+    }
+
+    function handleSearch() {
+        applyFilters();
+    }
+
+    function applyFilters() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        filteredBlogs = blogs.filter(blog => {
+            const matchesCategory = currentFilter === 'all' || blog.category === currentFilter;
+            const matchesSearch = searchTerm === '' ||
+                blog.title.toLowerCase().includes(searchTerm) ||
+                blog.excerpt.toLowerCase().includes(searchTerm) ||
+                blog.category.toLowerCase().includes(searchTerm);
+
+            return matchesCategory && matchesSearch;
+        });
+
+        renderBlogs();
+
+        // Show no results message if needed
+        if (filteredBlogs.length === 0) {
+            blogGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--dark-gray); margin-bottom: 0.5rem;">No articles found</h3>
+                        <p style="color: var(--medium-gray);">Try adjusting your search or filter criteria</p>
+                    </div>
+                `;
+        }
+    }
+
+    function showBlogModal(blogId) {
+        const blog = blogs.find(b => b.id === blogId);
+        if (!blog) return;
+
+        document.getElementById('modal-title').textContent = blog.title;
+        document.getElementById('modal-date').textContent = blog.date;
+        document.getElementById('modal-read-time').textContent = blog.readTime;
+        document.getElementById('modal-category').textContent = blog.category.charAt(0).toUpperCase() + blog.category.slice(1);
+        document.getElementById('modal-text').innerHTML = blog.text;
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function handleScroll() {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+
+    // Add ripple effects to interactive elements
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.category-btn, .blog-card, .cta-btn')) {
+            const element = e.target.closest('.category-btn, .blog-card, .cta-btn');
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    pointer-events: none;
+                `;
+
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
         }
     });
+
+    // Add ripple animation CSS
+    const style = document.createElement('style');
+    style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+    document.head.appendChild(style);
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Loading animation
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'translateY(0)';
+    });
+
+    // Initial body styles for loading animation
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(20px)';
+    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+    // Toast notification for search
+    function showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--success)' : 'var(--primary-orange)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                z-index: 3000;
+                animation: slideInRight 0.3s ease;
+                box-shadow: var(--shadow-xl);
+                font-weight: 600;
+            `;
+        toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                ${message}
+            `;
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 3000);
+    }
+
+    // Add toast animation styles
+    const toastStyle = document.createElement('style');
+    toastStyle.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+    document.head.appendChild(toastStyle);
+
 </script>
 </body>
 </html>
