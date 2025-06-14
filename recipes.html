@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - Pure Everest</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Reset and Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            max-width: 900px;
+            max-height: 90vh;
+            width: 90%; /* Fallback width */
+            height: auto;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            animation: modalSlideIn 0.3s ease;
+            padding: 1rem;
+            margin: 0 auto; /* Ensures horizontal centering */
+            display: block; /* Ensures content respects max-width */
+        }
+        :root {
+            /* Brand Colors - Orange, Black, Gray */
+            --primary-orange: #FF6B35;
+            --primary-orange-dark: #E5532B;
+            --secondary-orange: #FF8C42;
+            --accent-orange: #FFB366;
+            --light-orange: #FFF4F0;
+
+            --primary-black: #1A1A1A;
+            --secondary-black: #2D2D2D;
+            --soft-black: #3A3A3A;
+
+            --primary-gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --medium-gray: #9CA3AF;
+            --dark-gray: #4B5563;
+            --border-gray: #E5E7EB;
+
+            --white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+            --gradient-hero: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 50%, var(--primary-orange) 100%);
+            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+            --gradient-orange-soft: linear-gradient(135deg, var(--light-orange) 0%, var(--accent-orange) 100%);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.2);
+            --shadow-orange-lg: 0 20px 40px rgba(255, 107, 53, 0.3);
+
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            background: var(--light-gray);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-gray);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 0 2rem;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--primary-black);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-orange);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            box-shadow: var(--shadow-orange-lg);
+            transform: rotate(5deg);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .nav-link:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--light-orange);
+            color: var(--primary-orange);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cta-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-orange) 0%, var(--primary-orange-dark) 100%);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange-lg);
+        }
+
+        .cta-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 10rem 2rem 6rem;
+            background: var(--gradient-hero);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hero-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,140,66,0.15)"/><circle cx="5" cy="25" r="1" fill="rgba(255,179,102,0.1)"/><circle cx="25" cy="5" r="1.5" fill="rgba(255,107,53,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hero-pattern)"/></svg>');
+            animation: float 25s infinite;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 140, 66, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 140, 66, 0.3);
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .page-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--secondary-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Recipe Filters */
+        .recipe-filters {
+            padding: 4rem 2rem 2rem;
+            background: white;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .filters-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--light-gray);
+            padding: 0.5rem;
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--dark-gray);
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-orange);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            gap: 0.75rem;
+            min-width: 300px;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .search-box:focus-within {
+            border-color: var(--primary-orange);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            flex: 1;
+            font-size: 1rem;
+            color: var(--primary-black);
+        }
+
+        .search-box input::placeholder {
+            color: var(--medium-gray);
+        }
+
+        /* Recipe Grid */
+        .recipes-section {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .recipes-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid var(--border-gray);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-orange);
+        }
+
+        .recipe-image-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .recipe-card:hover .recipe-image {
+            transform: scale(1.1);
+        }
+
+        .recipe-overlay {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+            box-shadow: var(--shadow);
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .difficulty-easy {
+            background: var(--success);
+            color: white;
+        }
+
+        .difficulty-medium {
+            background: var(--warning);
+            color: white;
+        }
+
+        .difficulty-hard {
+            background: var(--danger);
+            color: white;
+        }
+
+        .recipe-content {
+            padding: 2rem;
+        }
+
+        .recipe-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .recipe-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .recipe-description {
+            color: var(--primary-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .recipe-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .recipe-tag {
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .recipe-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .recipe-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.25rem;
+            color: var(--warning);
+        }
+
+        .recipe-action {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+        }
+
+        .recipe-action:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        /* Featured Recipe Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            animation: modalSlideIn 0.3s ease;
+            padding: 1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .modal-close:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        .modal-recipe-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .modal-recipe-content {
+            padding: 2rem;
+        }
+
+        .modal-recipe-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+
+        .recipe-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--primary-black);
+        }
+
+        .ingredients-section,
+        .instructions-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        .ingredient-item:hover {
+            background: var(--light-orange);
+        }
+
+        .ingredient-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .ingredient-check:hover,
+        .ingredient-check.checked {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        .instructions-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .instruction-item {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .instruction-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .instruction-number::before {
+            content: counter(step-counter);
+        }
+
+        .instruction-text {
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-black);
+            color: var(--light-gray);
+            padding: 5rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            grid-column: 1;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-brand p {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary-black);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid var(--secondary-black);
+            margin-top: 3rem;
+            color: var(--medium-gray);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0.75rem 0;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .page-hero {
+                padding: 8rem 1rem 4rem;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-tabs {
+                order: 2;
+                justify-content: center;
+            }
+
+            .search-box {
+                order: 1;
+                min-width: auto;
+            }
+
+            .recipes-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .recipe-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-content {
+                max-width: 95vw;
+                margin: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-brand {
+                grid-column: 1;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .recipes-section {
+                padding: 2rem 1rem;
+            }
+
+            .recipe-filters {
+                padding: 2rem 1rem 1rem;
+            }
+
+            .modal-recipe-content {
+                padding: 1rem;
+            }
+
+            .recipe-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Toast Animations */
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Ripple Animation */
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header" id="header">
+    <div class="header-content">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-mountain"></i>
+            </div>
+            Pure Everest
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="recipes.html" class="nav-link active">Recipes</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="cta-btn">
+                <span>Get Quote</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-badge">
+            <i class="fas fa-utensils"></i>
+            Authentic Nepali Cuisine
+        </div>
+
+        <h1 class="page-title">
+            Traditional <span class="gradient-text">Nepali Recipes</span>
+        </h1>
+
+        <p class="page-subtitle">
+            Discover the rich flavors of Nepal with our collection of authentic recipes passed down through generations. From hearty dal bhat to delicious momos, explore the culinary treasures of the Himalayas.
+        </p>
+    </div>
+</section>
+
+<!-- Recipe Filters -->
+<section class="recipe-filters">
+    <div class="filters-container">
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Recipes</button>
+            <button class="filter-tab" data-filter="main">Main Dishes</button>
+            <button class="filter-tab" data-filter="snacks">Snacks</button>
+            <button class="filter-tab" data-filter="desserts">Desserts</button>
+            <button class="filter-tab" data-filter="pickles">Pickles</button>
+            <button class="filter-tab" data-filter="beverages">Beverages</button>
+        </div>
+
+        <div class="search-box">
+            <i class="fas fa-search" style="color: var(--medium-gray);"></i>
+            <input type="text" placeholder="Search recipes..." id="recipeSearch">
+        </div>
+    </div>
+</section>
+
+<!-- Recipes Grid -->
+<section class="recipes-section">
+    <div class="recipes-container">
+        <div class="recipes-grid" id="recipesGrid">
+            <!-- Recipe Card 1 -->
+            <div class="recipe-card" data-category="main" data-recipe="dal-bhat">
+                <div class="recipe-image-container">
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=250&fit=crop" alt="Dal Bhat" class="recipe-image">
+                    <div class="recipe-overlay">
+                        <i class="fas fa-clock"></i>
+                        45 min
+                    </div>
+                    <div class="difficulty-badge difficulty-medium">Medium</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            4 servings
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            350 cal
+                        </div>
+                    </div>
+                    <h3 class="recipe-title">Traditional Dal Bhat</h3>
+                    <p class="recipe-description">
+                        Nepal's national dish featuring perfectly spiced lentil curry served with steamed rice, vegetables, and pickles.
+                    </p>
+                    <div class="recipe-tags">
+                        <span class="recipe-tag">Vegetarian</span>
+                        <span class="recipe-tag">Gluten-Free</span>
+                        <span class="recipe-tag">Traditional</span>
+                    </div>
+                    <div class="recipe-footer">
+                        <div class="recipe-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.9)</span>
+                        </div>
+                        <button class="recipe-action" onclick="openRecipeModal('dal-bhat')">
+                            <i class="fas fa-arrow-right"></i>
+                            View Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="modal" id="recipeModal">-->
+<!--                <div class="modal-content" onclick="event.stopPropagation()">-->
+<!--                    <button class="modal-close" onclick="closeRecipeModal()">-->
+<!--                        <i class="fas fa-times"></i>-->
+<!--                    </button>-->
+<!--                    <div id="modalRecipeContent">-->
+<!--                        &lt;!&ndash; Dynamic content will be loaded here &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <!-- Recipe Card 2 -->
+            <div class="recipe-card" data-category="snacks" data-recipe="momos">
+                <div class="recipe-image-container">
+                    <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=250&fit=crop" alt="Momos" class="recipe-image">
+                    <div class="recipe-overlay">
+                        <i class="fas fa-clock"></i>
+                        60 min
+                    </div>
+                    <div class="difficulty-badge difficulty-hard">Hard</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            6 servings
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            280 cal
+                        </div>
+                    </div>
+                    <h3 class="recipe-title">Authentic Nepali Momos</h3>
+                    <p class="recipe-description">
+                        Delicious steamed dumplings filled with seasoned vegetables or meat, served with spicy tomato chutney.
+                    </p>
+                    <div class="recipe-tags">
+                        <span class="recipe-tag">Steamed</span>
+                        <span class="recipe-tag">Popular</span>
+                        <span class="recipe-tag">Street Food</span>
+                    </div>
+                    <div class="recipe-footer">
+                        <div class="recipe-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.8)</span>
+                        </div>
+                        <button class="recipe-action" onclick="openRecipeModal('momos')">
+                            <i class="fas fa-arrow-right"></i>
+                            View Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 3 -->
+            <div class="recipe-card" data-category="pickles" data-recipe="gundruk">
+                <div class="recipe-image-container">
+                    <img src="https://images.unsplash.com/photo-1599029927026-7b0c095e87c8?w=400&h=250&fit=crop" alt="Gundruk" class="recipe-image">
+                    <div class="recipe-overlay">
+                        <i class="fas fa-clock"></i>
+                        30 min
+                    </div>
+                    <div class="difficulty-badge difficulty-easy">Easy</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            4 servings
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            120 cal
+                        </div>
+                    </div>
+                    <h3 class="recipe-title">Gundruk Pickle</h3>
+                    <p class="recipe-description">
+                        Fermented leafy green vegetables pickle, a tangy and nutritious side dish that's perfect with rice.
+                    </p>
+                    <div class="recipe-tags">
+                        <span class="recipe-tag">Fermented</span>
+                        <span class="recipe-tag">Healthy</span>
+                        <span class="recipe-tag">Probiotic</span>
+                    </div>
+                    <div class="recipe-footer">
+                        <div class="recipe-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(4.6)</span>
+                        </div>
+                        <button class="recipe-action" onclick="openRecipeModal('gundruk')">
+                            <i class="fas fa-arrow-right"></i>
+                            View Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 4 -->
+            <div class="recipe-card" data-category="snacks" data-recipe="chiura">
+                <div class="recipe-image-container">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=250&fit=crop" alt="Chiura" class="recipe-image">
+                    <div class="recipe-overlay">
+                        <i class="fas fa-clock"></i>
+                        15 min
+                    </div>
+                    <div class="difficulty-badge difficulty-easy">Easy</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            2 servings
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            220 cal
+                        </div>
+                    </div>
+                    <h3 class="recipe-title">Chiura (Beaten Rice)</h3>
+                    <p class="recipe-description">
+                        Light and nutritious flattened rice mixed with vegetables, perfect for breakfast or a quick snack.
+                    </p>
+                    <div class="recipe-tags">
+                        <span class="recipe-tag">Quick</span>
+                        <span class="recipe-tag">Light</span>
+                        <span class="recipe-tag">Breakfast</span>
+                    </div>
+                    <div class="recipe-footer">
+                        <div class="recipe-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.7)</span>
+                        </div>
+                        <button class="recipe-action" onclick="openRecipeModal('chiura')">
+                            <i class="fas fa-arrow-right"></i>
+                            View Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 5 -->
+            <div class="recipe-card" data-category="desserts" data-recipe="kheer">
+                <div class="recipe-image-container">
+                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=250&fit=crop" alt="Kheer" class="recipe-image">
+                    <div class="recipe-overlay">
+                        <i class="fas fa-clock"></i>
+                        40 min
+                    </div>
+                    <div class="difficulty-badge difficulty-medium">Medium</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            6 servings
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            180 cal
+                        </div>
+                    </div>
+                    <h3 class="recipe-title">Traditional Kheer</h3>
+                    <p class="recipe-description">
+                        Creamy rice pudding flavored with cardamom and garnished with nuts, a beloved Nepali dessert.
+                    </p>
+                    <div class="recipe-tags">
+                        <span class="recipe-tag">Sweet</span>
+                        <span class="recipe-tag">Creamy</span>
+                        <span class="recipe-tag">Festival</span>
+                    </div>
+                    <div class="recipe-footer">
+                        <div class="recipe-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(4.5)</span>
+                        </div>
+                        <button class="recipe-action" onclick="openRecipeModal('kheer')">
+                            <i class="fas fa-arrow-right"></i>
+                            View Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 6 -->
+            <div class="recipe-card" data-category="beverages" data-recipe="chiya">
+                <div class="recipe-image-container">
+                    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=250&fit=crop" alt="Chiya" class="recipe-image">
+                    <div class="recipe-overlay">
+                        <i class="fas fa-clock"></i>
+                        10 min
+                    </div>
+                    <div class="difficulty-badge difficulty-easy">Easy</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            2 servings
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            50 cal
+                        </div>
+                    </div>
+                    <h3 class="recipe-title">Nepali Chiya (Milk Tea)</h3>
+                    <p class="recipe-description">
+                        Aromatic spiced milk tea that's the perfect companion for any time of day in Nepal.
+                    </p>
+                    <div class="recipe-tags">
+                        <span class="recipe-tag">Spiced</span>
+                        <span class="recipe-tag">Warm</span>
+                        <span class="recipe-tag">Daily</span>
+                    </div>
+                    <div class="recipe-footer">
+                        <div class="recipe-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.9)</span>
+                        </div>
+                        <button class="recipe-action" onclick="openRecipeModal('chiya')">
+                            <i class="fas fa-arrow-right"></i>
+                            View Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recipe Modal -->
+<div class="modal" id="recipeModal">
+    <div class="modal-wrapper" onclick="closeRecipeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeRecipeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalRecipeContent">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                Pure Everest
+            </div>
+            <p>
+                Bringing authentic Nepali flavors to the world with premium quality food products.
+                Trusted by customers in Japan, UK, and expanding globally.
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Recipe Categories</h3>
+            <ul class="footer-links">
+                <li><a href="#"><i class="fas fa-bowl-rice"></i> Main Dishes</a></li>
+                <li><a href="#"><i class="fas fa-cookie-bite"></i> Snacks</a></li>
+                <li><a href="#"><i class="fas fa-birthday-cake"></i> Desserts</a></li>
+                <li><a href="#"><i class="fas fa-pepper-hot"></i> Pickles</a></li>
+                <li><a href="#"><i class="fas fa-mug-hot"></i> Beverages</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                info@pureeverest.com
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                +977-1-1234567
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                Kathmandu, Nepal
+            </div>
+            <div>
+                <i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                Mon-Fri: 9AM-6PM
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Pure Everest. All rights reserved. Made with ❤️ in Nepal</p>
+    </div>
+</footer>
+
+<script>
+    // Recipe data
+    const recipes = {
+        'dal-bhat': {
+            title: 'Traditional Dal Bhat',
+            image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=300&fit=crop',
+            description: 'Nepal\'s beloved national dish featuring perfectly spiced lentil curry served with steamed rice, seasonal vegetables, and traditional pickles.',
+            prepTime: '15 minutes',
+            cookTime: '45 minutes',
+            servings: '4 people',
+            difficulty: 'Medium',
+            calories: '350 per serving',
+            ingredients: [
+                '1 cup mixed lentils (masoor, moong, chana dal)',
+                '2 cups basmati rice',
+                '1 large onion, chopped',
+                '3 tomatoes, chopped',
+                '4 cloves garlic, minced',
+                '1 inch ginger, grated',
+                '2 tsp turmeric powder',
+                '1 tsp cumin seeds',
+                '2 tsp coriander powder',
+                '1 tsp garam masala',
+                '2 bay leaves',
+                '3 tbsp ghee or oil',
+                'Salt to taste',
+                'Fresh cilantro for garnish'
+            ],
+            instructions: [
+                'Wash and soak the mixed lentils for 30 minutes. Rinse the rice and set aside.',
+                'Heat ghee in a pressure cooker. Add cumin seeds and bay leaves. When they splutter, add chopped onions.',
+                'Sauté onions until golden brown. Add garlic and ginger, cook for 2 minutes.',
+                'Add tomatoes, turmeric, and coriander powder. Cook until tomatoes are soft and mushy.',
+                'Add the soaked lentils and 3 cups of water. Season with salt.',
+                'Pressure cook for 3-4 whistles or until lentils are completely cooked.',
+                'In a separate pot, cook rice with salt until fluffy and tender.',
+                'Garnish dal with garam masala and fresh cilantro.',
+                'Serve hot dal over steamed rice with vegetables and pickle on the side.'
+            ]
+        },
+        'momos': {
+            title: 'Authentic Nepali Momos',
+            image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=600&h=300&fit=crop',
+            description: 'Delicious steamed dumplings with perfectly seasoned filling, served with spicy tomato chutney.',
+            prepTime: '45 minutes',
+            cookTime: '15 minutes',
+            servings: '6 people',
+            difficulty: 'Hard',
+            calories: '280 per serving',
+            ingredients: [
+                '2 cups all-purpose flour',
+                '1/2 cup warm water',
+                '1 tsp salt',
+                '1 tbsp oil',
+                '500g ground chicken or vegetables',
+                '1 large onion, finely chopped',
+                '4 cloves garlic, minced',
+                '1 inch ginger, grated',
+                '2 green chilies, finely chopped',
+                '1 tsp soy sauce',
+                '1 tsp sesame oil',
+                '1/2 tsp black pepper',
+                'Fresh cilantro, chopped',
+                'Salt to taste'
+            ],
+            instructions: [
+                'Make dough by mixing flour, salt, oil, and warm water. Knead until smooth. Rest for 30 minutes.',
+                'For filling, mix ground meat/vegetables with onion, garlic, ginger, chilies, soy sauce, sesame oil, and seasonings.',
+                'Roll dough into small circles, about 3-4 inches in diameter.',
+                'Place 1 tablespoon of filling in center of each circle.',
+                'Fold and pleat the edges to seal the momos properly.',
+                'Steam the momos for 12-15 minutes until cooked through.',
+                'Serve hot with spicy tomato chutney and enjoy!'
+            ]
+        },
+        'gundruk': {
+            title: 'Gundruk Pickle',
+            image: 'https://images.unsplash.com/photo-1599029927026-7b0c095e87c8?w=600&h=300&fit=crop',
+            description: 'Traditional fermented leafy green pickle that\'s tangy, nutritious, and packed with probiotics.',
+            prepTime: '10 minutes',
+            cookTime: '20 minutes',
+            servings: '4 people',
+            difficulty: 'Easy',
+            calories: '120 per serving',
+            ingredients: [
+                '2 cups dried gundruk',
+                '2 tbsp mustard oil',
+                '1 tsp cumin seeds',
+                '4 dried red chilies',
+                '1 inch ginger, julienned',
+                '3 cloves garlic, sliced',
+                '1 tsp turmeric powder',
+                '1 tbsp tomato paste',
+                '1 tsp fenugreek seeds',
+                'Salt to taste',
+                'Fresh cilantro for garnish'
+            ],
+            instructions: [
+                'Soak dried gundruk in warm water for 10 minutes, then drain and squeeze out excess water.',
+                'Heat mustard oil in a pan until it smokes, then let it cool slightly.',
+                'Add cumin seeds and dried chilies. When they splutter, add garlic and ginger.',
+                'Add turmeric powder and fenugreek seeds. Stir for 30 seconds.',
+                'Add the gundruk and mix well. Cook for 10-15 minutes on medium heat.',
+                'Add tomato paste and salt. Cook for another 5 minutes.',
+                'Garnish with fresh cilantro and serve as a side dish with rice.'
+            ]
+        },
+        'chiura': {
+            title: 'Chiura (Beaten Rice)',
+            image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&h=300&fit=crop',
+            description: 'Light and nutritious breakfast made with flattened rice, perfect for starting your day.',
+            prepTime: '10 minutes',
+            cookTime: '5 minutes',
+            servings: '2 people',
+            difficulty: 'Easy',
+            calories: '220 per serving',
+            ingredients: [
+                '2 cups beaten rice (chiura)',
+                '1 medium onion, chopped',
+                '2 green chilies, chopped',
+                '1 inch ginger, grated',
+                '1/2 cup roasted peanuts',
+                '2 tbsp oil',
+                '1/2 tsp turmeric powder',
+                '1 tsp cumin seeds',
+                'Salt to taste',
+                'Fresh cilantro and curry leaves',
+                'Lemon juice'
+            ],
+            instructions: [
+                'Wash beaten rice gently and drain. Let it sit for 5 minutes to soften.',
+                'Heat oil in a pan. Add cumin seeds and curry leaves.',
+                'Add chopped onions, green chilies, and ginger. Sauté until onions are translucent.',
+                'Add turmeric powder and roasted peanuts. Mix well.',
+                'Add the softened beaten rice and salt. Mix gently.',
+                'Cook for 2-3 minutes, stirring occasionally.',
+                'Garnish with fresh cilantro and serve with lemon juice.'
+            ]
+        },
+        'kheer': {
+            title: 'Traditional Kheer',
+            image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&h=300&fit=crop',
+            description: 'Creamy rice pudding flavored with cardamom and garnished with nuts, perfect for festivals.',
+            prepTime: '10 minutes',
+            cookTime: '40 minutes',
+            servings: '6 people',
+            difficulty: 'Medium',
+            calories: '180 per serving',
+            ingredients: [
+                '1/2 cup basmati rice',
+                '4 cups whole milk',
+                '1/2 cup sugar',
+                '4-5 green cardamom pods',
+                '2 tbsp ghee',
+                '1/4 cup mixed nuts (almonds, cashews)',
+                '2 tbsp raisins',
+                'A pinch of saffron',
+                '1 tsp rose water (optional)'
+            ],
+            instructions: [
+                'Wash and soak rice for 30 minutes. Drain and set aside.',
+                'Heat ghee in a heavy-bottomed pan. Add soaked rice and sauté for 2-3 minutes.',
+                'Add milk and bring to a boil. Reduce heat and simmer, stirring frequently.',
+                'Cook for 25-30 minutes until rice is completely soft and milk thickens.',
+                'Add sugar, cardamom powder, and saffron. Cook for 5 more minutes.',
+                'Garnish with nuts and raisins. Add rose water if using.',
+                'Serve warm or chilled as desired.'
+            ]
+        },
+        'chiya': {
+            title: 'Nepali Chiya (Milk Tea)',
+            image: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=600&h=300&fit=crop',
+            description: 'Aromatic spiced milk tea that\'s the perfect companion for any time of day.',
+            prepTime: '2 minutes',
+            cookTime: '8 minutes',
+            servings: '2 people',
+            difficulty: 'Easy',
+            calories: '50 per serving',
+            ingredients: [
+                '2 cups water',
+                '1 cup whole milk',
+                '2 tsp black tea leaves',
+                '2 tbsp sugar',
+                '2-3 green cardamom pods',
+                '1 inch ginger, crushed',
+                '2-3 cloves',
+                '1 small cinnamon stick'
+            ],
+            instructions: [
+                'Boil water in a saucepan with ginger, cardamom, cloves, and cinnamon.',
+                'Add tea leaves and boil for 2-3 minutes until the color darkens.',
+                'Add milk and sugar. Bring to a boil again.',
+                'Simmer for 2-3 minutes, stirring occasionally.',
+                'Strain the tea into cups and serve hot.',
+                'Enjoy with biscuits or traditional Nepali snacks.'
+            ]
+        }
+    };
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const filter = tab.getAttribute('data-filter');
+            filterRecipes(filter);
+        });
+    });
+
+    function filterRecipes(category) {
+        const recipeCards = document.querySelectorAll('.recipe-card');
+
+        recipeCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+
+    // Search functionality
+    document.getElementById('recipeSearch').addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const recipeCards = document.querySelectorAll('.recipe-card');
+
+        recipeCards.forEach(card => {
+            const title = card.querySelector('.recipe-title').textContent.toLowerCase();
+            const description = card.querySelector('.recipe-description').textContent.toLowerCase();
+            const tags = Array.from(card.querySelectorAll('.recipe-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+
+            if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+
+    // Modal functionality
+    function openRecipeModal(recipeId) {
+        const recipe = recipes[recipeId];
+        if (!recipe) return;
+
+        const modalContent = document.getElementById('modalRecipeContent');
+        modalContent.innerHTML = `
+                <img src="${recipe.image}" alt="${recipe.title}" class="modal-recipe-image">
+                <div class="modal-recipe-content">
+                    <h2 class="modal-recipe-title">${recipe.title}</h2>
+                    <p style="color: var(--primary-gray); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">${recipe.description}</p>
+
+                    <div class="recipe-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-label">Prep Time</div>
+                            <div class="stat-value">${recipe.prepTime}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="stat-label">Cook Time</div>
+                            <div class="stat-value">${recipe.cookTime}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-label">Servings</div>
+                            <div class="stat-value">${recipe.servings}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-label">Difficulty</div>
+                            <div class="stat-value">${recipe.difficulty}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="stat-label">Calories</div>
+                            <div class="stat-value">${recipe.calories}</div>
+                        </div>
+                    </div>
+
+                    <div class="ingredients-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-list" style="color: var(--primary-orange);"></i>
+                            Ingredients
+                        </h3>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredients.map(ingredient => `
+                                <li class="ingredient-item">
+                                    <div class="ingredient-check" onclick="toggleIngredient(this)">
+                                        <i class="fas fa-check" style="display: none;"></i>
+                                    </div>
+                                    <span>${ingredient}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="instructions-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-tasks" style="color: var(--primary-orange);"></i>
+                            Instructions
+                        </h3>
+                        <ol class="instructions-list">
+                            ${recipe.instructions.map(instruction => `
+                                <li class="instruction-item">
+                                    <div class="instruction-number"></div>
+                                    <div class="instruction-text">${instruction}</div>
+                                </li>
+                            `).join('')}
+                        </ol>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-gray);">
+                        <button class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1rem;" onclick="shareRecipe('${recipeId}')">
+                            <i class="fas fa-share-alt"></i>
+                            Share Recipe
+                        </button>
+                        <button class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1rem; margin-left: 1rem;" onclick="printRecipe('${recipeId}')">
+                            <i class="fas fa-print"></i>
+                            Print Recipe
+                        </button>
+                    </div>
+                </div>
+            `;
+
+        const modal = document.getElementById('recipeModal');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeRecipeModal() {
+        const modal = document.getElementById('recipeModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function toggleIngredient(element) {
+        const check = element.querySelector('i');
+        const item = element.parentElement;
+
+        if (element.classList.contains('checked')) {
+            element.classList.remove('checked');
+            check.style.display = 'none';
+            item.style.opacity = '1';
+            item.style.textDecoration = 'none';
+        } else {
+            element.classList.add('checked');
+            check.style.display = 'block';
+            item.style.opacity = '0.6';
+            item.style.textDecoration = 'line-through';
+        }
+    }
+
+    function shareRecipe(recipeId) {
+        const recipe = recipes[recipeId];
+        if (navigator.share) {
+            navigator.share({
+                title: recipe.title,
+                text: recipe.description,
+                url: window.location.href
+            });
+        } else {
+            const url = window.location.href + '#' + recipeId;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Recipe link copied to clipboard!', 'success');
+            });
+        }
+    }
+
+    document.getElementById('recipeModal').addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal-wrapper')) {
+            closeRecipeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.getElementById('recipeModal').classList.contains('active')) {
+            closeRecipeModal();
+        }
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const animateElements = document.querySelectorAll('.recipe-card, .page-hero-content');
+        animateElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    });
+
+    document.addEventListener('mouseover', function(e) {
+        if (e.target.closest('.recipe-card')) {
+            const card = e.target.closest('.recipe-card');
+            const image = card.querySelector('.recipe-image');
+            if (image) image.style.transform = 'scale(1.1)';
+        }
+    });
+
+    document.addEventListener('mouseout', function(e) {
+        if (e.target.closest('.recipe-card')) {
+            const card = e.target.closest('.recipe-card');
+            const image = card.querySelector('.recipe-image');
+            if (image) image.style.transform = 'scale(1)';
+        }
+    });
+
+    function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--success)' : 'var(--primary-orange)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                z-index: 3000;
+                animation: slideInRight 0.3s ease;
+                box-shadow: var(--shadow-xl);
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            `;
+        toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                ${message}
+            `;
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                if (document.body.contains(toast)) {
+                    document.body.removeChild(toast);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'translateY(0)';
+
+        setTimeout(() => {
+            showToast('Welcome to Pure Everest Recipes! 🍽️', 'success');
+        }, 1500);
+    });
+
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(20px)';
+    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+    document.querySelectorAll('.recipe-card, .recipe-action').forEach(element => {
+        element.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 107, 53, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    pointer-events: none;
+                `;
+
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+                if (this.contains(ripple)) {
+                    this.removeChild(ripple);
+                }
+            }, 600);
+        });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    function getRandomRecipes(currentRecipe, count = 3) {
+        const allRecipeIds = Object.keys(recipes);
+        const otherRecipes = allRecipeIds.filter(id => id !== currentRecipe);
+        const shuffled = otherRecipes.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+
+    const searchInput = document.getElementById('recipeSearch');
+    let searchTimeout;
+
+    searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const searchTerm = e.target.value.toLowerCase();
+            filterRecipesBySearch(searchTerm);
+        }, 300);
+    });
+
+    function filterRecipesBySearch(searchTerm) {
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        let visibleCount = 0;
+
+        recipeCards.forEach(card => {
+            const title = card.querySelector('.recipe-title').textContent.toLowerCase();
+            const description = card.querySelector('.recipe-description').textContent.toLowerCase();
+            const tags = Array.from(card.querySelectorAll('.recipe-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+
+            if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+                card.style.display = 'block';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                visibleCount++;
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        let noResultsMessage = document.getElementById('noResultsMessage');
+        if (visibleCount === 0 && searchTerm !== '') {
+            if (!noResultsMessage) {
+                noResultsMessage = document.createElement('div');
+                noResultsMessage.id = 'noResultsMessage';
+                noResultsMessage.style.cssText = `
+                        text-align: center;
+                        padding: 4rem 2rem;
+                        color: var(--primary-gray);
+                        font-size: 1.1rem;
+                    `;
+                noResultsMessage.innerHTML = `
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">No recipes found</h3>
+                        <p>Try searching with different keywords or browse our categories above.</p>
+                    `;
+                document.querySelector('.recipes-grid').parentNode.appendChild(noResultsMessage);
+            }
+            noResultsMessage.style.display = 'block';
+        } else if (noResultsMessage) {
+            noResultsMessage.style.display = 'none';
+        }
+    }
+
+    function rateRecipe(recipeId, rating) {
+        showToast(`Thank you for rating ${recipes[recipeId].title}!`, 'success');
+    }
+
+    function printRecipe(recipeId) {
+        const recipe = recipes[recipeId];
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+                <html>
+                <head>
+                    <title>${recipe.title} - Pure Everest</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        h1 { color: #FF6B35; }
+                        .ingredients, .instructions { margin: 20px 0; }
+                        .ingredients li, .instructions li { margin: 10px 0; }
+                    </style>
+                </head>
+                <body>
+                    <h1>${recipe.title}</h1>
+                    <p>${recipe.description}</p>
+                    <div><strong>Prep Time:</strong> ${recipe.prepTime} | <strong>Cook Time:</strong> ${recipe.cookTime} | <strong>Servings:</strong> ${recipe.servings}</div>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}</ul>
+                    </div>
+                    <div class="instructions">
+                        <h2>Instructions:</h2>
+                        <ol>${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}</ol>
+                    </div>
+                </body>
+                </html>
+            `);
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+</body>
+</html>

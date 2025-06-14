@@ -70,46 +70,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Loader */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--white);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader-content {
-            text-align: center;
-        }
-
-        .loader-icon {
-            width: 80px;
-            height: 80px;
-            /*background: var(--gradient-primary);*/
-            border-radius: 20px;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: loaderPulse 2s infinite;
-        }
-
-        .loader-icon i {
-            font-size: 2rem;
-            color: white;
-        }
-        @keyframes loaderPulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
         /* Header */
         .header {
             position: fixed;
@@ -153,18 +113,18 @@
             transform: scale(1.02);
         }
 
-        logo-icon {
-            width: 50px;
-            height: 50px;
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             box-shadow: var(--shadow-orange);
             transition: var(--transition);
-            padding-top: 10px;
         }
 
         .logo:hover .logo-icon {
@@ -774,6 +734,101 @@
             box-shadow: var(--shadow-orange);
         }
 
+        /* Newsletter Section */
+        .newsletter {
+            padding: 3rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-description {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 1rem 1.5rem;
+            background: var(--primary-black);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: var(--secondary-black);
+            transform: translateY(-2px);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--dark-gray);
+            border: 1px solid var(--border-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .page-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-orange);
+        }
+
+        .page-btn:hover:not(.active) {
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            border-color: var(--primary-orange);
+        }
+
+        .page-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -800,6 +855,41 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: var(--border-radius-sm);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .skeleton-header {
+            height: 200px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .skeleton-title {
+            height: 24px;
+            width: 80%;
+            margin-bottom: 1rem;
+        }
+
+        .skeleton-text {
+            height: 16px;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .skeleton-text.short {
+            width: 60%;
         }
 
         /* Mobile Responsiveness */
@@ -862,6 +952,19 @@
             .social-links {
                 justify-content: center;
             }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-btn {
+                border-radius: 30px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -876,28 +979,28 @@
             .blog-card-content {
                 padding: 1.5rem;
             }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-<!--<div class="loader" id="loader">-->
-<!--    <div class="loader-content">-->
-<!--        <div class="loader-icon">-->
-<!--            <img src="images/logo.png" style="height: 100px !important; width: 100px !important;">-->
-<!--            &lt;!&ndash;      <i class="fas fa-mountain"></i>&ndash;&gt;-->
-<!--        </div>-->
-<!--        &lt;!&ndash;    <h2>Pure Everest</h2>&ndash;&gt;-->
-<!--        <p>Loading premium products...</p>-->
-<!--    </div>-->
-<!--</div>-->
 <!-- Header -->
 <header class="header" id="header">
     <div class="header-content">
         <a href="#" class="logo">
             <div class="logo-icon">
-                <img src="images/logo.png" style="height: 70px !important; width: 100px !important;">
-                <!--                <i class="fas fa-mountain"></i>-->
+                <i class="fas fa-mountain"></i>
             </div>
+            Pure Everest
         </a>
 
         <nav class="nav">
@@ -978,6 +1081,23 @@
         <div class="blog-grid" id="blog-grid">
             <!-- Blog cards will be dynamically inserted here -->
         </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be inserted here -->
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h3 class="newsletter-title">Stay Updated with Our Food Stories</h3>
+        <p class="newsletter-description">Subscribe to our newsletter for the latest articles, recipes, and insights about Nepali cuisine.</p>
+        <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
     </div>
 </section>
 
@@ -1016,10 +1136,10 @@
         <div class="footer-section">
             <h3>Blog Categories</h3>
             <ul class="footer-links">
-                <li><a href="#"><i class="fas fa-utensils"></i> Traditional Recipes</a></li>
-                <li><a href="#"><i class="fas fa-heart"></i> Health & Nutrition</a></li>
-                <li><a href="#"><i class="fas fa-globe"></i> Export Insights</a></li>
-                <li><a href="#"><i class="fas fa-star"></i> Food Culture</a></li>
+                <li><a href="#" data-category="traditional"><i class="fas fa-utensils"></i> Traditional Recipes</a></li>
+                <li><a href="#" data-category="health"><i class="fas fa-heart"></i> Health & Nutrition</a></li>
+                <li><a href="#" data-category="export"><i class="fas fa-globe"></i> Export Insights</a></li>
+                <li><a href="#" data-category="culture"><i class="fas fa-star"></i> Food Culture</a></li>
             </ul>
         </div>
 
@@ -1079,7 +1199,9 @@
                     <p>What makes Nepali puffed rice special is the attention to detail and the use of traditional wood-fired ovens that impart a subtle smoky flavor. This ancient technique creates a product that is not only delicious but also highly nutritious, rich in carbohydrates and easy to digest.</p>
 
                     <p>Today, Pure Everest exports this traditional delicacy to Japan and the UK, where it has gained popularity as a healthy snack option. Our commitment to preserving traditional methods while meeting international food safety standards makes our puffed rice a bridge between authentic Nepali culture and global culinary appreciation.</p>
-                `
+                `,
+            likes: 124,
+            comments: 28
         },
         {
             id: 2,
@@ -1100,7 +1222,9 @@
                     <p>Our traditional methods involve sun-drying ingredients to concentrate flavors and using mustard oil, which acts as a natural preservative while adding its distinctive taste. The result is a pickle that not only enhances the flavor of meals but also aids in digestion.</p>
 
                     <p>International customers in Japan and the UK have embraced these authentic flavors, incorporating Nepali pickles into their daily meals and discovering new ways to enjoy these versatile condiments. From rice dishes to sandwiches, our pickles add an exciting dimension to any culinary creation.</p>
-                `
+                `,
+            likes: 98,
+            comments: 15
         },
         {
             id: 3,
@@ -1121,7 +1245,9 @@
                     <p>The fermentation processes used in some traditional preparations increase the bioavailability of nutrients and introduce beneficial probiotics. This ancient wisdom of food preparation is now recognized by modern nutrition science as contributing to gut health and overall wellness.</p>
 
                     <p>As global interest in functional foods grows, Nepali grains offer a perfect combination of tradition, nutrition, and sustainability. Pure Everest is proud to bring these ancient superfoods to international markets, supporting both global health trends and traditional Nepali agriculture.</p>
-                `
+                `,
+            likes: 156,
+            comments: 32
         },
         {
             id: 4,
@@ -1144,7 +1270,9 @@
                     <p>Quality certifications and organic standards are maintained throughout our supply chain, ensuring that international customers receive products that meet the highest safety and environmental standards. This commitment to sustainability has helped establish trust with retailers and consumers in Japan and the UK.</p>
 
                     <p>By choosing Pure Everest products, consumers support sustainable agriculture, fair trade practices, and the preservation of traditional farming knowledge that is invaluable for global food security.</p>
-                `
+                `,
+            likes: 87,
+            comments: 14
         },
         {
             id: 5,
@@ -1167,7 +1295,9 @@
                     <p>The global appreciation for authentic, culturally-rooted foods has created new opportunities for traditional Nepali products. International consumers are increasingly seeking foods with stories, cultural significance, and authentic preparation methods.</p>
 
                     <p>Pure Everest serves as a cultural ambassador, bringing not just products but the stories and traditions behind them to international markets. This cultural exchange enriches global food culture while supporting Nepali communities and preserving traditional knowledge.</p>
-                `
+                `,
+            likes: 112,
+            comments: 23
         },
         {
             id: 6,
@@ -1190,43 +1320,133 @@
                     <p>Market education is equally important – we work with international retailers and food service partners to help them understand and appreciate the unique qualities of Nepali foods. This includes sharing preparation methods, cultural context, and nutritional information.</p>
 
                     <p>The success of this journey is measured not just in sales figures, but in the smiles of international customers who discover new flavors and the economic impact on farming communities in Nepal. This is the true measure of Pure Everest's mission.</p>
-                `
+                `,
+            likes: 76,
+            comments: 12
+        },
+        {
+            id: 7,
+            title: 'The Secret Spices of Nepali Cuisine',
+            category: 'traditional',
+            excerpt: 'Discover the unique blend of spices that give Nepali food its distinctive flavor profile and health benefits.',
+            readTime: '6 min read',
+            date: 'Dec 28, 2024',
+            icon: 'fas fa-mortar-pestle',
+            text: `
+                    <p>Nepali cuisine boasts a rich tapestry of flavors, largely due to its unique blend of spices that have been used for both culinary and medicinal purposes for centuries. At Pure Everest, we carefully source these spices to maintain authentic flavors in all our products.</p>
+
+                    <p>The foundation of Nepali spice blends includes turmeric, cumin, coriander, and fenugreek, each contributing distinct health benefits along with their flavors. Our spice mixes are carefully balanced to create harmonious flavors that are neither too spicy nor too mild.</p>
+
+                    <p><strong>Signature Spice Blends:</strong></p>
+                    <p>Timur (Szechuan pepper) is a uniquely Nepali spice that creates a tingling sensation on the tongue. Combined with mustard seeds and chili, it creates the distinctive flavor profile of many Nepali pickles and snacks.</p>
+
+                    <p>Jimbu, a wild Himalayan herb, adds an onion-like flavor to many traditional dishes. This rare ingredient is hand-harvested in high-altitude regions and is a testament to Nepal's diverse microclimates and their impact on flavor profiles.</p>
+
+                    <p>Our spice sourcing supports small-scale farmers and foragers across Nepal's diverse regions, helping preserve traditional knowledge while bringing these unique flavors to international markets. The result is authentic Nepali flavors that can transform any meal into a Himalayan culinary experience.</p>
+                `,
+            likes: 92,
+            comments: 18
+        },
+        {
+            id: 8,
+            title: 'Organic Farming in the Himalayas',
+            category: 'health',
+            excerpt: 'How traditional farming methods in Nepal align with modern organic standards and sustainable agriculture.',
+            readTime: '5 min read',
+            date: 'Dec 22, 2024',
+            icon: 'fas fa-tractor',
+            text: `
+                    <p>Organic farming isn't a new trend in Nepal—it's been the standard practice for generations. The rugged Himalayan terrain and traditional knowledge have created farming systems that naturally avoid synthetic inputs while maintaining soil health and biodiversity.</p>
+
+                    <p>Pure Everest works with farming communities across Nepal to certify these traditional methods as organic, creating new market opportunities while preserving sustainable practices. Our farmers use natural pest control methods, crop rotation, and organic fertilizers that have been perfected over centuries.</p>
+
+                    <p><strong>Traditional Techniques:</strong></p>
+                    <p>Terrace farming prevents soil erosion and maximizes water efficiency in Nepal's mountainous landscape. Farmers intercrop legumes with grains to naturally fix nitrogen in the soil, reducing the need for external inputs.</p>
+
+                    <p>Natural pest control methods include using neem oil and chili-garlic sprays, which are effective yet completely biodegradable. These methods protect both the crops and the delicate mountain ecosystems where they're grown.</p>
+
+                    <p>By bringing these traditionally organic products to international markets, Pure Everest helps preserve valuable agricultural knowledge while providing consumers with genuinely organic foods. Our certification process ensures these products meet international standards while maintaining their traditional production methods.</p>
+                `,
+            likes: 104,
+            comments: 21
+        },
+        {
+            id: 9,
+            title: 'The Rise of Nepali Superfoods in Global Markets',
+            category: 'export',
+            excerpt: 'Exploring how traditional Nepali ingredients are gaining recognition as superfoods in international health circles.',
+            readTime: '7 min read',
+            date: 'Dec 15, 2024',
+            icon: 'fas fa-globe-asia',
+            text: `
+                    <p>Traditional Nepali ingredients like chia seeds, buckwheat, and various ancient grains are gaining international recognition as superfoods. Pure Everest is at the forefront of introducing these nutritional powerhouses to global markets while ensuring fair benefits for Nepali farmers.</p>
+
+                    <p>Our buckwheat products, grown in the high-altitude regions of Nepal, are naturally gluten-free and rich in protein and fiber. They've become particularly popular in health-conscious markets like Japan and the UK.</p>
+
+                    <p><strong>Global Market Trends:</strong></p>
+                    <p>The demand for functional foods with health benefits beyond basic nutrition is growing rapidly worldwide. Nepali superfoods fit perfectly into this trend, offering unique nutritional profiles along with authentic Himalayan origins.</p>
+
+                    <p>Chia seeds from Nepal's subtropical regions are gaining attention for their omega-3 content and versatility. We work with smallholder farmers to ensure sustainable production that maintains soil health while meeting growing international demand.</p>
+
+                    <p>Pure Everest's role goes beyond export—we're educating international markets about the proper use and benefits of these superfoods. Through recipes, nutritional information, and cultural context, we're helping global consumers appreciate these ingredients as more than just trends, but as part of Nepal's rich culinary heritage.</p>
+                `,
+            likes: 88,
+            comments: 16
+        },
+        {
+            id: 10,
+            title: 'Nepali Tea Culture: Beyond the Cup',
+            category: 'culture',
+            excerpt: 'Discover the rich traditions surrounding tea in Nepal and its growing reputation in specialty tea markets worldwide.',
+            readTime: '6 min read',
+            date: 'Dec 10, 2024',
+            icon: 'fas fa-mug-hot',
+            text: `
+                    <p>While Nepal may not be as famous as its neighbor for tea production, the country boasts a rich tea culture and produces some of the world's most exquisite high-altitude teas. Pure Everest is working to bring these specialty teas to discerning consumers worldwide.</p>
+
+                    <p>Nepali tea gardens, particularly in the eastern regions, produce distinctive teas with complex flavor profiles influenced by the Himalayan terroir. Our orthodox teas are hand-processed using traditional methods that preserve their unique characteristics.</p>
+
+                    <p><strong>Tea Traditions:</strong></p>
+                    <p>In Nepali culture, tea is more than a beverage—it's a symbol of hospitality and community. Traditional butter tea (known as "po cha" in the high mountains) provides warmth and energy in cold climates, while spiced milk tea is a staple in homes across the country.</p>
+
+                    <p>Specialty teas from Nepal are gaining recognition for their floral notes and smooth finishes. Our white teas, in particular, are prized for their delicate flavors and antioxidant properties. Each batch tells the story of the land and people who cultivated it.</p>
+
+                    <p>Pure Everest works directly with small tea estates and cooperatives to ensure fair prices and sustainable practices. By bringing these teas to international markets, we're helping preserve traditional tea culture while creating new economic opportunities for Nepali farmers.</p>
+                `,
+            likes: 115,
+            comments: 25
         }
     ];
 
+    // Pagination variables
+    let currentPage = 1;
+    const blogsPerPage = 6;
     let currentFilter = 'all';
-    let filteredBlogs = blogs;
+    let currentSearchTerm = '';
+    let filteredBlogs = [...blogs];
 
     // DOM Elements
-    const loader = document.getElementById('loader');
-
     const blogGrid = document.getElementById('blog-grid');
     const searchInput = document.getElementById('search-input');
     const categoryBtns = document.querySelectorAll('.category-btn');
     const modal = document.getElementById('blog-modal');
     const closeModalBtn = document.getElementById('close-modal');
     const header = document.getElementById('header');
+    const pagination = document.getElementById('pagination');
+    const newsletterForm = document.getElementById('newsletter-form');
+    const footerCategoryLinks = document.querySelectorAll('.footer-links a[data-category]');
 
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        }, 1500);
-
-        renderBlogs();
-
-        // renderProducts();
-        setupEventListeners();
-        // updateCartDisplay();
-        // updateWishlistDisplay();
-    });
     // Initialize
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     renderBlogs();
-    //     setupEventListeners();
-    // });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show loading skeletons initially
+        showLoadingSkeletons();
+
+        // Simulate loading delay
+        setTimeout(() => {
+            applyFilters();
+            setupEventListeners();
+        }, 800);
+    });
 
     function setupEventListeners() {
         // Category buttons
@@ -1235,11 +1455,18 @@
                 const category = btn.getAttribute('data-category');
                 setActiveCategory(btn);
                 filterByCategory(category);
+                currentPage = 1; // Reset to first page when changing category
+                renderPagination();
             });
         });
 
         // Search functionality
-        searchInput.addEventListener('input', handleSearch);
+        searchInput.addEventListener('input', (e) => {
+            currentSearchTerm = e.target.value.toLowerCase();
+            applyFilters();
+            currentPage = 1; // Reset to first page when searching
+            renderPagination();
+        });
 
         // Modal close
         closeModalBtn.addEventListener('click', closeModal);
@@ -1254,10 +1481,44 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
+
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', handleNewsletterSubmit);
+
+        // Footer category links
+        footerCategoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.getAttribute('data-category');
+                filterByCategoryFromFooter(category);
+            });
+        });
+    }
+
+    function showLoadingSkeletons() {
+        blogGrid.innerHTML = '';
+        for (let i = 0; i < blogsPerPage; i++) {
+            blogGrid.innerHTML += `
+                    <div class="blog-card">
+                        <div class="blog-card-header skeleton"></div>
+                        <div class="blog-card-content">
+                            <div class="skeleton skeleton-title"></div>
+                            <div class="skeleton skeleton-text"></div>
+                            <div class="skeleton skeleton-text"></div>
+                            <div class="skeleton skeleton-text short"></div>
+                        </div>
+                    </div>
+                `;
+        }
     }
 
     function renderBlogs() {
-        blogGrid.innerHTML = filteredBlogs.map(blog => createBlogCard(blog)).join('');
+        // Calculate blogs to show for current page
+        const startIndex = (currentPage - 1) * blogsPerPage;
+        const endIndex = startIndex + blogsPerPage;
+        const blogsToShow = filteredBlogs.slice(startIndex, endIndex);
+
+        blogGrid.innerHTML = blogsToShow.map(blog => createBlogCard(blog)).join('');
 
         // Add stagger animation
         const cards = document.querySelectorAll('.blog-card');
@@ -1274,9 +1535,9 @@
 
     function createBlogCard(blog) {
         return `
-                <div class="blog-card" onclick="showBlogModal(${blog.id})">
+                <div class="blog-card" onclick="showBlogModal(${blog.id})" data-id="${blog.id}">
                     <div class="blog-card-header">
-                        <div class="blog-category-badge">${blog.category}</div>
+                        <div class="blog-category-badge">${formatCategory(blog.category)}</div>
                         <div class="read-time"><i class="fas fa-clock"></i> ${blog.readTime}</div>
                         <i class="${blog.icon} blog-card-icon"></i>
                     </div>
@@ -1297,6 +1558,12 @@
             `;
     }
 
+    function formatCategory(category) {
+        return category.split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
     function setActiveCategory(activeBtn) {
         categoryBtns.forEach(btn => btn.classList.remove('active'));
         activeBtn.classList.add('active');
@@ -1307,24 +1574,42 @@
         applyFilters();
     }
 
-    function handleSearch() {
+    function filterByCategoryFromFooter(category) {
+        currentFilter = category;
+        currentPage = 1;
+
+        // Find and click the corresponding category button
+        const correspondingBtn = Array.from(categoryBtns).find(btn =>
+            btn.getAttribute('data-category') === category
+        );
+
+        if (correspondingBtn) {
+            setActiveCategory(correspondingBtn);
+        } else {
+            // If "All" should be selected
+            setActiveCategory(document.querySelector('.category-btn[data-category="all"]'));
+        }
+
         applyFilters();
+        renderPagination();
+
+        // Scroll to blog section
+        document.querySelector('.blog').scrollIntoView({ behavior: 'smooth' });
     }
 
     function applyFilters() {
-        const searchTerm = searchInput.value.toLowerCase();
-
         filteredBlogs = blogs.filter(blog => {
             const matchesCategory = currentFilter === 'all' || blog.category === currentFilter;
-            const matchesSearch = searchTerm === '' ||
-                blog.title.toLowerCase().includes(searchTerm) ||
-                blog.excerpt.toLowerCase().includes(searchTerm) ||
-                blog.category.toLowerCase().includes(searchTerm);
+            const matchesSearch = currentSearchTerm === '' ||
+                blog.title.toLowerCase().includes(currentSearchTerm) ||
+                blog.excerpt.toLowerCase().includes(currentSearchTerm) ||
+                blog.category.toLowerCase().includes(currentSearchTerm);
 
             return matchesCategory && matchesSearch;
         });
 
         renderBlogs();
+        renderPagination();
 
         // Show no results message if needed
         if (filteredBlogs.length === 0) {
@@ -1338,6 +1623,57 @@
         }
     }
 
+    function renderPagination() {
+        const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
+
+        // Don't show pagination if there's only one page
+        if (totalPages <= 1) {
+            pagination.innerHTML = '';
+            return;
+        }
+
+        let paginationHTML = '';
+
+        // Previous button
+        paginationHTML += `
+                <button class="page-btn ${currentPage === 1 ? 'disabled' : ''}"
+                    onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            paginationHTML += `
+                    <button class="page-btn ${i === currentPage ? 'active' : ''}"
+                        onclick="changePage(${i})">
+                        ${i}
+                    </button>
+                `;
+        }
+
+        // Next button
+        paginationHTML += `
+                <button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}"
+                    onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+
+        pagination.innerHTML = paginationHTML;
+    }
+
+    function changePage(page) {
+        if (page < 1 || page > Math.ceil(filteredBlogs.length / blogsPerPage)) return;
+
+        currentPage = page;
+        renderBlogs();
+        renderPagination();
+
+        // Scroll to top of blog section
+        document.querySelector('.blog').scrollIntoView({ behavior: 'smooth' });
+    }
+
     function showBlogModal(blogId) {
         const blog = blogs.find(b => b.id === blogId);
         if (!blog) return;
@@ -1345,11 +1681,52 @@
         document.getElementById('modal-title').textContent = blog.title;
         document.getElementById('modal-date').textContent = blog.date;
         document.getElementById('modal-read-time').textContent = blog.readTime;
-        document.getElementById('modal-category').textContent = blog.category.charAt(0).toUpperCase() + blog.category.slice(1);
-        document.getElementById('modal-text').innerHTML = blog.text;
+        document.getElementById('modal-category').textContent = formatCategory(blog.category);
+
+        // Enhanced modal content with likes and comments
+        document.getElementById('modal-text').innerHTML = `
+                ${blog.text}
+                <div class="modal-stats" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-gray); display: flex; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-heart" style="color: var(--primary-orange);"></i>
+                        <span>${blog.likes} Likes</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-comment" style="color: var(--primary-orange);"></i>
+                        <span>${blog.comments} Comments</span>
+                    </div>
+                </div>
+                <div class="modal-actions" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button class="modal-action-btn" style="flex: 1; padding: 0.75rem; background: var(--light-orange); color: var(--primary-orange); border: none; border-radius: var(--border-radius-sm); font-weight: 600; cursor: pointer; transition: var(--transition);">
+                        <i class="fas fa-heart"></i> Like
+                    </button>
+                    <button class="modal-action-btn" style="flex: 1; padding: 0.75rem; background: var(--light-gray); color: var(--dark-gray); border: none; border-radius: var(--border-radius-sm); font-weight: 600; cursor: pointer; transition: var(--transition);">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            `;
 
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
+
+        // Add event listeners to modal action buttons
+        setTimeout(() => {
+            document.querySelectorAll('.modal-action-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (this.innerHTML.includes('Like')) {
+                        this.innerHTML = '<i class="fas fa-heart"></i> Liked!';
+                        this.style.background = 'var(--primary-orange)';
+                        this.style.color = 'white';
+                        showToast('Thanks for liking this article!', 'success');
+                    } else {
+                        showToast('Article link copied to clipboard!', 'success');
+                        // In a real app, you would implement actual sharing functionality
+                        navigator.clipboard.writeText(window.location.href.split('#')[0] + `#blog-${blog.id}`);
+                    }
+                });
+            });
+        }, 100);
     }
 
     function closeModal() {
@@ -1365,10 +1742,26 @@
         }
     }
 
+    function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const email = e.target.querySelector('input').value;
+
+        // Simulate form submission
+        e.target.querySelector('button').disabled = true;
+        e.target.querySelector('button').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+
+        setTimeout(() => {
+            showToast('Thank you for subscribing to our newsletter!', 'success');
+            e.target.reset();
+            e.target.querySelector('button').disabled = false;
+            e.target.querySelector('button').innerHTML = 'Subscribe';
+        }, 1500);
+    }
+
     // Add ripple effects to interactive elements
     document.addEventListener('click', function(e) {
-        if (e.target.closest('.category-btn, .blog-card, .cta-btn')) {
-            const element = e.target.closest('.category-btn, .blog-card, .cta-btn');
+        if (e.target.closest('.category-btn, .blog-card, .cta-btn, .page-btn, .modal-action-btn')) {
+            const element = e.target.closest('.category-btn, .blog-card, .cta-btn, .page-btn, .modal-action-btn');
             const ripple = document.createElement('span');
             const rect = element.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
@@ -1410,33 +1803,7 @@
         `;
     document.head.appendChild(style);
 
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Loading animation
-    window.addEventListener('load', () => {
-        document.body.style.opacity = '1';
-        document.body.style.transform = 'translateY(0)';
-    });
-
-    // Initial body styles for loading animation
-    document.body.style.opacity = '0';
-    document.body.style.transform = 'translateY(20px)';
-    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-
-    // Toast notification for search
+    // Toast notification function
     function showToast(message, type = 'info') {
         const toast = document.createElement('div');
         toast.style.cssText = `
@@ -1451,6 +1818,9 @@
                 animation: slideInRight 0.3s ease;
                 box-shadow: var(--shadow-xl);
                 font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
             `;
         toast.innerHTML = `
                 <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
@@ -1481,6 +1851,19 @@
         `;
     document.head.appendChild(toastStyle);
 
+    // Check URL for hash on load to open specific blog post
+    window.addEventListener('load', () => {
+        if (window.location.hash) {
+            const blogId = window.location.hash.match(/blog-(\d+)/);
+            if (blogId && blogId[1]) {
+                showBlogModal(parseInt(blogId[1]));
+            }
+        }
+    });
+
+    // Make functions available globally
+    window.showBlogModal = showBlogModal;
+    window.changePage = changePage;
 </script>
 </body>
 </html>
