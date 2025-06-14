@@ -614,16 +614,6 @@
 <div id="footer"></div>
 
 <script>
-    // Loader Animation
-    const loader = document.getElementById('loader');
-    setTimeout(() => {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-            animateCards();
-        }, 500);
-    }, 1500);
-
     // Fetch Header and Footer
     fetch('header.html')
         .then(response => response.text())
