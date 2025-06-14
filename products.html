@@ -2027,23 +2027,24 @@
           </ul>
         </div>
 
-        <div class="quantity-selector">
-          <span class="quantity-label">Quantity:</span>
-          <div class="quantity-controls">
-            <button class="quantity-btn" onclick="decreaseQuantity()">
-              <i class="fas fa-minus"></i>
-            </button>
-            <input type="number" class="quantity-input" id="modal-quantity" value="1" min="1">
-            <button class="quantity-btn" onclick="increaseQuantity()">
-              <i class="fas fa-plus"></i>
-            </button>
-          </div>
-        </div>
+<!--        <div class="quantity-selector">-->
+<!--          <span class="quantity-label">Quantity:</span>-->
+<!--          <div class="quantity-controls">-->
+<!--            <button class="quantity-btn" onclick="decreaseQuantity()">-->
+<!--              <i class="fas fa-minus"></i>-->
+<!--            </button>-->
+<!--            <input type="number" class="quantity-input" id="modal-quantity" value="1" min="1">-->
+<!--            <button class="quantity-btn" onclick="increaseQuantity()">-->
+<!--              <i class="fas fa-plus"></i>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <div class="modal-actions">
-          <button class="btn btn-primary" onclick="addToCartFromModal()">
+          <button class="btn btn-primary" onclick="redirectToEverestMart()">
+<!--          <button class="btn btn-primary" onclick="addToCartFromModal()">-->
             <i class="fas fa-shopping-cart"></i>
-            Add to Cart
+            Shop Now
           </button>
           <button class="btn btn-outline" onclick="toggleWishlistFromModal()">
             <i class="fas fa-heart"></i>
@@ -2411,9 +2412,6 @@
             <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy">
             <div class="product-badge">${product.badge}</div>
             <div class="product-actions">
-              <button class="action-btn ${isInWishlist ? 'active' : ''}" onclick="event.stopPropagation(); toggleWishlist(${product.id})" title="Add to Wishlist">
-                <i class="fas fa-heart"></i>
-              </button>
               <button class="action-btn" onclick="event.stopPropagation(); quickView(${product.id})" title="Quick View">
                 <i class="fas fa-eye"></i>
               </button>
@@ -2441,7 +2439,7 @@
             </div>
             <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">
               <i class="fas fa-shopping-cart"></i>
-              Add to Cart
+              Shop Now
             </button>
           </div>
         </div>
@@ -2527,7 +2525,7 @@
     document.getElementById('modal-description').textContent = product.description;
     document.getElementById('modal-image').src = product.image;
     document.getElementById('modal-image').alt = product.title;
-    document.getElementById('modal-quantity').value = 1;
+    // document.getElementById('modal-quantity').value = 1;
 
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -2566,9 +2564,17 @@
     }
 
     updateCartDisplay();
-    showToast(`${product.title} added to cart!`, 'success');
+    // showToast(`${product.title} added to cart!`, 'success');
   }
 
+  // function redirectToEverestMart() {
+  //   // Replace 'https://www.everestmart.com' with the actual URL you want to redirect to
+  //   window.location.href = 'https://www.everestmart.com';
+  // }
+  function redirectToEverestMart() {
+    // Open the URL in a new tab/window
+    window.open('https://www.everestmart.com', '_blank');
+  }
   function addToCartFromModal() {
     if (window.currentModalProductId) {
       const quantity = parseInt(document.getElementById('modal-quantity').value);
