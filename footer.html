@@ -1,0 +1,223 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                Pure Everest
+            </div>
+            <p>
+                Bringing authentic Nepali flavors to the world with premium quality food products.
+                Trusted by customers in Japan, UK, and expanding globally.
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Products</h3>
+            <ul class="footer-links">
+                <li><a href="products.html"><i class="fas fa-seedling"></i> Flattened Rice</a></li>
+                <li><a href="products.html"><i class="fas fa-pepper-hot"></i> Pickles</a></li>
+                <li><a href="products.html"><i class="fas fa-cookie"></i> Lentils & Dal</a></li>
+                <li><a href="products.html"><i class="fas fa-wheat"></i> Snacks</a></li>
+                <li><a href="products.html"><i class="fas fa-leaf"></i> Grains</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                info@pureeverest.com
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                +977-1-1234567
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                Kathmandu, Nepal
+            </div>
+            <div>
+                <i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
+                Mon-Fri: 9AM-6PM
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Pure Everest. All rights reserved. Made with ❤️ in Nepal</p>
+    </div>
+</footer>
+
+<style>
+    /* Reset and Variables */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        /* Brand Colors - Orange, Black, Gray */
+        --primary-orange: #FF6B35;
+        --secondary-black: #2D2D2D;
+        --light-gray: #F3F4F6;
+        --medium-gray: #9CA3AF;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, var(--primary-orange) 0%, #FF8C42 100%);
+
+        /* Shadows */
+        --shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.2);
+
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6;
+        color: var(--light-gray);
+    }
+
+    .footer {
+        background: var(--secondary-black);
+        color: var(--light-gray);
+        padding: 5rem 2rem 2rem;
+        position: relative;
+    }
+
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+    }
+
+    .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .footer-brand {
+        grid-column: 1;
+    }
+
+    .footer-brand .logo {
+        margin-bottom: 1.5rem;
+        color: white;
+    }
+
+    .footer-brand p {
+        line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 45px;
+        height: 45px;
+        background: var(--secondary-black);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light-gray);
+        transition: var(--transition);
+        text-decoration: none;
+    }
+
+    .social-link:hover {
+        background: var(--gradient-primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-orange);
+    }
+
+    .footer-section h3 {
+        color: white;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+        color: var(--light-gray);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--primary-orange);
+        transform: translateX(5px);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid var(--secondary-black);
+        margin-top: 3rem;
+        color: var(--medium-gray);
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .footer-brand {
+            grid-column: 1;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+    }
+</style>

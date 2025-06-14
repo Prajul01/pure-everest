@@ -1770,49 +1770,7 @@
 </div>
 
 <!-- Header -->
-<header class="header" id="header">
-  <div class="header-content">
-    <a href="#" class="logo">
-      <div class="logo-icon">
-        <img src="images/logo.png" style="height: 100px !important; width: 100px !important;">
-        <!--                <i class="fas fa-mountain"></i>-->
-      </div>
-    </a>
-
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="products.html" class="nav-link active">Products</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-
-    <div class="header-actions">
-      <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
-        <i class="fas fa-search search-icon"></i>
-      </div>
-
-      <button class="wishlist-btn" id="wishlist-btn">
-        <i class="fas fa-heart"></i>
-        <span class="badge" id="wishlist-count">0</span>
-      </button>
-
-      <button class="cart-btn" id="cart-btn">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="badge" id="cart-count">0</span>
-      </button>
-
-      <button class="cta-btn">
-        <span>Get Quote</span>
-      </button>
-
-      <button class="menu-btn" id="menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </div>
-</header>
-
+<div id="header"></div>
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-header">
@@ -1989,63 +1947,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3><i class="fas fa-mountain" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>Pure Everest</h3>
-      <p>Bringing authentic Nepali flavors to the world with premium quality food products. Trusted by customers globally for exceptional taste and quality.</p>
-      <div class="social-links">
-        <a href="#" class="social-link">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="social-link">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="social-link">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-link">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-section">
-      <h3>Quick Links</h3>
-      <ul class="footer-links">
-        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#products"><i class="fas fa-box"></i> Products</a></li>
-        <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
-        <li><a href="#"><i class="fas fa-globe"></i> Export Markets</a></li>
-        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h3>Product Categories</h3>
-      <ul class="footer-links">
-        <li><a href="#"><i class="fas fa-seedling"></i> Dal & Lentils</a></li>
-        <li><a href="#"><i class="fas fa-pepper-hot"></i> Pickles</a></li>
-        <li><a href="#"><i class="fas fa-cookie"></i> Snacks</a></li>
-        <li><a href="#"><i class="fas fa-wheat"></i> Grains</a></li>
-        <li><a href="#"><i class="fas fa-leaf"></i> Organic Products</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h3>Contact Info</h3>
-      <p><i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> info@pureeverest.com</p>
-      <p><i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> +977-1-1234567</p>
-      <p><i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Kathmandu, Nepal</p>
-      <p><i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Mon-Fri: 9AM-6PM</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 Pure Everest. All rights reserved. Made with ❤️ in Nepal</p>
-  </div>
-</footer>
-
+<div id="footer"></div>
 <!-- Product Modal -->
 <div id="product-modal" class="modal">
   <div class="modal-content">
@@ -2139,6 +2041,13 @@
 </div>
 
 <script>
+
+  fetch('header.html')
+          .then(response => response.text())
+          .then(data => document.getElementById('header').innerHTML = data);
+  fetch('footer.html')
+          .then(response => response.text())
+          .then(data => document.getElementById('footer').innerHTML = data);
   // Enhanced Product Data
   const products = [
     {
