@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes - Pure Everest</title>
+    <title>Pure Everest - Recipes | Authentic Nepali Food Insights</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -15,43 +15,6 @@
             box-sizing: border-box;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: var(--border-radius);
-            max-width: 900px;
-            max-height: 90vh;
-            width: 90%; /* Fallback width */
-            height: auto;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: var(--shadow-xl);
-            animation: modalSlideIn 0.3s ease;
-            padding: 1rem;
-            margin: 0 auto; /* Ensures horizontal centering */
-            display: block; /* Ensures content respects max-width */
-        }
         :root {
             /* Brand Colors - Orange, Black, Gray */
             --primary-orange: #FF6B35;
@@ -140,7 +103,7 @@
             align-items: center;
             gap: 0.75rem;
             font-weight: 800;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             color: var(--primary-black);
             text-decoration: none;
             transition: var(--transition);
@@ -151,15 +114,15 @@
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: var(--gradient-primary);
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             box-shadow: var(--shadow-orange);
             transition: var(--transition);
         }
@@ -257,17 +220,18 @@
             z-index: 1;
         }
 
-        /* Page Hero */
-        .page-hero {
-            padding: 10rem 2rem 6rem;
+        /* Hero Section */
+        .hero {
             background: var(--gradient-hero);
             color: white;
+            padding: 8rem 2rem 6rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-top: 80px;
         }
 
-        .page-hero::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -278,7 +242,7 @@
             animation: float 25s infinite;
         }
 
-        .page-hero-content {
+        .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
@@ -297,285 +261,291 @@
             font-weight: 600;
             margin-bottom: 2rem;
             border: 1px solid rgba(255, 140, 66, 0.3);
+            animation: pulse 3s infinite;
         }
 
-        .page-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            letter-spacing: -0.025em;
         }
 
-        .page-title .gradient-text {
+        .hero-title .gradient-text {
             background: linear-gradient(135deg, var(--accent-orange) 0%, var(--secondary-orange) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .page-subtitle {
+        .hero-subtitle {
             font-size: 1.25rem;
+            margin-bottom: 3rem;
             opacity: 0.9;
             line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Recipe Filters */
-        .recipe-filters {
-            padding: 4rem 2rem 2rem;
-            background: white;
+        /* Search Section */
+        .search-section {
+            padding: 4rem 2rem;
+            background: var(--white);
             border-bottom: 1px solid var(--border-gray);
         }
 
-        .filters-container {
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 50px;
+            background: var(--white);
+            outline: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            transform: scale(1.02);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--medium-gray);
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--primary-orange);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 2rem;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .categories-container {
             max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
+            text-align: center;
         }
 
-        .filter-tabs {
+        .categories-list {
             display: flex;
-            gap: 0.5rem;
-            background: var(--light-gray);
-            padding: 0.5rem;
-            border-radius: 15px;
+            justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
-        .filter-tab {
+        .category-btn {
             padding: 0.75rem 1.5rem;
-            border: none;
-            background: transparent;
+            background: var(--white);
+            border: 2px solid var(--border-gray);
+            border-radius: 30px;
             color: var(--dark-gray);
             font-weight: 600;
-            border-radius: 12px;
             cursor: pointer;
             transition: var(--transition);
-            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
         }
 
-        .filter-tab.active,
-        .filter-tab:hover {
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
             background: var(--gradient-primary);
-            color: white;
-            box-shadow: var(--shadow-orange);
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            background: var(--light-gray);
-            border-radius: 50px;
-            padding: 0.75rem 1.5rem;
-            gap: 0.75rem;
-            min-width: 300px;
-            border: 2px solid transparent;
             transition: var(--transition);
         }
 
-        .search-box:focus-within {
+        .category-btn.active::before,
+        .category-btn:hover::before {
+            left: 0;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            color: white;
             border-color: var(--primary-orange);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-orange);
         }
 
-        .search-box input {
-            border: none;
-            background: transparent;
-            outline: none;
-            flex: 1;
-            font-size: 1rem;
-            color: var(--primary-black);
+        .category-btn span {
+            position: relative;
+            z-index: 1;
         }
 
-        .search-box input::placeholder {
-            color: var(--medium-gray);
-        }
-
-        /* Recipe Grid */
-        .recipes-section {
+        /* Recipe Section */
+        .recipe {
             padding: 4rem 2rem;
             background: var(--light-gray);
         }
 
-        .recipes-container {
+        .recipe-container {
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .recipes-grid {
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-orange);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .recipe-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
         }
 
         .recipe-card {
-            background: white;
+            background: var(--white);
             border-radius: var(--border-radius);
-            overflow: hidden;
             box-shadow: var(--shadow);
+            overflow: hidden;
             transition: var(--transition);
             cursor: pointer;
-            position: relative;
             border: 1px solid var(--border-gray);
+            display: flex;
+            flex-direction: column;
         }
 
         .recipe-card:hover {
-            transform: translateY(-12px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-xl);
             border-color: var(--primary-orange);
         }
 
-        .recipe-image-container {
+        .recipe-card-header {
             position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .recipe-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .recipe-card:hover .recipe-image {
-            transform: scale(1.1);
-        }
-
-        .recipe-overlay {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--primary-orange);
-            box-shadow: var(--shadow);
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 1rem;
         }
 
-        .difficulty-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .difficulty-easy {
-            background: var(--success);
+        .recipe-card-header .difficulty {
+            background: var(--primary-orange);
             color: white;
-        }
-
-        .difficulty-medium {
-            background: var(--warning);
-            color: white;
-        }
-
-        .difficulty-hard {
-            background: var(--danger);
-            color: white;
-        }
-
-        .recipe-content {
-            padding: 2rem;
-        }
-
-        .recipe-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: var(--medium-gray);
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .recipe-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-black);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .recipe-description {
-            color: var(--primary-gray);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .recipe-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .recipe-tag {
-            background: var(--light-orange);
-            color: var(--primary-orange);
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
             font-size: 0.75rem;
             font-weight: 600;
         }
 
-        .recipe-footer {
+        .recipe-card-header .time {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .recipe-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .recipe-card-meta {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-gray);
+            margin-top: auto;
         }
 
-        .recipe-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .recipe-card-meta .servings,
+        .recipe-card-meta .calories {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
         }
 
-        .stars {
-            display: flex;
-            gap: 0.25rem;
-            color: var(--warning);
+        .recipe-card-actions {
+            margin-top: 1rem;
         }
 
-        .recipe-action {
+        .recipe-card-actions .view-recipe {
             background: var(--gradient-primary);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.875rem;
-        }
-
-        .recipe-action:hover {
-            transform: translateY(-2px);
             box-shadow: var(--shadow-orange);
+            width: 100%;
         }
 
-        /* Featured Recipe Modal */
+        .recipe-card-actions .view-recipe:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-orange-lg);
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -584,210 +554,102 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
             z-index: 2000;
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-wrapper {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
-            background: white;
+            background: var(--white);
+            margin: 5% auto;
             border-radius: var(--border-radius);
-            max-width: 900px;
-            max-height: 90vh;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
             overflow-y: auto;
             position: relative;
+            animation: slideUp 0.4s ease;
             box-shadow: var(--shadow-xl);
-            animation: modalSlideIn 0.3s ease;
-            padding: 1rem;
+            display: flex;
+            flex-direction: column;
         }
 
-        .modal-close {
+        .modal-header {
+            padding: 2rem 2rem 0;
+            position: relative;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .close-btn {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            background: rgba(0, 0, 0, 0.1);
-            border: none;
-            border-radius: 50%;
             width: 40px;
             height: 40px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             transition: var(--transition);
-            z-index: 1;
+            color: var(--dark-gray);
+            font-size: 1.2rem;
         }
 
-        .modal-close:hover {
+        .close-btn:hover {
             background: var(--primary-orange);
             color: white;
+            transform: scale(1.1);
         }
 
-        .modal-recipe-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-top-left-radius: var(--border-radius);
-            border-top-right-radius: var(--border-radius);
-        }
-
-        .modal-recipe-content {
-            padding: 2rem;
-        }
-
-        .modal-recipe-title {
+        .modal-title {
             font-size: 2rem;
             font-weight: 800;
             color: var(--primary-black);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
-        .recipe-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--light-gray);
-            border-radius: var(--border-radius-sm);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+        .modal-meta {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            margin: 0 auto 0.5rem;
-            font-size: 1.25rem;
-        }
-
-        .stat-label {
+            gap: 1rem;
+            margin-bottom: 1rem;
             font-size: 0.875rem;
             color: var(--medium-gray);
-            margin-bottom: 0.25rem;
+            flex-wrap: wrap;
         }
 
-        .stat-value {
-            font-weight: 700;
-            color: var(--primary-black);
+        .modal-body {
+            padding: 0 2rem 2rem;
+            flex-grow: 1;
         }
 
-        .ingredients-section,
-        .instructions-section {
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-black);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .ingredients-list {
-            list-style: none;
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .ingredient-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: var(--light-gray);
-            border-radius: var(--border-radius-sm);
-            transition: var(--transition);
-        }
-
-        .ingredient-item:hover {
-            background: var(--light-orange);
-        }
-
-        .ingredient-check {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--primary-orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .ingredient-check:hover,
-        .ingredient-check.checked {
-            background: var(--primary-orange);
-            color: white;
-        }
-
-        .instructions-list {
-            list-style: none;
-            counter-reset: step-counter;
-        }
-
-        .instruction-item {
-            counter-increment: step-counter;
-            margin-bottom: 1.5rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .instruction-number {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .instruction-number::before {
-            content: counter(step-counter);
-        }
-
-        .instruction-text {
-            line-height: 1.6;
+        .modal-description {
             color: var(--dark-gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-ingredients,
+        .modal-instructions {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-ingredients li,
+        .modal-instructions li {
+            margin-bottom: 0.5rem;
         }
 
         /* Footer */
         .footer {
             background: var(--primary-black);
             color: var(--light-gray);
-            padding: 5rem 2rem 2rem;
+            padding: 4rem 2rem 2rem;
             position: relative;
         }
 
@@ -805,54 +667,15 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .footer-brand {
-            grid-column: 1;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .footer-brand p {
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: var(--secondary-black);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-gray);
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: var(--gradient-primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-orange);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .footer-section h3 {
             color: white;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
         }
 
         .footer-links {
@@ -860,7 +683,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .footer-links a {
@@ -879,10 +702,131 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 3rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--secondary-black);
-            margin-top: 3rem;
+            margin-top: 2rem;
             color: var(--medium-gray);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-black);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 3rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-description {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 1rem 1.5rem;
+            background: var(--primary-black);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: var(--secondary-black);
+            transform: translateY(-2px);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--dark-gray);
+            border: 1px solid var(--border-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .page-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-orange);
+        }
+
+        .page-btn:hover:not(.active) {
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            border-color: var(--primary-orange);
+        }
+
+        .page-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         /* Animations */
@@ -892,15 +836,60 @@
             66% { transform: translateY(10px) rotate(-1deg); }
         }
 
-        @keyframes modalSlideIn {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: scale(0.9) translateY(30px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: translateY(0);
             }
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: var(--border-radius-sm);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .skeleton-header {
+            height: 200px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .skeleton-title {
+            height: 24px;
+            width: 80%;
+            margin-bottom: 1rem;
+        }
+
+        .skeleton-text {
+            height: 16px;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .skeleton-text.short {
+            width: 60%;
         }
 
         /* Mobile Responsiveness */
@@ -913,73 +902,104 @@
                 display: none;
             }
 
-            .page-hero {
-                padding: 8rem 1rem 4rem;
+            .hero {
+                padding: 6rem 1rem 4rem;
             }
 
-            .filters-container {
-                flex-direction: column;
-                align-items: stretch;
+            .search-section {
+                padding: 3rem 1rem;
             }
 
-            .filter-tabs {
-                order: 2;
-                justify-content: center;
+            .categories {
+                padding: 1.5rem 1rem;
             }
 
-            .search-box {
-                order: 1;
-                min-width: auto;
+            .categories-list {
+                gap: 0.75rem;
             }
 
-            .recipes-grid {
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .recipe {
+                padding: 3rem 1rem;
+            }
+
+            .recipe-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-
-            .recipe-stats {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             .modal-content {
-                max-width: 95vw;
-                margin: 1rem;
+                margin: 5% auto;
+                width: 95%;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-body {
+                padding: 0 1.5rem 1.5rem;
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
                 text-align: center;
-            }
-
-            .footer-brand {
-                grid-column: 1;
             }
 
             .social-links {
                 justify-content: center;
             }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-btn {
+                border-radius: 30px;
+            }
         }
 
         @media (max-width: 480px) {
-            .recipes-section {
-                padding: 2rem 1rem;
+            .hero-title {
+                font-size: 2rem;
             }
 
-            .recipe-filters {
-                padding: 2rem 1rem 1rem;
+            .search-wrapper {
+                max-width: 100%;
             }
 
-            .modal-recipe-content {
-                padding: 1rem;
+            .recipe-card-content {
+                padding: 1.5rem;
             }
 
-            .recipe-stats {
-                grid-template-columns: 1fr;
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
             }
         }
 
-        /* Toast Animations */
+        /* Ripple Effect */
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Toast Animation */
         @keyframes slideInRight {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
@@ -987,14 +1007,6 @@
         @keyframes slideOutRight {
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
-        }
-
-        /* Ripple Animation */
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
         }
     </style>
 </head>
@@ -1013,7 +1025,6 @@
             <a href="index.html" class="nav-link">Home</a>
             <a href="products.html" class="nav-link">Products</a>
             <a href="recipes.html" class="nav-link active">Recipes</a>
-            <a href="blog.html" class="nav-link">Blog</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </nav>
 
@@ -1025,382 +1036,88 @@
     </div>
 </header>
 
-<!-- Page Hero -->
-<section class="page-hero">
-    <div class="page-hero-content">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
         <div class="page-badge">
             <i class="fas fa-utensils"></i>
             Authentic Nepali Cuisine
         </div>
-
-        <h1 class="page-title">
-            Traditional <span class="gradient-text">Nepali Recipes</span>
+        <h1 class="hero-title">
+            <span class="gradient-text">Traditional Nepali </span> Recipes
         </h1>
-
-        <p class="page-subtitle">
-            Discover the rich flavors of Nepal with our collection of authentic recipes passed down through generations. From hearty dal bhat to delicious momos, explore the culinary treasures of the Himalayas.
+        <p class="hero-subtitle">
+            Discover the rich flavors of Nepal with our collection of authentic recipes passed down through generations.
+            From hearty dal bhat to delicious momos, explore the culinary treasures of the Himalayas.
         </p>
     </div>
 </section>
 
-<!-- Recipe Filters -->
-<section class="recipe-filters">
-    <div class="filters-container">
-        <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all">All Recipes</button>
-            <button class="filter-tab" data-filter="main">Main Dishes</button>
-            <button class="filter-tab" data-filter="snacks">Snacks</button>
-            <button class="filter-tab" data-filter="desserts">Desserts</button>
-            <button class="filter-tab" data-filter="pickles">Pickles</button>
-            <button class="filter-tab" data-filter="beverages">Beverages</button>
-        </div>
-
-        <div class="search-box">
-            <i class="fas fa-search" style="color: var(--medium-gray);"></i>
-            <input type="text" placeholder="Search recipes..." id="recipeSearch">
+<!-- Search Section -->
+<section class="search-section">
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search recipes..." id="search-input">
+            <i class="fas fa-search search-icon"></i>
         </div>
     </div>
 </section>
 
-<!-- Recipes Grid -->
-<section class="recipes-section">
-    <div class="recipes-container">
-        <div class="recipes-grid" id="recipesGrid">
-            <!-- Recipe Card 1 -->
-            <div class="recipe-card" data-category="main" data-recipe="dal-bhat">
-                <div class="recipe-image-container">
-                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=250&fit=crop" alt="Dal Bhat" class="recipe-image">
-                    <div class="recipe-overlay">
-                        <i class="fas fa-clock"></i>
-                        45 min
-                    </div>
-                    <div class="difficulty-badge difficulty-medium">Medium</div>
-                </div>
-                <div class="recipe-content">
-                    <div class="recipe-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            4 servings
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-fire"></i>
-                            350 cal
-                        </div>
-                    </div>
-                    <h3 class="recipe-title">Traditional Dal Bhat</h3>
-                    <p class="recipe-description">
-                        Nepal's national dish featuring perfectly spiced lentil curry served with steamed rice, vegetables, and pickles.
-                    </p>
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Vegetarian</span>
-                        <span class="recipe-tag">Gluten-Free</span>
-                        <span class="recipe-tag">Traditional</span>
-                    </div>
-                    <div class="recipe-footer">
-                        <div class="recipe-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>(4.9)</span>
-                        </div>
-                        <button class="recipe-action" onclick="openRecipeModal('dal-bhat')">
-                            <i class="fas fa-arrow-right"></i>
-                            View Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-<!--            <div class="modal" id="recipeModal">-->
-<!--                <div class="modal-content" onclick="event.stopPropagation()">-->
-<!--                    <button class="modal-close" onclick="closeRecipeModal()">-->
-<!--                        <i class="fas fa-times"></i>-->
-<!--                    </button>-->
-<!--                    <div id="modalRecipeContent">-->
-<!--                        &lt;!&ndash; Dynamic content will be loaded here &ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-            <!-- Recipe Card 2 -->
-            <div class="recipe-card" data-category="snacks" data-recipe="momos">
-                <div class="recipe-image-container">
-                    <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=250&fit=crop" alt="Momos" class="recipe-image">
-                    <div class="recipe-overlay">
-                        <i class="fas fa-clock"></i>
-                        60 min
-                    </div>
-                    <div class="difficulty-badge difficulty-hard">Hard</div>
-                </div>
-                <div class="recipe-content">
-                    <div class="recipe-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            6 servings
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-fire"></i>
-                            280 cal
-                        </div>
-                    </div>
-                    <h3 class="recipe-title">Authentic Nepali Momos</h3>
-                    <p class="recipe-description">
-                        Delicious steamed dumplings filled with seasoned vegetables or meat, served with spicy tomato chutney.
-                    </p>
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Steamed</span>
-                        <span class="recipe-tag">Popular</span>
-                        <span class="recipe-tag">Street Food</span>
-                    </div>
-                    <div class="recipe-footer">
-                        <div class="recipe-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>(4.8)</span>
-                        </div>
-                        <button class="recipe-action" onclick="openRecipeModal('momos')">
-                            <i class="fas fa-arrow-right"></i>
-                            View Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recipe Card 3 -->
-            <div class="recipe-card" data-category="pickles" data-recipe="gundruk">
-                <div class="recipe-image-container">
-                    <img src="https://images.unsplash.com/photo-1599029927026-7b0c095e87c8?w=400&h=250&fit=crop" alt="Gundruk" class="recipe-image">
-                    <div class="recipe-overlay">
-                        <i class="fas fa-clock"></i>
-                        30 min
-                    </div>
-                    <div class="difficulty-badge difficulty-easy">Easy</div>
-                </div>
-                <div class="recipe-content">
-                    <div class="recipe-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            4 servings
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-fire"></i>
-                            120 cal
-                        </div>
-                    </div>
-                    <h3 class="recipe-title">Gundruk Pickle</h3>
-                    <p class="recipe-description">
-                        Fermented leafy green vegetables pickle, a tangy and nutritious side dish that's perfect with rice.
-                    </p>
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Fermented</span>
-                        <span class="recipe-tag">Healthy</span>
-                        <span class="recipe-tag">Probiotic</span>
-                    </div>
-                    <div class="recipe-footer">
-                        <div class="recipe-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span>(4.6)</span>
-                        </div>
-                        <button class="recipe-action" onclick="openRecipeModal('gundruk')">
-                            <i class="fas fa-arrow-right"></i>
-                            View Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recipe Card 4 -->
-            <div class="recipe-card" data-category="snacks" data-recipe="chiura">
-                <div class="recipe-image-container">
-                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=250&fit=crop" alt="Chiura" class="recipe-image">
-                    <div class="recipe-overlay">
-                        <i class="fas fa-clock"></i>
-                        15 min
-                    </div>
-                    <div class="difficulty-badge difficulty-easy">Easy</div>
-                </div>
-                <div class="recipe-content">
-                    <div class="recipe-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            2 servings
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-fire"></i>
-                            220 cal
-                        </div>
-                    </div>
-                    <h3 class="recipe-title">Chiura (Beaten Rice)</h3>
-                    <p class="recipe-description">
-                        Light and nutritious flattened rice mixed with vegetables, perfect for breakfast or a quick snack.
-                    </p>
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Quick</span>
-                        <span class="recipe-tag">Light</span>
-                        <span class="recipe-tag">Breakfast</span>
-                    </div>
-                    <div class="recipe-footer">
-                        <div class="recipe-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>(4.7)</span>
-                        </div>
-                        <button class="recipe-action" onclick="openRecipeModal('chiura')">
-                            <i class="fas fa-arrow-right"></i>
-                            View Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recipe Card 5 -->
-            <div class="recipe-card" data-category="desserts" data-recipe="kheer">
-                <div class="recipe-image-container">
-                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=250&fit=crop" alt="Kheer" class="recipe-image">
-                    <div class="recipe-overlay">
-                        <i class="fas fa-clock"></i>
-                        40 min
-                    </div>
-                    <div class="difficulty-badge difficulty-medium">Medium</div>
-                </div>
-                <div class="recipe-content">
-                    <div class="recipe-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            6 servings
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-fire"></i>
-                            180 cal
-                        </div>
-                    </div>
-                    <h3 class="recipe-title">Traditional Kheer</h3>
-                    <p class="recipe-description">
-                        Creamy rice pudding flavored with cardamom and garnished with nuts, a beloved Nepali dessert.
-                    </p>
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Sweet</span>
-                        <span class="recipe-tag">Creamy</span>
-                        <span class="recipe-tag">Festival</span>
-                    </div>
-                    <div class="recipe-footer">
-                        <div class="recipe-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span>(4.5)</span>
-                        </div>
-                        <button class="recipe-action" onclick="openRecipeModal('kheer')">
-                            <i class="fas fa-arrow-right"></i>
-                            View Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recipe Card 6 -->
-            <div class="recipe-card" data-category="beverages" data-recipe="chiya">
-                <div class="recipe-image-container">
-                    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=250&fit=crop" alt="Chiya" class="recipe-image">
-                    <div class="recipe-overlay">
-                        <i class="fas fa-clock"></i>
-                        10 min
-                    </div>
-                    <div class="difficulty-badge difficulty-easy">Easy</div>
-                </div>
-                <div class="recipe-content">
-                    <div class="recipe-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            2 servings
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-fire"></i>
-                            50 cal
-                        </div>
-                    </div>
-                    <h3 class="recipe-title">Nepali Chiya (Milk Tea)</h3>
-                    <p class="recipe-description">
-                        Aromatic spiced milk tea that's the perfect companion for any time of day in Nepal.
-                    </p>
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Spiced</span>
-                        <span class="recipe-tag">Warm</span>
-                        <span class="recipe-tag">Daily</span>
-                    </div>
-                    <div class="recipe-footer">
-                        <div class="recipe-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span>(4.9)</span>
-                        </div>
-                        <button class="recipe-action" onclick="openRecipeModal('chiya')">
-                            <i class="fas fa-arrow-right"></i>
-                            View Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Recipe Modal -->
-<div class="modal" id="recipeModal">
-    <div class="modal-wrapper" onclick="closeRecipeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeRecipeModal()">
-                <i class="fas fa-times"></i>
+<!-- Categories -->
+<section class="categories">
+    <div class="categories-container">
+        <div class="categories-list">
+            <button class="category-btn active" data-category="all">
+                <span>All Recipes</span>
             </button>
-            <div id="modalRecipeContent">
-                <!-- Dynamic content will be loaded here -->
-            </div>
+            <button class="category-btn" data-category="traditional">
+                <span>Traditional Recipes</span>
+            </button>
+            <button class="category-btn" data-category="easy">
+                <span>Easy Recipes</span>
+            </button>
+            <button class="category-btn" data-category="hard">
+                <span>Hard Recipes</span>
+            </button>
         </div>
     </div>
-</div>
+</section>
+
+<!-- Recipe Section -->
+<section class="recipe">
+    <div class="recipe-container">
+        <div class="section-header">
+            <div class="section-badge">Authentic Nepali Recipes</div>
+            <h2 class="section-title">Explore Traditional Flavors</h2>
+        </div>
+        <div class="recipe-grid" id="recipe-grid">
+            <!-- Recipe cards will be dynamically inserted here -->
+        </div>
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be inserted here -->
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h3 class="newsletter-title">Stay Updated with Our Food Stories</h3>
+        <p class="newsletter-description">Subscribe to our newsletter for the latest recipes, articles, and insights about Nepali cuisine.</p>
+        <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-brand">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-mountain"></i>
-                </div>
-                Pure Everest
-            </div>
-            <p>
-                Bringing authentic Nepali flavors to the world with premium quality food products.
-                Trusted by customers in Japan, UK, and expanding globally.
-            </p>
+        <div class="footer-section">
+            <h3><i class="fas fa-mountain" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>Pure Everest</h3>
+            <p>Bringing authentic Nepali flavors to the world with premium quality food products and rich cultural stories.</p>
             <div class="social-links">
                 <a href="#" class="social-link">
                     <i class="fab fa-facebook-f"></i>
@@ -1423,7 +1140,6 @@
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
                 <li><a href="recipes.html"><i class="fas fa-utensils"></i> Recipes</a></li>
-                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
                 <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
@@ -1431,32 +1147,18 @@
         <div class="footer-section">
             <h3>Recipe Categories</h3>
             <ul class="footer-links">
-                <li><a href="#"><i class="fas fa-bowl-rice"></i> Main Dishes</a></li>
-                <li><a href="#"><i class="fas fa-cookie-bite"></i> Snacks</a></li>
-                <li><a href="#"><i class="fas fa-birthday-cake"></i> Desserts</a></li>
-                <li><a href="#"><i class="fas fa-pepper-hot"></i> Pickles</a></li>
-                <li><a href="#"><i class="fas fa-mug-hot"></i> Beverages</a></li>
+                <li><a href="#" data-category="traditional"><i class="fas fa-utensils"></i> Traditional Recipes</a></li>
+                <li><a href="#" data-category="easy"><i class="fas fa-check"></i> Easy Recipes</a></li>
+                <li><a href="#" data-category="hard"><i class="fas fa-star"></i> Hard Recipes</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
             <h3>Contact Info</h3>
-            <div style="margin-bottom: 1rem;">
-                <i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
-                info@pureeverest.com
-            </div>
-            <div style="margin-bottom: 1rem;">
-                <i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
-                +977-1-1234567
-            </div>
-            <div style="margin-bottom: 1rem;">
-                <i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
-                Kathmandu, Nepal
-            </div>
-            <div>
-                <i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 0.5rem;"></i>
-                Mon-Fri: 9AM-6PM
-            </div>
+            <p><i class="fas fa-envelope" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> info@pureeverest.com</p>
+            <p><i class="fas fa-phone" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> +977-1-1234567</p>
+            <p><i class="fas fa-map-marker-alt" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Kathmandu, Nepal</p>
+            <p><i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Last Updated: 07:32 PM +0545, Saturday, June 14, 2025</p>
         </div>
     </div>
 
@@ -1465,8 +1167,34 @@
     </div>
 </footer>
 
+<!-- Recipe Modal -->
+<div id="recipe-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-btn" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <div class="modal-meta">
+                <span><i class="fas fa-clock"></i> <span id="modal-prep-time"></span></span>
+                <span><i class="fas fa-utensils"></i> <span id="modal-servings"></span></span>
+                <span><i class="fas fa-fire"></i> <span id="modal-cook-time"></span></span>
+                <span><i class="fas fa-star"></i> <span id="modal-difficulty"></span></span>
+                <span><i class="fas fa-leaf"></i> <span id="modal-calories"></span></span>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-description" id="modal-description"></div>
+            <h3>Ingredients</h3>
+            <ul class="modal-ingredients" id="modal-ingredients"></ul>
+            <h3>Instructions</h3>
+            <ol class="modal-instructions" id="modal-instructions"></ol>
+        </div>
+    </div>
+</div>
+
 <script>
-    // Recipe data
+    // Recipe Data
     const recipes = {
         'dal-bhat': {
             title: 'Traditional Dal Bhat',
@@ -1664,451 +1392,335 @@
         }
     };
 
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
+    // Pagination variables
+    let currentPage = 1;
+    const recipesPerPage = 6;
+    let currentFilter = 'all';
+    let currentSearchTerm = '';
+    let filteredRecipes = Object.values(recipes);
+
+    // DOM Elements
+    const recipeGrid = document.getElementById('recipe-grid');
+    const searchInput = document.getElementById('search-input');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const modal = document.getElementById('recipe-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const header = document.getElementById('header');
+    const pagination = document.getElementById('pagination');
+    const newsletterForm = document.getElementById('newsletter-form');
+    const footerCategoryLinks = document.querySelectorAll('.footer-links a[data-category]');
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        showLoadingSkeletons();
+        setTimeout(() => {
+            applyFilters();
+            setupEventListeners();
+        }, 800);
+    });
+
+    function setupEventListeners() {
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                setActiveCategory(btn);
+                filterByCategory(category);
+                currentPage = 1;
+                renderPagination();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            currentSearchTerm = e.target.value.toLowerCase();
+            applyFilters();
+            currentPage = 1;
+            renderPagination();
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        newsletterForm.addEventListener('submit', handleNewsletterSubmit);
+
+        footerCategoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.getAttribute('data-category');
+                filterByCategoryFromFooter(category);
+            });
+        });
+    }
+
+    function showLoadingSkeletons() {
+        recipeGrid.innerHTML = '';
+        for (let i = 0; i < recipesPerPage; i++) {
+            recipeGrid.innerHTML += `
+                <div class="recipe-card">
+                    <div class="recipe-card-header skeleton"></div>
+                    <div class="recipe-card-content">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text short"></div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function renderRecipes() {
+        const startIndex = (currentPage - 1) * recipesPerPage;
+        const endIndex = startIndex + recipesPerPage;
+        const recipesToShow = filteredRecipes.slice(startIndex, endIndex);
+
+        recipeGrid.innerHTML = recipesToShow.map(recipe => createRecipeCard(recipe)).join('');
+
+        const cards = document.querySelectorAll('.recipe-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    }
+
+    function createRecipeCard(recipe) {
+        return `
+            <div class="recipe-card" data-recipe="${Object.keys(recipes).find(key => recipes[key] === recipe)}">
+                <div class="recipe-card-header" style="background-image: url('${recipe.image}');">
+                    <div class="difficulty">${recipe.difficulty}</div>
+                    <div class="time"><i class="fas fa-clock"></i> ${recipe.cookTime}</div>
+                </div>
+                <div class="recipe-card-content">
+                    <h3 class="recipe-card-title">${recipe.title}</h3>
+                    <div class="recipe-card-meta">
+                        <span class="servings">🍽️ ${recipe.servings}</span>
+                        <span class="calories">🔥 ${recipe.calories}</span>
+                    </div>
+                    <div class="recipe-card-actions">
+                        <button class="view-recipe" onclick="showRecipeModal('${Object.keys(recipes).find(key => recipes[key] === recipe)}')">View Recipe</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function setActiveCategory(activeBtn) {
+        categoryBtns.forEach(btn => btn.classList.remove('active'));
+        activeBtn.classList.add('active');
+    }
+
+    function filterByCategory(category) {
+        currentFilter = category;
+        applyFilters();
+    }
+
+    function filterByCategoryFromFooter(category) {
+        currentFilter = category;
+        currentPage = 1;
+
+        const correspondingBtn = Array.from(categoryBtns).find(btn =>
+            btn.getAttribute('data-category') === category
+        );
+
+        if (correspondingBtn) {
+            setActiveCategory(correspondingBtn);
+        } else {
+            setActiveCategory(document.querySelector('.category-btn[data-category="all"]'));
+        }
+
+        applyFilters();
+        renderPagination();
+        document.querySelector('.recipe').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function applyFilters() {
+        filteredRecipes = Object.values(recipes).filter(recipe => {
+            const matchesCategory = currentFilter === 'all' ||
+                (currentFilter === 'traditional' && recipe.difficulty !== 'Hard') ||
+                (currentFilter === 'easy' && recipe.difficulty === 'Easy') ||
+                (currentFilter === 'hard' && recipe.difficulty === 'Hard');
+            const matchesSearch = currentSearchTerm === '' ||
+                recipe.title.toLowerCase().includes(currentSearchTerm) ||
+                recipe.description.toLowerCase().includes(currentSearchTerm);
+
+            return matchesCategory && matchesSearch;
+        });
+
+        renderRecipes();
+        renderPagination();
+
+        if (filteredRecipes.length === 0) {
+            recipeGrid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 1rem;"></i>
+                    <h3 style="color: var(--dark-gray); margin-bottom: 0.5rem;">No recipes found</h3>
+                    <p style="color: var(--medium-gray);">Try adjusting your search or filter criteria</p>
+                </div>
+            `;
+        }
+    }
+
+    function renderPagination() {
+        const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
+
+        if (totalPages <= 1) {
+            pagination.innerHTML = '';
+            return;
+        }
+
+        let paginationHTML = `
+            <button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        `;
+
+        for (let i = 1; i <= totalPages; i++) {
+            paginationHTML += `
+                <button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
+                    ${i}
+                </button>
+            `;
+        }
+
+        paginationHTML += `
+            <button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        `;
+
+        pagination.innerHTML = paginationHTML;
+    }
+
+    function changePage(page) {
+        if (page < 1 || page > Math.ceil(filteredRecipes.length / recipesPerPage)) return;
+
+        currentPage = page;
+        renderRecipes();
+        renderPagination();
+        document.querySelector('.recipe').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showRecipeModal(recipeKey) {
+        const recipe = recipes[recipeKey];
+        document.getElementById('modal-title').textContent = recipe.title;
+        document.getElementById('modal-prep-time').textContent = recipe.prepTime;
+        document.getElementById('modal-servings').textContent = recipe.servings;
+        document.getElementById('modal-cook-time').textContent = recipe.cookTime;
+        document.getElementById('modal-difficulty').textContent = recipe.difficulty;
+        document.getElementById('modal-calories').textContent = recipe.calories;
+        document.getElementById('modal-description').textContent = recipe.description;
+        document.getElementById('modal-ingredients').innerHTML = recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
+        document.getElementById('modal-instructions').innerHTML = recipe.instructions.map(inst => `<li>${inst}</li>`).join('');
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function handleScroll() {
         if (window.scrollY > 100) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
-
-    // Filter functionality
-    document.querySelectorAll('.filter-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            const filter = tab.getAttribute('data-filter');
-            filterRecipes(filter);
-        });
-    });
-
-    function filterRecipes(category) {
-        const recipeCards = document.querySelectorAll('.recipe-card');
-
-        recipeCards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
-        });
     }
 
-    // Search functionality
-    document.getElementById('recipeSearch').addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const recipeCards = document.querySelectorAll('.recipe-card');
+    function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const email = e.target.querySelector('input').value;
 
-        recipeCards.forEach(card => {
-            const title = card.querySelector('.recipe-title').textContent.toLowerCase();
-            const description = card.querySelector('.recipe-description').textContent.toLowerCase();
-            const tags = Array.from(card.querySelectorAll('.recipe-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+        e.target.querySelector('button').disabled = true;
+        e.target.querySelector('button').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
 
-            if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
+        setTimeout(() => {
+            showToast('Thank you for subscribing to our newsletter!', 'success');
+            e.target.reset();
+            e.target.querySelector('button').disabled = false;
+            e.target.querySelector('button').innerHTML = 'Subscribe';
+        }, 1500);
+    }
 
-    // Modal functionality
-    function openRecipeModal(recipeId) {
-        const recipe = recipes[recipeId];
-        if (!recipe) return;
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.category-btn, .recipe-card, .cta-btn, .page-btn, .view-recipe')) {
+            const element = e.target.closest('.category-btn, .recipe-card, .cta-btn, .page-btn, .view-recipe');
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
 
-        const modalContent = document.getElementById('modalRecipeContent');
-        modalContent.innerHTML = `
-                <img src="${recipe.image}" alt="${recipe.title}" class="modal-recipe-image">
-                <div class="modal-recipe-content">
-                    <h2 class="modal-recipe-title">${recipe.title}</h2>
-                    <p style="color: var(--primary-gray); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">${recipe.description}</p>
-
-                    <div class="recipe-stats">
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="stat-label">Prep Time</div>
-                            <div class="stat-value">${recipe.prepTime}</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                            <div class="stat-label">Cook Time</div>
-                            <div class="stat-value">${recipe.cookTime}</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-label">Servings</div>
-                            <div class="stat-value">${recipe.servings}</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-label">Difficulty</div>
-                            <div class="stat-value">${recipe.difficulty}</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <div class="stat-label">Calories</div>
-                            <div class="stat-value">${recipe.calories}</div>
-                        </div>
-                    </div>
-
-                    <div class="ingredients-section">
-                        <h3 class="section-title">
-                            <i class="fas fa-list" style="color: var(--primary-orange);"></i>
-                            Ingredients
-                        </h3>
-                        <ul class="ingredients-list">
-                            ${recipe.ingredients.map(ingredient => `
-                                <li class="ingredient-item">
-                                    <div class="ingredient-check" onclick="toggleIngredient(this)">
-                                        <i class="fas fa-check" style="display: none;"></i>
-                                    </div>
-                                    <span>${ingredient}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-
-                    <div class="instructions-section">
-                        <h3 class="section-title">
-                            <i class="fas fa-tasks" style="color: var(--primary-orange);"></i>
-                            Instructions
-                        </h3>
-                        <ol class="instructions-list">
-                            ${recipe.instructions.map(instruction => `
-                                <li class="instruction-item">
-                                    <div class="instruction-number"></div>
-                                    <div class="instruction-text">${instruction}</div>
-                                </li>
-                            `).join('')}
-                        </ol>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-gray);">
-                        <button class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1rem;" onclick="shareRecipe('${recipeId}')">
-                            <i class="fas fa-share-alt"></i>
-                            Share Recipe
-                        </button>
-                        <button class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-size: 1rem; margin-left: 1rem;" onclick="printRecipe('${recipeId}')">
-                            <i class="fas fa-print"></i>
-                            Print Recipe
-                        </button>
-                    </div>
-                </div>
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                left: ${x}px;
+                top: ${y}px;
+                width: ${size}px;
+                height: ${size}px;
+                pointer-events: none;
             `;
 
-        const modal = document.getElementById('recipeModal');
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.appendChild(ripple);
 
-    function closeRecipeModal() {
-        const modal = document.getElementById('recipeModal');
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    function toggleIngredient(element) {
-        const check = element.querySelector('i');
-        const item = element.parentElement;
-
-        if (element.classList.contains('checked')) {
-            element.classList.remove('checked');
-            check.style.display = 'none';
-            item.style.opacity = '1';
-            item.style.textDecoration = 'none';
-        } else {
-            element.classList.add('checked');
-            check.style.display = 'block';
-            item.style.opacity = '0.6';
-            item.style.textDecoration = 'line-through';
-        }
-    }
-
-    function shareRecipe(recipeId) {
-        const recipe = recipes[recipeId];
-        if (navigator.share) {
-            navigator.share({
-                title: recipe.title,
-                text: recipe.description,
-                url: window.location.href
-            });
-        } else {
-            const url = window.location.href + '#' + recipeId;
-            navigator.clipboard.writeText(url).then(() => {
-                showToast('Recipe link copied to clipboard!', 'success');
-            });
-        }
-    }
-
-    document.getElementById('recipeModal').addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal-wrapper')) {
-            closeRecipeModal();
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
         }
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.getElementById('recipeModal').classList.contains('active')) {
-            closeRecipeModal();
-        }
-    });
-
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const animateElements = document.querySelectorAll('.recipe-card, .page-hero-content');
-        animateElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    });
-
-    document.addEventListener('mouseover', function(e) {
-        if (e.target.closest('.recipe-card')) {
-            const card = e.target.closest('.recipe-card');
-            const image = card.querySelector('.recipe-image');
-            if (image) image.style.transform = 'scale(1.1)';
-        }
-    });
-
-    document.addEventListener('mouseout', function(e) {
-        if (e.target.closest('.recipe-card')) {
-            const card = e.target.closest('.recipe-card');
-            const image = card.querySelector('.recipe-image');
-            if (image) image.style.transform = 'scale(1)';
-        }
-    });
-
-    function showToast(message, type = 'success') {
+    function showToast(message, type = 'info') {
         const toast = document.createElement('div');
         toast.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? 'var(--success)' : 'var(--primary-orange)'};
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 12px;
-                z-index: 3000;
-                animation: slideInRight 0.3s ease;
-                box-shadow: var(--shadow-xl);
-                font-weight: 600;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-            `;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'success' ? 'var(--success)' : 'var(--primary-orange)'};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        `;
         toast.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-                ${message}
-            `;
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+            ${message}
+        `;
 
         document.body.appendChild(toast);
 
         setTimeout(() => {
             toast.style.animation = 'slideOutRight 0.3s ease';
             setTimeout(() => {
-                if (document.body.contains(toast)) {
-                    document.body.removeChild(toast);
-                }
+                document.body.removeChild(toast);
             }, 300);
         }, 3000);
     }
 
-    window.addEventListener('load', () => {
-        document.body.style.opacity = '1';
-        document.body.style.transform = 'translateY(0)';
-
-        setTimeout(() => {
-            showToast('Welcome to Pure Everest Recipes! 🍽️', 'success');
-        }, 1500);
-    });
-
-    document.body.style.opacity = '0';
-    document.body.style.transform = 'translateY(20px)';
-    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-
-    document.querySelectorAll('.recipe-card, .recipe-action').forEach(element => {
-        element.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-
-            ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 107, 53, 0.3);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    left: ${x}px;
-                    top: ${y}px;
-                    width: ${size}px;
-                    height: ${size}px;
-                    pointer-events: none;
-                `;
-
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-                if (this.contains(ripple)) {
-                    this.removeChild(ripple);
-                }
-            }, 600);
-        });
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    function getRandomRecipes(currentRecipe, count = 3) {
-        const allRecipeIds = Object.keys(recipes);
-        const otherRecipes = allRecipeIds.filter(id => id !== currentRecipe);
-        const shuffled = otherRecipes.sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
-    }
-
-    const searchInput = document.getElementById('recipeSearch');
-    let searchTimeout;
-
-    searchInput.addEventListener('input', (e) => {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-            const searchTerm = e.target.value.toLowerCase();
-            filterRecipesBySearch(searchTerm);
-        }, 300);
-    });
-
-    function filterRecipesBySearch(searchTerm) {
-        const recipeCards = document.querySelectorAll('.recipe-card');
-        let visibleCount = 0;
-
-        recipeCards.forEach(card => {
-            const title = card.querySelector('.recipe-title').textContent.toLowerCase();
-            const description = card.querySelector('.recipe-description').textContent.toLowerCase();
-            const tags = Array.from(card.querySelectorAll('.recipe-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
-
-            if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
-                card.style.display = 'block';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-                visibleCount++;
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
-        });
-
-        let noResultsMessage = document.getElementById('noResultsMessage');
-        if (visibleCount === 0 && searchTerm !== '') {
-            if (!noResultsMessage) {
-                noResultsMessage = document.createElement('div');
-                noResultsMessage.id = 'noResultsMessage';
-                noResultsMessage.style.cssText = `
-                        text-align: center;
-                        padding: 4rem 2rem;
-                        color: var(--primary-gray);
-                        font-size: 1.1rem;
-                    `;
-                noResultsMessage.innerHTML = `
-                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                        <h3 style="margin-bottom: 0.5rem;">No recipes found</h3>
-                        <p>Try searching with different keywords or browse our categories above.</p>
-                    `;
-                document.querySelector('.recipes-grid').parentNode.appendChild(noResultsMessage);
-            }
-            noResultsMessage.style.display = 'block';
-        } else if (noResultsMessage) {
-            noResultsMessage.style.display = 'none';
-        }
-    }
-
-    function rateRecipe(recipeId, rating) {
-        showToast(`Thank you for rating ${recipes[recipeId].title}!`, 'success');
-    }
-
-    function printRecipe(recipeId) {
-        const recipe = recipes[recipeId];
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-                <html>
-                <head>
-                    <title>${recipe.title} - Pure Everest</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; padding: 20px; }
-                        h1 { color: #FF6B35; }
-                        .ingredients, .instructions { margin: 20px 0; }
-                        .ingredients li, .instructions li { margin: 10px 0; }
-                    </style>
-                </head>
-                <body>
-                    <h1>${recipe.title}</h1>
-                    <p>${recipe.description}</p>
-                    <div><strong>Prep Time:</strong> ${recipe.prepTime} | <strong>Cook Time:</strong> ${recipe.cookTime} | <strong>Servings:</strong> ${recipe.servings}</div>
-                    <div class="ingredients">
-                        <h2>Ingredients:</h2>
-                        <ul>${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}</ul>
-                    </div>
-                    <div class="instructions">
-                        <h2>Instructions:</h2>
-                        <ol>${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}</ol>
-                    </div>
-                </body>
-                </html>
-            `);
-        printWindow.document.close();
-        printWindow.print();
-    }
+    window.showRecipeModal = showRecipeModal;
+    window.changePage = changePage;
 </script>
 </body>
 </html>
