@@ -20,10 +20,11 @@
             <button class="cta-btn">
                 <span>Get Quote</span>
             </button>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </div>
-
-
 </header>
 
 <style>
@@ -221,6 +222,21 @@
         z-index: 1;
     }
 
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark-gray);
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+        color: var(--primary-orange);
+    }
+
     @media (max-width: 768px) {
         .header-content {
             padding: 0.75rem 0;
@@ -228,8 +244,49 @@
 
         .nav {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            flex-direction: column;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .nav.active {
+            display: flex;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .header-actions {
+            gap: 0.5rem;
         }
     }
 </style>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav');
 
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                console.log('Menu toggled'); // Debug log
+            });
+        } else {
+            console.error('Menu toggle or nav element not found'); // Debug error
+        }
+    });
+</script>
