@@ -1749,6 +1749,47 @@
         <i class="fas fa-seedling"></i>
     </div>
 </div>
+<script>
+    // Counter Animation
+    function animateCounter(target, element) {
+        let count = 0;
+        const speed = 50;
+        const increment = target / (20000 / speed);
+        const updateCount = () => {
+            count += increment;
+            if (count < target) {
+                element.textContent = Math.floor(count) + (element.dataset.suffix || '');
+                requestAnimationFrame(updateCount);
+            } else {
+                element.textContent = target + (element.dataset.suffix || '');
+            }
+        };
+        requestAnimationFrame(updateCount);
+    }
+
+    // Initialize Counters on Scroll
+    function initCounters() {
+        const statsSection = document.querySelector('.stats-section');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        if (statsSection) {
+            const sectionTop = statsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight - 100) {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.dataset.target);
+                    if (!stat.classList.contains('animated')) {
+                        animateCounter(target, stat);
+                        stat.classList.add('animated');
+                    }
+                });
+            }
+        }
+    }
+
+    window.addEventListener('scroll', initCounters);
+    window.addEventListener('load', initCounters);
+</script>
 </body>
 <footer class="footer">
     <div class="footer-content">
@@ -1825,5 +1866,6 @@
         <p>&copy; 2025 Pure Everest. All rights reserved. Made with ❤️ in Nepal</p>
     </div>
 </footer>
+
 </html>
 
