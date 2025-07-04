@@ -1480,7 +1480,21 @@
 
     fetch('header.html')
         .then(response => response.text())
-        .then(data => document.getElementById('header').innerHTML = data);
+        .then(data => {
+            document.getElementById('header').innerHTML = data
+            // Now run the "active link" code AFTER header is loaded
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            console.log('currentPage')
+            console.log('currentPage', currentPage)
+            const navLinks = document.querySelectorAll('.nav-link');
+            console.log('navLinks', navLinks)
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
     fetch('footer.html')
         .then(response => response.text())
         .then(data => document.getElementById('footer').innerHTML = data);
