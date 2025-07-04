@@ -368,50 +368,12 @@
 
         <div class="header-actions">
             <button class="cta-btn" id="getQuoteBtn">
-                <span>Get Quote</span>
+                <a href="quote.html" class="nav-link">Get Quote</a>
+                <span></span>
             </button>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 <i class="fas fa-bars"></i>
             </button>
-        </div>
-    </div>
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Request a Quote</h2>
-                <button class="close-btn" id="closeModalBtn">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="quoteForm">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product">Product:</label>
-                        <input type="text" id="product" name="product" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country:</label>
-                        <input type="text" id="country" name="country" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Submit</button>
-                </form>
-            </div>
         </div>
     </div>
 
