@@ -1,3 +1,1405 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Pure Everest - Contact Us</title>-->
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');-->
+
+<!--        /* Reset and Variables */-->
+<!--        * {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
+
+<!--        :root {-->
+<!--            &#45;&#45;primary-orange: #FF6B35;-->
+<!--            &#45;&#45;primary-orange-dark: #E5532B;-->
+<!--            &#45;&#45;secondary-orange: #FF8C42;-->
+<!--            &#45;&#45;accent-orange: #FFB366;-->
+<!--            &#45;&#45;light-orange: #FFF4F0;-->
+<!--            &#45;&#45;primary-black: #1A1A1A;-->
+<!--            &#45;&#45;secondary-black: #2D2D2D;-->
+<!--            &#45;&#45;soft-black: #3A3A3A;-->
+<!--            &#45;&#45;primary-gray: #6B7280;-->
+<!--            &#45;&#45;light-gray: #F3F4F6;-->
+<!--            &#45;&#45;medium-gray: #9CA3AF;-->
+<!--            &#45;&#45;dark-gray: #4B5563;-->
+<!--            &#45;&#45;border-gray: #E5E7EB;-->
+<!--            &#45;&#45;white: #FFFFFF;-->
+<!--            &#45;&#45;success: #10B981;-->
+<!--            &#45;&#45;warning: #F59E0B;-->
+<!--            &#45;&#45;danger: #EF4444;-->
+<!--            &#45;&#45;gradient-primary: linear-gradient(135deg, var(&#45;&#45;primary-orange) 0%, var(&#45;&#45;secondary-orange) 100%);-->
+<!--            &#45;&#45;gradient-hero: linear-gradient(135deg, var(&#45;&#45;primary-black) 0%, var(&#45;&#45;secondary-black) 50%, var(&#45;&#45;primary-orange) 100%);-->
+<!--            &#45;&#45;gradient-card: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);-->
+<!--            &#45;&#45;gradient-orange-soft: linear-gradient(135deg, var(&#45;&#45;light-orange) 0%, var(&#45;&#45;accent-orange) 100%);-->
+<!--            &#45;&#45;shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);-->
+<!--            &#45;&#45;shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);-->
+<!--            &#45;&#45;shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);-->
+<!--            &#45;&#45;shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);-->
+<!--            &#45;&#45;shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);-->
+<!--            &#45;&#45;shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.2);-->
+<!--            &#45;&#45;shadow-orange-lg: 0 20px 40px rgba(255, 107, 53, 0.3);-->
+<!--            &#45;&#45;border-radius: 20px;-->
+<!--            &#45;&#45;border-radius-sm: 12px;-->
+<!--            &#45;&#45;transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);-->
+<!--        }-->
+
+<!--        body {-->
+<!--            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;-->
+<!--            line-height: 1.6;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            background: var(&#45;&#45;light-gray);-->
+<!--            overflow-x: hidden;-->
+<!--        }-->
+
+<!--        html {-->
+<!--            scroll-behavior: smooth;-->
+<!--        }-->
+
+<!--        /* Header */-->
+
+
+
+
+<!--        /* Hero Section */-->
+<!--        .hero {-->
+<!--            background: var(&#45;&#45;gradient-hero);-->
+<!--            color: white;-->
+<!--            padding: 8rem 2rem 6rem;-->
+<!--            text-align: center;-->
+<!--            position: relative;-->
+<!--            overflow: hidden;-->
+<!--            margin-top: 80px;-->
+<!--        }-->
+
+<!--        .hero::before {-->
+<!--            content: '';-->
+<!--            position: absolute;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--            right: 0;-->
+<!--            bottom: 0;-->
+<!--            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hero-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,140,66,0.15)"/><circle cx="5" cy="25" r="1" fill="rgba(255,179,102,0.1)"/><circle cx="25" cy="5" r="1.5" fill="rgba(255,107,53,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hero-pattern)"/></svg>');-->
+<!--            animation: float 25s infinite;-->
+<!--        }-->
+
+<!--        .hero-content {-->
+<!--            max-width: 800px;-->
+<!--            margin: 0 auto;-->
+<!--            position: relative;-->
+<!--            z-index: 1;-->
+<!--        }-->
+
+<!--        .hero-badge {-->
+<!--            display: inline-flex;-->
+<!--            align-items: center;-->
+<!--            gap: 0.5rem;-->
+<!--            background: rgba(255, 140, 66, 0.2);-->
+<!--            backdrop-filter: blur(10px);-->
+<!--            padding: 0.75rem 1.5rem;-->
+<!--            border-radius: 50px;-->
+<!--            font-size: 0.875rem;-->
+<!--            font-weight: 600;-->
+<!--            margin-bottom: 2rem;-->
+<!--            border: 1px solid rgba(255, 140, 66, 0.3);-->
+<!--            animation: pulse 3s infinite;-->
+<!--        }-->
+
+<!--        .hero-title {-->
+<!--            font-size: clamp(2.5rem, 6vw, 4rem);-->
+<!--            font-weight: 900;-->
+<!--            margin-bottom: 1.5rem;-->
+<!--            line-height: 1.1;-->
+<!--            letter-spacing: -0.025em;-->
+<!--            transform: translateY(0);-->
+<!--            transition: transform 0.5s ease;-->
+<!--        }-->
+
+<!--        .hero-title .gradient-text {-->
+<!--            background: linear-gradient(135deg, var(&#45;&#45;accent-orange) 0%, var(&#45;&#45;secondary-orange) 100%);-->
+<!--            -webkit-background-clip: text;-->
+<!--            -webkit-text-fill-color: transparent;-->
+<!--            background-clip: text;-->
+<!--        }-->
+
+<!--        .hero-subtitle {-->
+<!--            font-size: 1.25rem;-->
+<!--            margin-bottom: 3rem;-->
+<!--            opacity: 0.9;-->
+<!--            line-height: 1.7;-->
+<!--            max-width: 600px;-->
+<!--            margin-left: auto;-->
+<!--            margin-right: auto;-->
+<!--            transform: translateY(0);-->
+<!--            transition: transform 0.5s ease;-->
+<!--        }-->
+
+<!--        .hero-cta {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: white;-->
+<!--            padding: 1rem 2rem;-->
+<!--            border-radius: 30px;-->
+<!--            text-decoration: none;-->
+<!--            font-weight: 600;-->
+<!--            display: inline-flex;-->
+<!--            align-items: center;-->
+<!--            gap: 0.5rem;-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--        }-->
+
+<!--        .hero-cta:hover {-->
+<!--            transform: translateY(-3px) scale(1.05);-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange-lg);-->
+<!--        }-->
+
+<!--        /* Contact Section */-->
+<!--        .contact-section {-->
+<!--            padding: 6rem 2rem;-->
+<!--            background: var(&#45;&#45;white);-->
+<!--        }-->
+
+<!--        .contact-container {-->
+<!--            max-width: 1400px;-->
+<!--            margin: 0 auto;-->
+<!--            display: grid;-->
+<!--            grid-template-columns: 1fr 1fr;-->
+<!--            gap: 4rem;-->
+<!--            align-items: start;-->
+<!--        }-->
+
+<!--        .contact-info {-->
+<!--            background: var(&#45;&#45;light-gray);-->
+<!--            padding: 3rem;-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            box-shadow: var(&#45;&#45;shadow);-->
+<!--        }-->
+
+<!--        .contact-info h2 {-->
+<!--            font-size: 2rem;-->
+<!--            font-weight: 800;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 1.5rem;-->
+<!--        }-->
+
+<!--        .contact-info p {-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            margin-bottom: 2rem;-->
+<!--            line-height: 1.7;-->
+<!--        }-->
+
+<!--        .contact-info-toggle {-->
+<!--            display: none;-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: white;-->
+<!--            padding: 0.75rem 1.5rem;-->
+<!--            border: none;-->
+<!--            border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--            font-weight: 600;-->
+<!--            cursor: pointer;-->
+<!--            margin-bottom: 1rem;-->
+<!--            width: 100%;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .contact-methods {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            gap: 1.5rem;-->
+<!--        }-->
+
+<!--        .contact-method {-->
+<!--            perspective: 1000px;-->
+<!--            height: 100px;-->
+<!--        }-->
+
+<!--        .contact-method-inner {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            gap: 1rem;-->
+<!--            padding: 1.5rem;-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--            box-shadow: var(&#45;&#45;shadow);-->
+<!--            transition: transform 0.6s;-->
+<!--            transform-style: preserve-3d;-->
+<!--            position: relative;-->
+<!--            height: 100%;-->
+<!--        }-->
+
+<!--        .contact-method:hover .contact-method-inner {-->
+<!--            transform: rotateY(180deg);-->
+<!--        }-->
+
+<!--        .contact-method-front, .contact-method-back {-->
+<!--            position: absolute;-->
+<!--            width: 100%;-->
+<!--            height: 100%;-->
+<!--            backface-visibility: hidden;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            gap: 1rem;-->
+<!--            padding: 1.5rem;-->
+<!--        }-->
+
+<!--        .contact-method-back {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: white;-->
+<!--            transform: rotateY(180deg);-->
+<!--            justify-content: center;-->
+<!--            text-align: center;-->
+<!--            font-weight: 600;-->
+<!--        }-->
+
+<!--        .contact-icon {-->
+<!--            width: 50px;-->
+<!--            height: 50px;-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            border-radius: 50%;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            color: white;-->
+<!--            font-size: 1.2rem;-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--        }-->
+
+<!--        .contact-details h3 {-->
+<!--            font-weight: 600;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 0.25rem;-->
+<!--        }-->
+
+<!--        .contact-details p {-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        .social-section {-->
+<!--            margin-top: 2rem;-->
+<!--            padding-top: 2rem;-->
+<!--            border-top: 1px solid var(&#45;&#45;border-gray);-->
+<!--        }-->
+
+<!--        .social-section h3 {-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 1rem;-->
+<!--            font-weight: 700;-->
+<!--        }-->
+
+<!--        .social-links {-->
+<!--            display: flex;-->
+<!--            gap: 1rem;-->
+<!--        }-->
+
+<!--        .social-link {-->
+<!--            width: 45px;-->
+<!--            height: 45px;-->
+<!--            background: var(&#45;&#45;secondary-black);-->
+<!--            border-radius: 12px;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            color: var(&#45;&#45;light-gray);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--            text-decoration: none;-->
+<!--        }-->
+
+<!--        .social-link:hover {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: white;-->
+<!--            transform: translateY(-3px) scale(1.1);-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange);-->
+<!--        }-->
+
+<!--        /* Contact Form */-->
+<!--        .contact-form-section {-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            padding: 3rem;-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            box-shadow: var(&#45;&#45;shadow-lg);-->
+<!--            border: 1px solid var(&#45;&#45;border-gray);-->
+<!--            position: sticky;-->
+<!--            top: 100px;-->
+<!--        }-->
+
+<!--        .form-header {-->
+<!--            text-align: center;-->
+<!--            margin-bottom: 2rem;-->
+<!--        }-->
+
+<!--        .form-badge {-->
+<!--            display: inline-block;-->
+<!--            background: var(&#45;&#45;light-orange);-->
+<!--            color: var(&#45;&#45;primary-orange);-->
+<!--            padding: 0.5rem 1rem;-->
+<!--            border-radius: 25px;-->
+<!--            font-size: 0.875rem;-->
+<!--            font-weight: 700;-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .form-title {-->
+<!--            font-size: 1.75rem;-->
+<!--            font-weight: 800;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 0.5rem;-->
+<!--        }-->
+
+<!--        .form-subtitle {-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            line-height: 1.6;-->
+<!--        }-->
+
+<!--        .contact-form {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            gap: 1.5rem;-->
+<!--        }-->
+
+<!--        .form-group {-->
+<!--            position: relative;-->
+<!--        }-->
+
+<!--        .form-row {-->
+<!--            display: grid;-->
+<!--            grid-template-columns: 1fr 1fr;-->
+<!--            gap: 1rem;-->
+<!--        }-->
+
+<!--        .form-label {-->
+<!--            position: absolute;-->
+<!--            top: 1rem;-->
+<!--            left: 1.25rem;-->
+<!--            font-weight: 600;-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--            pointer-events: none;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            gap: 0.5rem;-->
+<!--        }-->
+
+<!--        .form-input:focus + .form-label,-->
+<!--        .form-input:not(:placeholder-shown) + .form-label {-->
+<!--            top: -0.75rem;-->
+<!--            left: 1rem;-->
+<!--            font-size: 0.75rem;-->
+<!--            color: var(&#45;&#45;primary-orange);-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            padding: 0 0.25rem;-->
+<!--        }-->
+
+<!--        .form-input {-->
+<!--            padding: 1rem 1.25rem;-->
+<!--            border: 2px solid var(&#45;&#45;border-gray);-->
+<!--            border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            outline: none;-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--            font-size: 1rem;-->
+<!--            font-family: inherit;-->
+<!--        }-->
+
+<!--        .form-input:focus {-->
+<!--            border-color: var(&#45;&#45;primary-orange);-->
+<!--            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);-->
+<!--        }-->
+
+<!--        .form-input:valid:not(:placeholder-shown) {-->
+<!--            border-color: var(&#45;&#45;success);-->
+<!--        }-->
+
+<!--        .form-input:invalid:not(:placeholder-shown) {-->
+<!--            border-color: var(&#45;&#45;danger);-->
+<!--        }-->
+
+<!--        .form-textarea {-->
+<!--            min-height: 120px;-->
+<!--            resize: vertical;-->
+<!--        }-->
+
+<!--        .form-select {-->
+<!--            appearance: none;-->
+<!--            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23FF6B35" stroke-width="2"><polyline points="6,9 12,15 18,9"></polyline></svg>');-->
+<!--            background-repeat: no-repeat;-->
+<!--            background-position: right 1rem center;-->
+<!--            background-size: 1rem;-->
+<!--            padding-right: 3rem;-->
+<!--        }-->
+
+<!--        .form-error {-->
+<!--            color: var(&#45;&#45;danger);-->
+<!--            font-size: 0.875rem;-->
+<!--            margin-top: 0.25rem;-->
+<!--            display: none;-->
+<!--        }-->
+
+<!--        .form-input:invalid:not(:placeholder-shown) + .form-label + .form-error {-->
+<!--            display: block;-->
+<!--        }-->
+
+<!--        .form-progress {-->
+<!--            position: relative;-->
+<!--            width: 60px;-->
+<!--            height: 60px;-->
+<!--            margin: 0 auto 1rem;-->
+<!--        }-->
+
+<!--        .form-progress svg {-->
+<!--            width: 100%;-->
+<!--            height: 100%;-->
+<!--            transform: rotate(-90deg);-->
+<!--        }-->
+
+<!--        .form-progress-circle {-->
+<!--            fill: none;-->
+<!--            stroke: var(&#45;&#45;border-gray);-->
+<!--            stroke-width: 4;-->
+<!--        }-->
+
+<!--        .form-progress-bar {-->
+<!--            fill: none;-->
+<!--            stroke: var(&#45;&#45;primary-orange);-->
+<!--            stroke-width: 4;-->
+<!--            stroke-linecap: round;-->
+<!--            transition: stroke-dashoffset 0.3s ease;-->
+<!--        }-->
+
+<!--        .form-progress-text {-->
+<!--            position: absolute;-->
+<!--            top: 50%;-->
+<!--            left: 50%;-->
+<!--            transform: translate(-50%, -50%);-->
+<!--            font-size: 0.875rem;-->
+<!--            font-weight: 600;-->
+<!--            color: var(&#45;&#45;primary-orange);-->
+<!--        }-->
+
+<!--        .character-counter {-->
+<!--            font-size: 0.875rem;-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            text-align: right;-->
+<!--            margin-top: 0.25rem;-->
+<!--        }-->
+
+<!--        .submit-btn {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: white;-->
+<!--            padding: 1.25rem 2rem;-->
+<!--            border: none;-->
+<!--            border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--            font-weight: 600;-->
+<!--            font-size: 1.1rem;-->
+<!--            cursor: pointer;-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange);-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            gap: 0.75rem;-->
+<!--            position: relative;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+<!--        .submit-btn:hover {-->
+<!--            transform: translateY(-3px) scale(1.05);-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange-lg);-->
+<!--        }-->
+
+<!--        .submit-btn:active {-->
+<!--            transform: translateY(-1px);-->
+<!--        }-->
+
+<!--        .submit-btn:disabled {-->
+<!--            background: var(&#45;&#45;medium-gray);-->
+<!--            cursor: not-allowed;-->
+<!--            box-shadow: none;-->
+<!--        }-->
+
+<!--        /* Map Section */-->
+<!--        .map-section {-->
+<!--            padding: 4rem 2rem;-->
+<!--            background: var(&#45;&#45;light-gray);-->
+<!--        }-->
+
+<!--        .map-container {-->
+<!--            max-width: 1400px;-->
+<!--            margin: 0 auto;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .map-header {-->
+<!--            margin-bottom: 3rem;-->
+<!--        }-->
+
+<!--        .section-badge {-->
+<!--            display: inline-block;-->
+<!--            background: var(&#45;&#45;light-orange);-->
+<!--            color: var(&#45;&#45;primary-orange);-->
+<!--            padding: 0.5rem 1rem;-->
+<!--            border-radius: 25px;-->
+<!--            font-size: 0.875rem;-->
+<!--            font-weight: 700;-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .section-title {-->
+<!--            font-size: 2.5rem;-->
+<!--            font-weight: 800;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .map-placeholder {-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            box-shadow: var(&#45;&#45;shadow-lg);-->
+<!--            height: 400px;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            border: 1px solid var(&#45;&#45;border-gray);-->
+<!--            position: relative;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+<!--        .map-content {-->
+<!--            text-align: center;-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--        }-->
+
+<!--        .map-icon {-->
+<!--            font-size: 3rem;-->
+<!--            color: var(&#45;&#45;primary-orange);-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        /* Footer */-->
+
+
+<!--        /* Floating Action Menu */-->
+<!--        .action-menu {-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--            z-index: 2000;-->
+<!--        }-->
+
+<!--        .action-toggle {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: white;-->
+<!--            width: 60px;-->
+<!--            height: 60px;-->
+<!--            border-radius: 50%;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange-lg);-->
+<!--            cursor: pointer;-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--        }-->
+
+<!--        .action-toggle:hover {-->
+<!--            transform: scale(1.1);-->
+<!--            box-shadow: var(&#45;&#45;shadow-xl);-->
+<!--        }-->
+
+<!--        .action-items {-->
+<!--            position: absolute;-->
+<!--            bottom: 70px;-->
+<!--            right: 0;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            gap: 1rem;-->
+<!--            opacity: 0;-->
+<!--            visibility: hidden;-->
+<!--            transform: translateY(20px);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--        }-->
+
+<!--        .action-menu.open .action-items {-->
+<!--            opacity: 1;-->
+<!--            visibility: visible;-->
+<!--            transform: translateY(0);-->
+<!--        }-->
+
+<!--        .action-item {-->
+<!--            background: var(&#45;&#45;secondary-black);-->
+<!--            color: white;-->
+<!--            width: 50px;-->
+<!--            height: 50px;-->
+<!--            border-radius: 50%;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            box-shadow: var(&#45;&#45;shadow);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--        }-->
+
+<!--        .action-item:hover {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            transform: scale(1.1);-->
+<!--        }-->
+
+<!--        /* Animations */-->
+<!--        @keyframes float {-->
+<!--            0%, 100% { transform: translateY(0px) rotate(0deg); }-->
+<!--            33% { transform: translateY(-20px) rotate(1deg); }-->
+<!--            66% { transform: translateY(10px) rotate(-1deg); }-->
+<!--        }-->
+
+<!--        @keyframes pulse {-->
+<!--            0%, 100% { transform: scale(1); }-->
+<!--            50% { transform: scale(1.05); }-->
+<!--        }-->
+
+<!--        /* Mobile Responsiveness */-->
+<!--        @media (max-width: 768px) {-->
+
+
+<!--            .hero {-->
+<!--                padding: 6rem 1rem 4rem;-->
+<!--            }-->
+
+<!--            .contact-container {-->
+<!--                grid-template-columns: 1fr;-->
+<!--                gap: 3rem;-->
+<!--            }-->
+
+<!--            .contact-info,-->
+<!--            .contact-form-section {-->
+<!--                padding: 2rem;-->
+<!--            }-->
+
+<!--            .contact-info-toggle {-->
+<!--                display: block;-->
+<!--            }-->
+
+<!--            .contact-methods,-->
+<!--            .social-section {-->
+<!--                display: none;-->
+<!--            }-->
+
+<!--            .contact-info.active .contact-methods,-->
+<!--            .contact-info.active .social-section {-->
+<!--                display: block;-->
+<!--            }-->
+
+<!--            .form-row {-->
+<!--                grid-template-columns: 1fr;-->
+<!--            }-->
+
+<!--            .contact-section {-->
+<!--                padding: 4rem 1rem;-->
+<!--            }-->
+
+<!--            .map-section {-->
+<!--                padding: 3rem 1rem;-->
+<!--            }-->
+
+<!--            .social-links {-->
+<!--                justify-content: center;-->
+<!--            }-->
+
+<!--            .footer-content {-->
+<!--                text-align: center;-->
+<!--            }-->
+
+<!--            .contact-form-section {-->
+<!--                position: static;-->
+<!--            }-->
+<!--        }-->
+
+<!--        @media (max-width: 480px) {-->
+<!--            .hero-title {-->
+<!--                font-size: 2rem;-->
+<!--            }-->
+
+<!--            .contact-info,-->
+<!--            .contact-form-section {-->
+<!--                padding: 1.5rem;-->
+<!--            }-->
+
+<!--            .contact-methods {-->
+<!--                gap: 1rem;-->
+<!--            }-->
+
+<!--            .contact-method-inner {-->
+<!--                padding: 1rem;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash; Header &ndash;&gt;-->
+
+<!--<div id="header"></div>-->
+<!--&lt;!&ndash; Hero Section &ndash;&gt;-->
+<!--<section class="hero" id="hero">-->
+<!--    <div class="hero-content">-->
+<!--        <div class="hero-badge">-->
+<!--            <i class="fas fa-envelope"></i>-->
+<!--            Get In Touch-->
+<!--        </div>-->
+
+<!--        <h1 class="hero-title">-->
+<!--            <span class="gradient-text">Contact</span> Pure Everest-->
+<!--        </h1>-->
+
+<!--        <p class="hero-subtitle">-->
+<!--            Ready to experience authentic Nepali flavors? Reach out to us for product inquiries,-->
+<!--            export opportunities, or any questions about our premium food products.-->
+<!--        </p>-->
+
+<!--        <a href="#contact-form" class="hero-cta" aria-label="Go to Contact Form">-->
+<!--            <i class="fas fa-paper-plane"></i>-->
+<!--            <span>Contact Us Now</span>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Contact Section &ndash;&gt;-->
+<!--<section class="contact-section">-->
+<!--    <div class="contact-container">-->
+<!--        &lt;!&ndash; Contact Information &ndash;&gt;-->
+<!--        <div class="contact-info" id="contact-info">-->
+<!--            <button class="contact-info-toggle" aria-controls="contact-methods social-section" aria-expanded="false">-->
+<!--                Contact Details-->
+<!--            </button>-->
+<!--            <h2>Let's Connect</h2>-->
+<!--            <p>We're here to help you discover the authentic taste of Nepal. Whether you're interested in our products, have questions about exports, or want to learn more about our company, we'd love to hear from you.</p>-->
+
+<!--            <div class="contact-methods" id="contact-methods">-->
+<!--                <div class="contact-method" tabindex="0" role="button" aria-label="Visit Our Office">-->
+<!--                    <div class="contact-method-inner">-->
+<!--                        <div class="contact-method-front">-->
+<!--                            <div class="contact-icon">-->
+<!--                                <i class="fas fa-map-marker-alt"></i>-->
+<!--                            </div>-->
+<!--                            <div class="contact-details">-->
+<!--                                <h3>Visit Our Office</h3>-->
+<!--                                <p>Kathmandu, Nepal<br>Central Business District</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact-method-back">-->
+<!--                            Visit Us Today!-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="contact-method" tabindex="0" role="button" aria-label="Call Us">-->
+<!--                    <div class="contact-method-inner">-->
+<!--                        <div class="contact-method-front">-->
+<!--                            <div class="contact-icon">-->
+<!--                                <i class="fas fa-phone"></i>-->
+<!--                            </div>-->
+<!--                            <div class="contact-details">-->
+<!--                                <h3>Call Us</h3>-->
+<!--                                <p>+977-1-1234567<br>Mon-Fri: 9AM-6PM NPT</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact-method-back">-->
+<!--                            Give Us a Call!-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="contact-method" tabindex="0" role="button" aria-label="Email Us">-->
+<!--                    <div class="contact-method-inner">-->
+<!--                        <div class="contact-method-front">-->
+<!--                            <div class="contact-icon">-->
+<!--                                <i class="fas fa-envelope"></i>-->
+<!--                            </div>-->
+<!--                            <div class="contact-details">-->
+<!--                                <h3>Email Us</h3>-->
+<!--                                <p>info@pureeverest.com<br>sales@pureeverest.com</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact-method-back">-->
+<!--                            Send an Email!-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="contact-method" tabindex="0" role="button" aria-label="Business Hours">-->
+<!--                    <div class="contact-method-inner">-->
+<!--                        <div class="contact-method-front">-->
+<!--                            <div class="contact-icon">-->
+<!--                                <i class="fas fa-clock"></i>-->
+<!--                            </div>-->
+<!--                            <div class="contact-details">-->
+<!--                                <h3>Business Hours</h3>-->
+<!--                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="contact-method-back">-->
+<!--                            Check Our Hours!-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="social-section" id="social-section">-->
+<!--                <h3>Follow Us</h3>-->
+<!--                <div class="social-links">-->
+<!--                    <a href="#" class="social-link" aria-label="Facebook">-->
+<!--                        <i class="fab fa-facebook-f"></i>-->
+<!--                    </a>-->
+<!--                    <a href="#" class="social-link" aria-label="Instagram">-->
+<!--                        <i class="fab fa-instagram"></i>-->
+<!--                    </a>-->
+<!--                    <a href="#" class="social-link" aria-label="Twitter">-->
+<!--                        <i class="fab fa-twitter"></i>-->
+<!--                    </a>-->
+<!--                    <a href="#" class="social-link" aria-label="LinkedIn">-->
+<!--                        <i class="fab fa-linkedin-in"></i>-->
+<!--                    </a>-->
+<!--                    <a href="#" class="social-link" aria-label="WhatsApp">-->
+<!--                        <i class="fab fa-whatsapp"></i>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Contact Form &ndash;&gt;-->
+<!--        <div class="contact-form-section">-->
+<!--            <div class="form-header">-->
+<!--                <span class="form-badge">Send Message</span>-->
+<!--                <h2 class="form-title">How Can We Help?</h2>-->
+<!--                <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>-->
+<!--            </div>-->
+
+<!--            <div class="form-progress">-->
+<!--                <svg>-->
+<!--                    <circle class="form-progress-circle" cx="30" cy="30" r="28"></circle>-->
+<!--                    <circle class="form-progress-bar" cx="30" cy="30" r="28" stroke-dasharray="175.93" stroke-dashoffset="175.93"></circle>-->
+<!--                </svg>-->
+<!--                <span class="form-progress-text">0%</span>-->
+<!--            </div>-->
+
+<!--            <form class="contact-form" id="contact-form">-->
+<!--                <div class="form-row">-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" id="firstName" name="firstName" class="form-input" required placeholder=" " aria-required="true">-->
+<!--                        <label class="form-label" for="firstName">-->
+<!--                            <i class="fas fa-user"></i>-->
+<!--                            First Name-->
+<!--                        </label>-->
+<!--                        <span class="form-error">Please enter your first name</span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" id="lastName" name="lastName" class="form-input" required placeholder=" " aria-required="true">-->
+<!--                        <label class="form-label" for="lastName">-->
+<!--                            <i class="fas fa-user"></i>-->
+<!--                            Last Name-->
+<!--                        </label>-->
+<!--                        <span class="form-error">Please enter your last name</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="form-row">-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="email" id="email" name="email" class="form-input" required placeholder=" " aria-required="true">-->
+<!--                        <label class="form-label" for="email">-->
+<!--                            <i class="fas fa-envelope"></i>-->
+<!--                            Email Address-->
+<!--                        </label>-->
+<!--                        <span class="form-error">Please enter a valid email address</span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="tel" id="phone" name="phone" class="form-input" placeholder=" " pattern="[0-9]{10,15}">-->
+<!--                        <label class="form-label" for="phone">-->
+<!--                            <i class="fas fa-phone"></i>-->
+<!--                            Phone Number-->
+<!--                        </label>-->
+<!--                        <span class="form-error">Please enter a valid phone number</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <select id="inquiryType" name="inquiryType" class="form-input form-select" required aria-required="true">-->
+<!--                        <option value="">Select inquiry type...</option>-->
+<!--                        <option value="product">Product Information</option>-->
+<!--                        <option value="export">Export Opportunities</option>-->
+<!--                        <option value="wholesale">Wholesale Orders</option>-->
+<!--                        <option value="partnership">Partnership</option>-->
+<!--                        <option value="other">Other</option>-->
+<!--                    </select>-->
+<!--                    <label class="form-label" for="inquiryType">-->
+<!--                        <i class="fas fa-tag"></i>-->
+<!--                        Inquiry Type-->
+<!--                    </label>-->
+<!--                    <span class="form-error">Please select an inquiry type</span>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <input type="text" id="subject" name="subject" class="form-input" required placeholder=" " aria-required="true">-->
+<!--                    <label class="form-label" for="subject">-->
+<!--                        <i class="fas fa-heading"></i>-->
+<!--                        Subject-->
+<!--                    </label>-->
+<!--                    <span class="form-error">Please enter a subject</span>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder=" " required aria-required="true" maxlength="500"></textarea>-->
+<!--                    <label class="form-label" for="message">-->
+<!--                        <i class="fas fa-comment"></i>-->
+<!--                        Message-->
+<!--                    </label>-->
+<!--                    <span class="form-error">Please enter your message</span>-->
+<!--                    <span class="character-counter">0/500</span>-->
+<!--                </div>-->
+
+<!--                <button type="submit" class="submit-btn" id="submit-btn" disabled aria-label="Submit Contact Form">-->
+<!--                    <i class="fas fa-paper-plane"></i>-->
+<!--                    <span>Send Message</span>-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Map Section &ndash;&gt;-->
+<!--<section class="map-section">-->
+<!--    <div class="map-container">-->
+<!--        <div class="map-header">-->
+<!--            <span class="section-badge">Find Us</span>-->
+<!--            <h2 class="section-title">Our Location</h2>-->
+<!--            <p style="color: var(&#45;&#45;primary-gray); max-width: 600px; margin: 0 auto;">-->
+<!--                Located in the heart of Kathmandu, Nepal, we're strategically positioned to serve both local and international markets.-->
+<!--            </p>-->
+<!--        </div>-->
+
+<!--        <div class="map-placeholder">-->
+<!--            <div class="map-content">-->
+<!--                <i class="fas fa-map-marked-alt map-icon"></i>-->
+<!--                <h3 style="color: var(&#45;&#45;primary-black); margin-bottom: 0.5rem;">Interactive Map</h3>-->
+<!--                <p>Kathmandu, Nepal - Central Business District</p>-->
+<!--                <p style="font-size: 0.875rem; margin-top: 1rem;">-->
+<!--                    <i class="fas fa-info-circle" style="color: var(&#45;&#45;primary-orange);"></i>-->
+<!--                    Map integration available for production-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; FAQ Section &ndash;&gt;-->
+<!--<section style="padding: 6rem 2rem; background: var(&#45;&#45;white);">-->
+<!--    <div style="max-width: 1000px; margin: 0 auto;">-->
+<!--        <div style="text-align: center; margin-bottom: 4rem;">-->
+<!--            <span class="section-badge">FAQ</span>-->
+<!--            <h2 class="section-title">Frequently Asked Questions</h2>-->
+<!--            <p style="color: var(&#45;&#45;primary-gray); font-size: 1.125rem;">-->
+<!--                Quick answers to common questions about our products and services.-->
+<!--            </p>-->
+<!--        </div>-->
+
+<!--        <div style="display: flex; flex-direction: column; gap: 1rem;">-->
+<!--            <div class="faq-item" style="background: var(&#45;&#45;light-gray); border-radius: var(&#45;&#45;border-radius-sm); overflow: hidden; border: 1px solid var(&#45;&#45;border-gray);" role="region" aria-labelledby="faq1">-->
+<!--                <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: none; border: none; text-align: left; font-weight: 600; color: var(&#45;&#45;primary-black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(&#45;&#45;transition);" id="faq1" aria-expanded="false">-->
+<!--                    <span>What types of Nepali food products do you export?</span>-->
+<!--                    <i class="fas fa-chevron-down" style="color: var(&#45;&#45;primary-orange); transition: var(&#45;&#45;transition);"></i>-->
+<!--                </button>-->
+<!--                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: var(&#45;&#45;transition);">-->
+<!--                    <div style="padding: 0 1.5rem 1.5rem; color: var(&#45;&#45;primary-gray); line-height: 1.6;">-->
+<!--                        We specialize in authentic Nepali food products including flattened rice (chiura), various traditional pickles, lentils (dal), semolina (suji), soya chunks, and other traditional grains and snacks. All our products are made using traditional methods with modern quality standards.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="faq-item" style="background: var(&#45;&#45;light-gray); border-radius: var(&#45;&#45;border-radius-sm); overflow: hidden; border: 1px solid var(&#45;&#45;border-gray);" role="region" aria-labelledby="faq2">-->
+<!--                <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: none; border: none; text-align: left; font-weight: 600; color: var(&#45;&#45;primary-black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(&#45;&#45;transition);" id="faq2" aria-expanded="false">-->
+<!--                    <span>Which countries do you currently export to?</span>-->
+<!--                    <i class="fas fa-chevron-down" style="color: var(&#45;&#45;primary-orange); transition: var(&#45;&#45;transition);"></i>-->
+<!--                </button>-->
+<!--                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: var(&#45;&#45;transition);">-->
+<!--                    <div style="padding: 0 1.5rem 1.5rem; color: var(&#45;&#45;primary-gray); line-height: 1.6;">-->
+<!--                        Currently, we export to Japan and the United Kingdom, with plans to expand to other international markets. We're always exploring new opportunities to bring authentic Nepali flavors to global customers.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="faq-item" style="background: var(&#45;&#45;light-gray); border-radius: var(&#45;&#45;border-radius-sm); overflow: hidden; border: 1px solid var(&#45;&#45;border-gray);" role="region" aria-labelledby="faq3">-->
+<!--                <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: none; border: none; text-align: left; font-weight: 600; color: var(&#45;&#45;primary-black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(&#45;&#45;transition);" id="faq3" aria-expanded="false">-->
+<!--                    <span>What are your minimum order quantities for wholesale?</span>-->
+<!--                    <i class="fas fa-chevron-down" style="color: var(&#45;&#45;primary-orange); transition: var(&#45;&#45;transition);"></i>-->
+<!--                </button>-->
+<!--                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: var(&#45;&#45;transition);">-->
+<!--                    <div style="padding: 0 1.5rem 1.5rem; color: var(&#45;&#45;primary-gray); line-height: 1.6;">-->
+<!--                        Minimum order quantities vary by product and destination. Please contact us directly with your specific requirements, and our sales team will provide detailed information about pricing and minimum orders.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="faq-item" style="background: var(&#45;&#45;light-gray); border-radius: var(&#45;&#45;border-radius-sm); overflow: hidden; border: 1px solid var(&#45;&#45;border-gray);" role="region" aria-labelledby="faq4">-->
+<!--                <button class="faq-question" onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: none; border: none; text-align: left; font-weight: 600; color: var(&#45;&#45;primary-black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(&#45;&#45;transition);" id="faq4" aria-expanded="false">-->
+<!--                    <span>Do you provide certificates and quality documentation?</span>-->
+<!--                    <i class="fas fa-chevron-down" style="color: var(&#45;&#45;primary-orange); transition: var(&#45;&#45;transition);"></i>-->
+<!--                </button>-->
+<!--                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: var(&#45;&#45;transition);">-->
+<!--                    <div style="padding: 0 1.5rem 1.5rem; color: var(&#45;&#45;primary-gray); line-height: 1.6;">-->
+<!--                        Yes, we provide all necessary certificates including food safety certifications, organic certificates where applicable, and export documentation required by destination countries. Quality assurance is our top priority.-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<div id="footer"></div>-->
+<!--&lt;!&ndash; Floating Action Menu &ndash;&gt;-->
+<!--<div class="action-menu" id="action-menu">-->
+<!--    <div class="action-toggle" aria-label="Toggle Contact Options" role="button" tabindex="0">-->
+<!--        <i class="fas fa-plus" id="action-toggle-icon"></i>-->
+<!--    </div>-->
+<!--    <div class="action-items">-->
+<!--        <a href="tel:+97711234567" class="action-item" aria-label="Call Us">-->
+<!--            <i class="fas fa-phone"></i>-->
+<!--        </a>-->
+<!--        <a href="mailto:info@pureeverest.com" class="action-item" aria-label="Email Us">-->
+<!--            <i class="fas fa-envelope"></i>-->
+<!--        </a>-->
+<!--        <div class="action-item" onclick="showToast('Live chat coming soon!', 'info')" aria-label="Start Live Chat">-->
+<!--            <i class="fas fa-comment-dots"></i>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    fetch('header.html')-->
+<!--        .then(response => response.text())-->
+<!--        .then(data => {-->
+<!--            document.getElementById('header').innerHTML = data-->
+<!--            // Now run the "active link" code AFTER header is loaded-->
+<!--            const currentPage = window.location.pathname.split('/').pop() || 'index.html';-->
+<!--            console.log('currentPage')-->
+<!--            console.log('currentPage', currentPage)-->
+<!--            const navLinks = document.querySelectorAll('.nav-link');-->
+<!--            console.log('navLinks', navLinks)-->
+<!--            navLinks.forEach(link => {-->
+<!--                link.classList.remove('active');-->
+<!--                if (link.getAttribute('href') === currentPage) {-->
+<!--                    link.classList.add('active');-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    fetch('footer.html')-->
+<!--        .then(response => response.text())-->
+<!--        .then(data => document.getElementById('footer').innerHTML = data);-->
+<!--    // Header scroll effect-->
+<!--    window.addEventListener('scroll', () => {-->
+<!--        const header = document.getElementById('header');-->
+<!--        if (window.scrollY > 100) {-->
+<!--            header.classList.add('scrolled');-->
+<!--        } else {-->
+<!--            header.classList.remove('scrolled');-->
+<!--        }-->
+<!--    });-->
+
+<!--    // Hero parallax effect-->
+<!--    window.addEventListener('scroll', () => {-->
+<!--        const hero = document.getElementById('hero');-->
+<!--        const title = hero.querySelector('.hero-title');-->
+<!--        const subtitle = hero.querySelector('.hero-subtitle');-->
+<!--        const scrollPos = window.scrollY;-->
+<!--        title.style.transform = `translateY(${scrollPos * 0.2}px)`;-->
+<!--        subtitle.style.transform = `translateY(${scrollPos * 0.1}px)`;-->
+<!--    });-->
+
+<!--    // Contact form handling-->
+<!--    const form = document.getElementById('contact-form');-->
+<!--    const submitBtn = document.getElementById('submit-btn');-->
+<!--    const progressBar = form.querySelector('.form-progress-bar');-->
+<!--    const progressText = form.querySelector('.form-progress-text');-->
+<!--    const inputs = form.querySelectorAll('.form-input');-->
+<!--    const textarea = document.getElementById('message');-->
+<!--    const charCounter = form.querySelector('.character-counter');-->
+
+<!--    form.addEventListener('submit', function(e) {-->
+<!--        e.preventDefault();-->
+<!--        const originalContent = submitBtn.innerHTML;-->
+<!--        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';-->
+<!--        submitBtn.disabled = true;-->
+
+<!--        setTimeout(() => {-->
+<!--            submitBtn.innerHTML = '<i class="fas fa-check"></i> <span>Message Sent!</span>';-->
+<!--            submitBtn.style.background = 'var(&#45;&#45;success)';-->
+<!--            showToast('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.', 'success');-->
+<!--            form.reset();-->
+<!--            progressBar.setAttribute('stroke-dashoffset', '175.93');-->
+<!--            progressText.textContent = '0%';-->
+<!--            charCounter.textContent = '0/500';-->
+<!--            inputs.forEach(input => input.style.backgroundColor = 'var(&#45;&#45;white)');-->
+<!--            setTimeout(() => {-->
+<!--                submitBtn.innerHTML = originalContent;-->
+<!--                submitBtn.style.background = '';-->
+<!--                submitBtn.disabled = false;-->
+<!--            }, 3000);-->
+<!--        }, 2000);-->
+<!--    });-->
+
+<!--    // Form progress tracking-->
+<!--    function updateFormProgress() {-->
+<!--        const requiredInputs = form.querySelectorAll('.form-input[required]');-->
+<!--        let filled = 0;-->
+<!--        requiredInputs.forEach(input => {-->
+<!--            if (input.value.trim() && input.checkValidity()) {-->
+<!--                filled++;-->
+<!--            }-->
+<!--        });-->
+<!--        const progress = (filled / requiredInputs.length) * 100;-->
+<!--        const dashOffset = 175.93 * (1 - progress / 100);-->
+<!--        progressBar.setAttribute('stroke-dashoffset', dashOffset);-->
+<!--        progressText.textContent = `${Math.round(progress)}%`;-->
+<!--        submitBtn.disabled = progress !== 100;-->
+<!--    }-->
+
+<!--    inputs.forEach(input => {-->
+<!--        input.addEventListener('input', () => {-->
+<!--            updateFormProgress();-->
+<!--            if (input.value.trim()) {-->
+<!--                input.style.backgroundColor = 'var(&#45;&#45;light-orange)';-->
+<!--            } else {-->
+<!--                input.style.backgroundColor = 'var(&#45;&#45;white)';-->
+<!--            }-->
+<!--        });-->
+<!--        input.addEventListener('blur', function() {-->
+<!--            if (!this.checkValidity() && this.value.trim()) {-->
+<!--                this.style.borderColor = 'var(&#45;&#45;danger)';-->
+<!--                this.nextElementSibling.nextElementSibling.style.display = 'block';-->
+<!--            } else if (this.value.trim()) {-->
+<!--                this.style.borderColor = 'var(&#45;&#45;success)';-->
+<!--                this.nextElementSibling.nextElementSibling.style.display = 'none';-->
+<!--            } else {-->
+<!--                this.style.borderColor = 'var(&#45;&#45;border-gray)';-->
+<!--                this.nextElementSibling.nextElementSibling.style.display = 'none';-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+
+<!--    // Character counter for textarea-->
+<!--    textarea.addEventListener('input', () => {-->
+<!--        charCounter.textContent = `${textarea.value.length}/500`;-->
+<!--        updateFormProgress();-->
+<!--    });-->
+
+<!--    // FAQ toggle-->
+<!--    function toggleFAQ(button) {-->
+<!--        const faqItem = button.parentElement;-->
+<!--        const answer = faqItem.querySelector('.faq-answer');-->
+<!--        const icon = button.querySelector('i');-->
+<!--        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';-->
+
+<!--        document.querySelectorAll('.faq-answer').forEach(item => {-->
+<!--            if (item !== answer) {-->
+<!--                item.style.maxHeight = '0px';-->
+<!--                item.parentElement.querySelector('i').style.transform = 'rotate(0deg)';-->
+<!--                item.parentElement.querySelector('button').setAttribute('aria-expanded', 'false');-->
+<!--            }-->
+<!--        });-->
+
+<!--        if (isOpen) {-->
+<!--            answer.style.maxHeight = '0px';-->
+<!--            icon.style.transform = 'rotate(0deg)';-->
+<!--            button.setAttribute('aria-expanded', 'false');-->
+<!--        } else {-->
+<!--            answer.style.maxHeight = answer.scrollHeight + 'px';-->
+<!--            icon.style.transform = 'rotate(180deg)';-->
+<!--            button.setAttribute('aria-expanded', 'true');-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Toast notification-->
+<!--    function showToast(message, type = 'info') {-->
+<!--        const toast = document.createElement('div');-->
+<!--        const bgColor = type === 'success' ? 'var(&#45;&#45;success)' :-->
+<!--            type === 'error' ? 'var(&#45;&#45;danger)' : 'var(&#45;&#45;primary-orange)';-->
+
+<!--        toast.style.cssText = `-->
+<!--                position: fixed;-->
+<!--                top: 20px;-->
+<!--                right: 20px;-->
+<!--                background: ${bgColor};-->
+<!--                color: white;-->
+<!--                padding: 1rem 1.5rem;-->
+<!--                border-radius: 12px;-->
+<!--                z-index: 3000;-->
+<!--                animation: slideInRight 0.3s ease;-->
+<!--                box-shadow: var(&#45;&#45;shadow-xl);-->
+<!--                font-weight: 600;-->
+<!--                max-width: 400px;-->
+<!--                line-height: 1.5;-->
+<!--            `;-->
+
+<!--        toast.innerHTML = `-->
+<!--                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>-->
+<!--                ${message}-->
+<!--            `;-->
+
+<!--        toast.setAttribute('role', 'alert');-->
+<!--        document.body.appendChild(toast);-->
+
+<!--        setTimeout(() => {-->
+<!--            toast.style.animation = 'slideOutRight 0.3s ease';-->
+<!--            setTimeout(() => {-->
+<!--                document.body.removeChild(toast);-->
+<!--            }, 300);-->
+<!--        }, 5000);-->
+<!--    }-->
+
+<!--    // Ripple effect-->
+<!--    document.addEventListener('click', function(e) {-->
+<!--        if (e.target.closest('.submit-btn, .contact-method, .faq-question, .cta-btn, .action-toggle, .action-item, .hero-cta, .contact-info-toggle')) {-->
+<!--            const element = e.target.closest('.submit-btn, .contact-method, .faq-question, .cta-btn, .action-toggle, .action-item, .hero-cta, .contact-info-toggle');-->
+<!--            const ripple = document.createElement('span');-->
+<!--            const rect = element.getBoundingClientRect();-->
+<!--            const size = Math.max(rect.width, rect.height);-->
+<!--            const x = e.clientX - rect.left - size / 2;-->
+<!--            const y = e.clientY - rect.top - size / 2;-->
+
+<!--            ripple.style.cssText = `-->
+<!--                    position: absolute;-->
+<!--                    border-radius: 50%;-->
+<!--                    background: rgba(255, 255, 255, 0.6);-->
+<!--                    transform: scale(0);-->
+<!--                    animation: ripple 0.6s linear;-->
+<!--                    left: ${x}px;-->
+<!--                    top: ${y}px;-->
+<!--                    width: ${size}px;-->
+<!--                    height: ${size}px;-->
+<!--                    pointer-events: none;-->
+<!--                `;-->
+
+<!--            element.style.position = 'relative';-->
+<!--            element.style.overflow = 'hidden';-->
+<!--            element.appendChild(ripple);-->
+
+<!--            setTimeout(() => {-->
+<!--                ripple.remove();-->
+<!--            }, 600);-->
+<!--        }-->
+<!--    });-->
+
+<!--    // Action menu toggle-->
+<!--    const actionMenu = document.getElementById('action-menu');-->
+<!--    const actionToggle = actionMenu.querySelector('.action-toggle');-->
+<!--    const toggleIcon = document.getElementById('action-toggle-icon');-->
+<!--    actionToggle.addEventListener('click', () => {-->
+<!--        actionMenu.classList.toggle('open');-->
+<!--        toggleIcon.classList.toggle('fa-plus');-->
+<!--        toggleIcon.classList.toggle('fa-times');-->
+<!--    });-->
+
+<!--    // Contact info toggle for mobile-->
+<!--    const contactInfoToggle = document.querySelector('.contact-info-toggle');-->
+<!--    contactInfoToggle.addEventListener('click', () => {-->
+<!--        const contactInfo = document.getElementById('contact-info');-->
+<!--        contactInfo.classList.toggle('active');-->
+<!--        const isExpanded = contactInfo.classList.contains('active');-->
+<!--        contactInfoToggle.setAttribute('aria-expanded', isExpanded);-->
+<!--        contactInfoToggle.textContent = isExpanded ? 'Hide Details' : 'Contact Details';-->
+<!--    });-->
+
+<!--    // Keyboard navigation-->
+<!--    document.querySelectorAll('.contact-method, .action-toggle, .action-item').forEach(item => {-->
+<!--        item.addEventListener('keydown', (e) => {-->
+<!--            if (e.key === 'Enter' || e.key === ' ') {-->
+<!--                e.preventDefault();-->
+<!--                item.click();-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+
+<!--    // Animations-->
+<!--    const style = document.createElement('style');-->
+<!--    style.textContent = `-->
+<!--            @keyframes ripple {-->
+<!--                to {-->
+<!--                    transform: scale(4);-->
+<!--                    opacity: 0;-->
+<!--                }-->
+<!--            }-->
+
+<!--            @keyframes slideInRight {-->
+<!--                from { transform: translateX(100%); opacity: 0; }-->
+<!--                to { transform: translateX(0); opacity: 1; }-->
+<!--            }-->
+
+<!--            @keyframes slideOutRight {-->
+<!--                from { transform: translateX(0); opacity: 1; }-->
+<!--                to { transform: translateX(100%); opacity: 0; }-->
+<!--            }-->
+<!--        `;-->
+<!--    document.head.appendChild(style);-->
+
+<!--    // Intersection Observer-->
+<!--    const observerOptions = {-->
+<!--        threshold: 0.1,-->
+<!--        rootMargin: '0px 0px -50px 0px'-->
+<!--    };-->
+
+<!--    const observer = new IntersectionObserver((entries) => {-->
+<!--        entries.forEach(entry => {-->
+<!--            if (entry.isIntersecting) {-->
+<!--                entry.target.style.opacity = '1';-->
+<!--                entry.target.style.transform = 'translateY(0)';-->
+<!--            }-->
+<!--        });-->
+<!--    }, observerOptions);-->
+
+<!--    document.addEventListener('DOMContentLoaded', () => {-->
+<!--        const animateElements = document.querySelectorAll('.contact-method, .faq-item, .map-placeholder');-->
+<!--        animateElements.forEach((el, index) => {-->
+<!--            el.style.opacity = '0';-->
+<!--            el.style.transform = 'translateY(30px)';-->
+<!--            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';-->
+<!--            el.style.transitionDelay = `${index * 0.1}s`;-->
+<!--            observer.observe(el);-->
+<!--        });-->
+<!--    });-->
+
+<!--    // Loading animation-->
+<!--    window.addEventListener('load', () => {-->
+<!--        document.body.style.opacity = '1';-->
+<!--        document.body.style.transform = 'translateY(0)';-->
+<!--    });-->
+
+<!--    document.body.style.opacity = '0';-->
+<!--    document.body.style.transform = 'translateY(20px)';-->
+<!--    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';-->
+
+<!--    // Auto-resize textarea-->
+<!--    textarea.addEventListener('input', function() {-->
+<!--        this.style.height = 'auto';-->
+<!--        this.style.height = this.scrollHeight + 'px';-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,10 +1463,22 @@
             scroll-behavior: smooth;
         }
 
-        /* Header */
-
-
-
+        /* Header Placeholder */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
 
         /* Hero Section */
         .hero {
@@ -116,8 +1530,6 @@
             margin-bottom: 1.5rem;
             line-height: 1.1;
             letter-spacing: -0.025em;
-            transform: translateY(0);
-            transition: transform 0.5s ease;
         }
 
         .hero-title .gradient-text {
@@ -135,8 +1547,6 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            transform: translateY(0);
-            transition: transform 0.5s ease;
         }
 
         .hero-cta {
@@ -581,8 +1991,14 @@
             margin-bottom: 1rem;
         }
 
-        /* Footer */
-
+        /* Footer Placeholder */
+        /*#footer {*/
+        /*    background: var(--primary-black);*/
+        /*    color: white;*/
+        /*    padding: 2rem;*/
+        /*    text-align: center;*/
+        /*    font-weight: 600;*/
+        /*}*/
 
         /* Floating Action Menu */
         .action-menu {
@@ -660,10 +2076,25 @@
             50% { transform: scale(1.05); }
         }
 
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-
-
             .hero {
                 padding: 6rem 1rem 4rem;
             }
@@ -708,10 +2139,6 @@
                 justify-content: center;
             }
 
-            .footer-content {
-                text-align: center;
-            }
-
             .contact-form-section {
                 position: static;
             }
@@ -739,8 +2166,8 @@
 </head>
 <body>
 <!-- Header -->
+<div id="header">Navigation Header Placeholder</div>
 
-<div id="header"></div>
 <!-- Hero Section -->
 <section class="hero" id="hero">
     <div class="hero-content">
@@ -1056,7 +2483,8 @@
 </section>
 
 <!-- Footer -->
-<div id="footer"></div>
+<!--<div id="footer">Footer Placeholder - Pure Everest 2024</div>-->
+
 <!-- Floating Action Menu -->
 <div class="action-menu" id="action-menu">
     <div class="action-toggle" aria-label="Toggle Contact Options" role="button" tabindex="0">
@@ -1074,51 +2502,39 @@
         </div>
     </div>
 </div>
+<div id="footer"></div>
 
 <script>
-
-    // fetch('header.html')
-    //     .then(response => response.text())
-    //     .then(data => document.getElementById('header').innerHTML = data);
+    // Simplified header/footer loading
     fetch('header.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('header').innerHTML = data
-            // Now run the "active link" code AFTER header is loaded
+            document.getElementById('header').innerHTML = data;
+            // Set active navigation link
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            console.log('currentPage')
-            console.log('currentPage', currentPage)
             const navLinks = document.querySelectorAll('.nav-link');
-            console.log('navLinks', navLinks)
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === currentPage) {
                     link.classList.add('active');
                 }
             });
+        })
+        .catch(() => {
+            // Fallback if header.html doesn't exist
+            document.getElementById('header').innerHTML = '<div style="padding: 1rem; text-align: center; background: var(--white); box-shadow: var(--shadow);">Navigation Header Placeholder</div>';
         });
+
+    // fetch('footer.html')
+    //     .then(response => response.text())
+    //     .then(data => document.getElementById('footer').innerHTML = data)
+    //     .catch(() => {
+    //         // Fallback if footer.html doesn't exist
+    //         document.getElementById('footer').innerHTML = '<div style="padding: 2rem; text-align: center; background: var(--primary-black); color: white;">Footer Placeholder - Pure Everest 2024</div>';
+    //     });
     fetch('footer.html')
         .then(response => response.text())
         .then(data => document.getElementById('footer').innerHTML = data);
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Hero parallax effect
-    window.addEventListener('scroll', () => {
-        const hero = document.getElementById('hero');
-        const title = hero.querySelector('.hero-title');
-        const subtitle = hero.querySelector('.hero-subtitle');
-        const scrollPos = window.scrollY;
-        title.style.transform = `translateY(${scrollPos * 0.2}px)`;
-        subtitle.style.transform = `translateY(${scrollPos * 0.1}px)`;
-    });
 
     // Contact form handling
     const form = document.getElementById('contact-form');
@@ -1230,25 +2646,25 @@
             type === 'error' ? 'var(--danger)' : 'var(--primary-orange)';
 
         toast.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${bgColor};
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 12px;
-                z-index: 3000;
-                animation: slideInRight 0.3s ease;
-                box-shadow: var(--shadow-xl);
-                font-weight: 600;
-                max-width: 400px;
-                line-height: 1.5;
-            `;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${bgColor};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            font-weight: 600;
+            max-width: 400px;
+            line-height: 1.5;
+        `;
 
         toast.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                ${message}
-            `;
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            ${message}
+        `;
 
         toast.setAttribute('role', 'alert');
         document.body.appendChild(toast);
@@ -1272,17 +2688,17 @@
             const y = e.clientY - rect.top - size / 2;
 
             ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.6);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    left: ${x}px;
-                    top: ${y}px;
-                    width: ${size}px;
-                    height: ${size}px;
-                    pointer-events: none;
-                `;
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                left: ${x}px;
+                top: ${y}px;
+                width: ${size}px;
+                height: ${size}px;
+                pointer-events: none;
+            `;
 
             element.style.position = 'relative';
             element.style.overflow = 'hidden';
@@ -1324,29 +2740,7 @@
         });
     });
 
-    // Animations
-    const style = document.createElement('style');
-    style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-
-            @keyframes slideOutRight {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-    document.head.appendChild(style);
-
-    // Intersection Observer
+    // Intersection Observer for animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -1361,6 +2755,7 @@
         });
     }, observerOptions);
 
+    // Initialize animations on DOM load
     document.addEventListener('DOMContentLoaded', () => {
         const animateElements = document.querySelectorAll('.contact-method, .faq-item, .map-placeholder');
         animateElements.forEach((el, index) => {
@@ -1371,16 +2766,6 @@
             observer.observe(el);
         });
     });
-
-    // Loading animation
-    window.addEventListener('load', () => {
-        document.body.style.opacity = '1';
-        document.body.style.transform = 'translateY(0)';
-    });
-
-    document.body.style.opacity = '0';
-    document.body.style.transform = 'translateY(20px)';
-    document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
 
     // Auto-resize textarea
     textarea.addEventListener('input', function() {

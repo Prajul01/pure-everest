@@ -1,3 +1,1194 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Request Quote - Pure Everest</title>-->
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');-->
+
+<!--        /* Reset and Variables */-->
+<!--        * {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
+
+<!--        :root {-->
+<!--            /* Brand Colors */-->
+<!--            &#45;&#45;primary-orange: #FF6B35;-->
+<!--            &#45;&#45;primary-orange-dark: #E5532B;-->
+<!--            &#45;&#45;secondary-orange: #FF8C42;-->
+<!--            &#45;&#45;accent-orange: #FFB366;-->
+<!--            &#45;&#45;light-orange: #FFF4F0;-->
+
+<!--            &#45;&#45;primary-black: #1A1A1A;-->
+<!--            &#45;&#45;secondary-black: #2D2D2D;-->
+<!--            &#45;&#45;soft-black: #3A3A3A;-->
+
+<!--            &#45;&#45;primary-gray: #6B7280;-->
+<!--            &#45;&#45;light-gray: #F3F4F6;-->
+<!--            &#45;&#45;medium-gray: #9CA3AF;-->
+<!--            &#45;&#45;dark-gray: #4B5563;-->
+<!--            &#45;&#45;border-gray: #E5E7EB;-->
+
+<!--            &#45;&#45;white: #FFFFFF;-->
+<!--            &#45;&#45;success: #10B981;-->
+<!--            &#45;&#45;danger: #EF4444;-->
+
+<!--            /* Gradients */-->
+<!--            &#45;&#45;gradient-primary: linear-gradient(135deg, var(&#45;&#45;primary-orange) 0%, var(&#45;&#45;secondary-orange) 100%);-->
+<!--            &#45;&#45;gradient-hero: linear-gradient(135deg, var(&#45;&#45;primary-black) 0%, var(&#45;&#45;secondary-black) 50%, var(&#45;&#45;primary-orange) 100%);-->
+<!--            &#45;&#45;gradient-card: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);-->
+
+<!--            /* Shadows */-->
+<!--            &#45;&#45;shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);-->
+<!--            &#45;&#45;shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);-->
+<!--            &#45;&#45;shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);-->
+<!--            &#45;&#45;shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);-->
+<!--            &#45;&#45;shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);-->
+<!--            &#45;&#45;shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.2);-->
+<!--            &#45;&#45;shadow-orange-lg: 0 20px 40px rgba(255, 107, 53, 0.3);-->
+
+<!--            &#45;&#45;border-radius: 20px;-->
+<!--            &#45;&#45;border-radius-sm: 12px;-->
+<!--            &#45;&#45;transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);-->
+<!--        }-->
+
+<!--        body {-->
+<!--            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;-->
+<!--            line-height: 1.6;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            background: var(&#45;&#45;light-gray);-->
+<!--            overflow-x: hidden;-->
+<!--        }-->
+
+<!--        html {-->
+<!--            scroll-behavior: smooth;-->
+<!--        }-->
+
+
+
+<!--        /* Hero Section */-->
+<!--        .quote-hero {-->
+<!--            min-height: 50vh;-->
+<!--            background: var(&#45;&#45;gradient-hero);-->
+<!--            color: white;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            text-align: center;-->
+<!--            padding: 8rem 2rem 4rem;-->
+<!--            position: relative;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+
+<!--        .hero-content {-->
+<!--            max-width: 800px;-->
+<!--            position: relative;-->
+<!--            z-index: 1;-->
+<!--        }-->
+
+<!--        .hero-badge {-->
+<!--            display: inline-flex;-->
+<!--            align-items: center;-->
+<!--            gap: 0.5rem;-->
+<!--            background: rgba(255, 140, 66, 0.2);-->
+<!--            backdrop-filter: blur(10px);-->
+<!--            padding: 0.75rem 1.5rem;-->
+<!--            border-radius: 50px;-->
+<!--            font-size: 0.875rem;-->
+<!--            font-weight: 600;-->
+<!--            margin-bottom: 2rem;-->
+<!--            border: 1px solid rgba(255, 140, 66, 0.3);-->
+<!--        }-->
+
+<!--        .hero-title {-->
+<!--            font-size: clamp(2.5rem, 5vw, 4rem);-->
+<!--            font-weight: 900;-->
+<!--            margin-bottom: 1.5rem;-->
+<!--            line-height: 1.1;-->
+<!--        }-->
+
+<!--        .hero-subtitle {-->
+<!--            font-size: 1.25rem;-->
+<!--            opacity: 0.9;-->
+<!--            line-height: 1.6;-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--        }-->
+
+<!--        /* Main Content */-->
+<!--        .main-content {-->
+<!--            padding: 6rem 2rem;-->
+<!--            max-width: 1200px;-->
+<!--            margin: 0 auto;-->
+<!--        }-->
+
+<!--        .quote-container {-->
+<!--            display: grid;-->
+<!--            grid-template-columns: 1fr 1fr;-->
+<!--            gap: 4rem;-->
+<!--            align-items: start;-->
+<!--        }-->
+
+<!--        /* Form Section */-->
+<!--        .form-section {-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            padding: 3rem;-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            box-shadow: var(&#45;&#45;shadow-xl);-->
+<!--            border: 1px solid var(&#45;&#45;border-gray);-->
+<!--        }-->
+
+<!--        .form-header {-->
+<!--            margin-bottom: 2.5rem;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .form-title {-->
+<!--            font-size: 2rem;-->
+<!--            font-weight: 800;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .form-subtitle {-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            font-size: 1.1rem;-->
+<!--            line-height: 1.6;-->
+<!--        }-->
+
+<!--        .form-grid {-->
+<!--            display: grid;-->
+<!--            grid-template-columns: 1fr 1fr;-->
+<!--            gap: 1.5rem;-->
+<!--        }-->
+
+<!--        .form-group {-->
+<!--            margin-bottom: 1.5rem;-->
+<!--        }-->
+
+<!--        .form-group.full-width {-->
+<!--            grid-column: 1 / -1;-->
+<!--        }-->
+
+<!--        .form-label {-->
+<!--            display: block;-->
+<!--            font-weight: 600;-->
+<!--            color: var(&#45;&#45;dark-gray);-->
+<!--            margin-bottom: 0.75rem;-->
+<!--            font-size: 0.95rem;-->
+<!--        }-->
+
+<!--        .form-input, .form-select, .form-textarea {-->
+<!--            width: 100%;-->
+<!--            padding: 1rem 1.25rem;-->
+<!--            border: 2px solid var(&#45;&#45;border-gray);-->
+<!--            border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--            font-size: 1rem;-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--            font-family: inherit;-->
+<!--            background: var(&#45;&#45;white);-->
+<!--        }-->
+
+<!--        .form-input:focus, .form-select:focus, .form-textarea:focus {-->
+<!--            border-color: var(&#45;&#45;primary-orange);-->
+<!--            outline: none;-->
+<!--            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);-->
+<!--            transform: translateY(-2px);-->
+<!--        }-->
+
+<!--        .form-textarea {-->
+<!--            resize: vertical;-->
+<!--            min-height: 120px;-->
+<!--        }-->
+
+<!--        .submit-btn {-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            color: var(&#45;&#45;white);-->
+<!--            padding: 1.25rem 2.5rem;-->
+<!--            border: none;-->
+<!--            border-radius: 50px;-->
+<!--            font-weight: 600;-->
+<!--            font-size: 1.1rem;-->
+<!--            cursor: pointer;-->
+<!--            width: 100%;-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange);-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            gap: 0.75rem;-->
+<!--        }-->
+
+<!--        .submit-btn:hover {-->
+<!--            transform: translateY(-3px);-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange-lg);-->
+<!--        }-->
+
+<!--        .submit-btn:disabled {-->
+<!--            opacity: 0.7;-->
+<!--            cursor: not-allowed;-->
+<!--            transform: none;-->
+<!--        }-->
+
+<!--        .loading-spinner {-->
+<!--            width: 20px;-->
+<!--            height: 20px;-->
+<!--            border: 2px solid rgba(255, 255, 255, 0.3);-->
+<!--            border-radius: 50%;-->
+<!--            border-top-color: white;-->
+<!--            animation: spin 1s ease-in-out infinite;-->
+<!--            display: none;-->
+<!--        }-->
+
+<!--        /* Info Section */-->
+<!--        .info-section {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            gap: 2rem;-->
+<!--        }-->
+
+<!--        .info-card {-->
+<!--            background: var(&#45;&#45;white);-->
+<!--            padding: 2.5rem;-->
+<!--            border-radius: var(&#45;&#45;border-radius);-->
+<!--            box-shadow: var(&#45;&#45;shadow);-->
+<!--            border: 1px solid var(&#45;&#45;border-gray);-->
+<!--            transition: var(&#45;&#45;transition);-->
+<!--        }-->
+
+<!--        .info-card:hover {-->
+<!--            transform: translateY(-5px);-->
+<!--            box-shadow: var(&#45;&#45;shadow-xl);-->
+<!--        }-->
+
+<!--        .info-icon {-->
+<!--            width: 60px;-->
+<!--            height: 60px;-->
+<!--            background: var(&#45;&#45;gradient-primary);-->
+<!--            border-radius: 50%;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            color: white;-->
+<!--            font-size: 1.5rem;-->
+<!--            margin-bottom: 1.5rem;-->
+<!--            box-shadow: var(&#45;&#45;shadow-orange);-->
+<!--        }-->
+
+<!--        .info-title {-->
+<!--            font-size: 1.5rem;-->
+<!--            font-weight: 700;-->
+<!--            color: var(&#45;&#45;primary-black);-->
+<!--            margin-bottom: 1rem;-->
+<!--        }-->
+
+<!--        .info-description {-->
+<!--            color: var(&#45;&#45;primary-gray);-->
+<!--            line-height: 1.6;-->
+<!--            margin-bottom: 1.5rem;-->
+<!--        }-->
+
+<!--        .info-list {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        .info-list li {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            gap: 0.75rem;-->
+<!--            margin-bottom: 0.75rem;-->
+<!--            color: var(&#45;&#45;dark-gray);-->
+<!--        }-->
+
+<!--        .info-list li i {-->
+<!--            color: var(&#45;&#45;success);-->
+<!--            font-size: 0.875rem;-->
+<!--        }-->
+
+<!--        /* Success/Error Messages */-->
+<!--        .message {-->
+<!--            padding: 1rem 1.5rem;-->
+<!--            border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--            margin-bottom: 1.5rem;-->
+<!--            display: none;-->
+<!--            align-items: center;-->
+<!--            gap: 0.75rem;-->
+<!--            font-weight: 500;-->
+<!--        }-->
+
+<!--        .message.success {-->
+<!--            background: rgba(16, 185, 129, 0.1);-->
+<!--            color: var(&#45;&#45;success);-->
+<!--            border: 1px solid rgba(16, 185, 129, 0.2);-->
+<!--        }-->
+
+<!--        .message.error {-->
+<!--            background: rgba(239, 68, 68, 0.1);-->
+<!--            color: var(&#45;&#45;danger);-->
+<!--            border: 1px solid rgba(239, 68, 68, 0.2);-->
+<!--        }-->
+
+<!--        /* Animations */-->
+<!--        @keyframes float {-->
+<!--            0%, 100% { transform: translateY(0px) rotate(0deg); }-->
+<!--            33% { transform: translateY(-20px) rotate(1deg); }-->
+<!--            66% { transform: translateY(10px) rotate(-1deg); }-->
+<!--        }-->
+
+<!--        @keyframes spin {-->
+<!--            to { transform: rotate(360deg); }-->
+<!--        }-->
+
+<!--        @keyframes slideIn {-->
+<!--            from {-->
+<!--                opacity: 0;-->
+<!--                transform: translateY(30px);-->
+<!--            }-->
+<!--            to {-->
+<!--                opacity: 1;-->
+<!--                transform: translateY(0);-->
+<!--            }-->
+<!--        }-->
+
+<!--        .animate-in {-->
+<!--            animation: slideIn 0.6s ease-out;-->
+<!--        }-->
+
+<!--        /* Mobile Responsiveness */-->
+<!--        @media (max-width: 768px) {-->
+<!--            .header-content {-->
+<!--                padding: 0.75rem 0;-->
+<!--            }-->
+
+<!--            .nav {-->
+<!--                display: none;-->
+<!--                position: absolute;-->
+<!--                top: 100%;-->
+<!--                left: 0;-->
+<!--                right: 0;-->
+<!--                background: rgba(255, 255, 255, 0.95);-->
+<!--                backdrop-filter: blur(25px);-->
+<!--                flex-direction: column;-->
+<!--                padding: 1rem;-->
+<!--                border-bottom: 1px solid var(&#45;&#45;border-gray);-->
+<!--            }-->
+
+<!--            .nav.active {-->
+<!--                display: flex;-->
+<!--            }-->
+
+<!--            .menu-toggle {-->
+<!--                display: block;-->
+<!--            }-->
+
+<!--            .quote-hero {-->
+<!--                padding: 6rem 1rem 3rem;-->
+<!--            }-->
+
+<!--            .main-content {-->
+<!--                padding: 3rem 1rem;-->
+<!--            }-->
+
+<!--            .quote-container {-->
+<!--                grid-template-columns: 1fr;-->
+<!--                gap: 2rem;-->
+<!--            }-->
+
+<!--            .form-section {-->
+<!--                padding: 2rem;-->
+<!--            }-->
+
+<!--            .form-grid {-->
+<!--                grid-template-columns: 1fr;-->
+<!--                gap: 1rem;-->
+<!--            }-->
+
+<!--            .info-card {-->
+<!--                padding: 2rem;-->
+<!--            }-->
+<!--        }-->
+
+<!--        @media (max-width: 480px) {-->
+<!--            .quote-hero {-->
+<!--                padding: 5rem 1rem 2rem;-->
+<!--            }-->
+
+<!--            .hero-title {-->
+<!--                font-size: 2rem;-->
+<!--            }-->
+
+<!--            .form-section {-->
+<!--                padding: 1.5rem;-->
+<!--            }-->
+
+<!--            .info-card {-->
+<!--                padding: 1.5rem;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash; Header &ndash;&gt;-->
+<!--<header class="header" id="header">-->
+
+<!--</header>-->
+
+<!--&lt;!&ndash; Hero Section &ndash;&gt;-->
+<!--<section class="quote-hero">-->
+<!--    <div class="hero-content animate-in">-->
+<!--        <div class="hero-badge">-->
+<!--            <i class="fas fa-quote-left"></i>-->
+<!--            Get Your Custom Quote-->
+<!--        </div>-->
+<!--        <h1 class="hero-title">Request a Quote</h1>-->
+<!--        <p class="hero-subtitle">-->
+<!--            Get personalized pricing for premium Nepali food products. We'll provide you with competitive rates and detailed information tailored to your specific needs.-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Main Content &ndash;&gt;-->
+<!--<main class="main-content">-->
+<!--    <div class="quote-container">-->
+<!--        &lt;!&ndash; Quote Form &ndash;&gt;-->
+<!--        <div class="form-section animate-in">-->
+<!--            <div class="form-header">-->
+<!--                <h2 class="form-title">Tell Us About Your Needs</h2>-->
+<!--                <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours with a detailed quote.</p>-->
+<!--            </div>-->
+
+<!--            <div id="successMessage" class="message success">-->
+<!--                <i class="fas fa-check-circle"></i>-->
+<!--                <span>Thank you! Your quote request has been submitted successfully.</span>-->
+<!--            </div>-->
+
+<!--            <div id="errorMessage" class="message error">-->
+<!--                <i class="fas fa-exclamation-circle"></i>-->
+<!--                <span>There was an error submitting your request. Please try again.</span>-->
+<!--            </div>-->
+
+<!--            <form id="quoteForm">-->
+<!--                <div class="form-grid">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="firstName" class="form-label">First Name *</label>-->
+<!--                        <input type="text" id="firstName" name="firstName" class="form-input" required placeholder="Enter your first name">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="lastName" class="form-label">Last Name *</label>-->
+<!--                        <input type="text" id="lastName" name="lastName" class="form-input" required placeholder="Enter your last name">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="email" class="form-label">Email Address *</label>-->
+<!--                        <input type="email" id="email" name="email" class="form-input" required placeholder="Enter your email">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="phone" class="form-label">Phone Number *</label>-->
+<!--                        <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Enter your phone number">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="company" class="form-label">Company Name</label>-->
+<!--                        <input type="text" id="company" name="company" class="form-input" placeholder="Enter your company name">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="country" class="form-label">Country *</label>-->
+<!--                        <select id="country" name="country" class="form-select" required>-->
+<!--                            <option value="">Select your country</option>-->
+<!--                            <option value="Japan">Japan</option>-->
+<!--                            <option value="United Kingdom">United Kingdom</option>-->
+<!--                            <option value="United States">United States</option>-->
+<!--                            <option value="Canada">Canada</option>-->
+<!--                            <option value="Australia">Australia</option>-->
+<!--                            <option value="Germany">Germany</option>-->
+<!--                            <option value="France">France</option>-->
+<!--                            <option value="Other">Other</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group full-width">-->
+<!--                        <label for="products" class="form-label">Products of Interest *</label>-->
+<!--                        <select id="products" name="products" class="form-select" required>-->
+<!--                            <option value="">Select product category</option>-->
+<!--                            <option value="Flattened Rice (Chiura)">Flattened Rice (Chiura)</option>-->
+<!--                            <option value="Puffed Rice">Puffed Rice</option>-->
+<!--                            <option value="Green Chilly Pickle">Green Chilly Pickle</option>-->
+<!--                            <option value="Mixed Pickle">Mixed Pickle</option>-->
+<!--                            <option value="Soya Chunks">Soya Chunks</option>-->
+<!--                            <option value="Suji (Semolina)">Suji (Semolina)</option>-->
+<!--                            <option value="Multiple Products">Multiple Products</option>-->
+<!--                            <option value="Custom Request">Custom Request</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="quantity" class="form-label">Estimated Quantity *</label>-->
+<!--                        <input type="text" id="quantity" name="quantity" class="form-input" required placeholder="e.g., 100 kg, 50 boxes">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="frequency" class="form-label">Order Frequency</label>-->
+<!--                        <select id="frequency" name="frequency" class="form-select">-->
+<!--                            <option value="">Select frequency</option>-->
+<!--                            <option value="One-time order">One-time order</option>-->
+<!--                            <option value="Monthly">Monthly</option>-->
+<!--                            <option value="Quarterly">Quarterly</option>-->
+<!--                            <option value="Bi-annually">Bi-annually</option>-->
+<!--                            <option value="Annually">Annually</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group full-width">-->
+<!--                        <label for="message" class="form-label">Additional Details</label>-->
+<!--                        <textarea id="message" name="message" class="form-textarea" placeholder="Please provide any additional information about your requirements, special packaging needs, or other details..."></textarea>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <button type="submit" class="submit-btn" id="submitBtn">-->
+<!--                    <div class="loading-spinner" id="loadingSpinner"></div>-->
+<!--                    <i class="fas fa-paper-plane" id="submitIcon"></i>-->
+<!--                    <span id="submitText">Submit Quote Request</span>-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Information Section &ndash;&gt;-->
+<!--        <div class="info-section">-->
+<!--            <div class="info-card animate-in">-->
+<!--                <div class="info-icon">-->
+<!--                    <i class="fas fa-clock"></i>-->
+<!--                </div>-->
+<!--                <h3 class="info-title">Quick Response</h3>-->
+<!--                <p class="info-description">We respond to all quote requests within 24 hours with detailed pricing and product information.</p>-->
+<!--                <ul class="info-list">-->
+<!--                    <li><i class="fas fa-check"></i> 24-hour response guarantee</li>-->
+<!--                    <li><i class="fas fa-check"></i> Detailed pricing breakdown</li>-->
+<!--                    <li><i class="fas fa-check"></i> Custom packaging options</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--            <div class="info-card animate-in">-->
+<!--                <div class="info-icon">-->
+<!--                    <i class="fas fa-shield-alt"></i>-->
+<!--                </div>-->
+<!--                <h3 class="info-title">Quality Assurance</h3>-->
+<!--                <p class="info-description">All our products meet international quality standards with proper certifications and documentation.</p>-->
+<!--                <ul class="info-list">-->
+<!--                    <li><i class="fas fa-check"></i> FDA approved facilities</li>-->
+<!--                    <li><i class="fas fa-check"></i> ISO certification</li>-->
+<!--                    <li><i class="fas fa-check"></i> Organic certifications</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--            <div class="info-card animate-in">-->
+<!--                <div class="info-icon">-->
+<!--                    <i class="fas fa-shipping-fast"></i>-->
+<!--                </div>-->
+<!--                <h3 class="info-title">Global Shipping</h3>-->
+<!--                <p class="info-description">Reliable shipping worldwide with tracking and insurance coverage for all international orders.</p>-->
+<!--                <ul class="info-list">-->
+<!--                    <li><i class="fas fa-check"></i> Worldwide delivery</li>-->
+<!--                    <li><i class="fas fa-check"></i> Real-time tracking</li>-->
+<!--                    <li><i class="fas fa-check"></i> Insurance included</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--            <div class="info-card animate-in">-->
+<!--                <div class="info-icon">-->
+<!--                    <i class="fas fa-headset"></i>-->
+<!--                </div>-->
+<!--                <h3 class="info-title">Dedicated Support</h3>-->
+<!--                <p class="info-description">Our export specialists are here to help you throughout the entire process, from quote to delivery.</p>-->
+<!--                <ul class="info-list">-->
+<!--                    <li><i class="fas fa-check"></i> Personal account manager</li>-->
+<!--                    <li><i class="fas fa-check"></i> Export documentation support</li>-->
+<!--                    <li><i class="fas fa-check"></i> Multi-language support</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
+<!--<div id="footer"></div>-->
+
+<!--&lt;!&ndash;<footer class="footer" id="footer"></footer>&ndash;&gt;-->
+
+
+<!--<script>-->
+<!--    // fetch('header.html')-->
+<!--    //     .then(response => response.text())-->
+<!--    //     .then(data => document.getElementById('header').innerHTML = data);-->
+<!--    fetch('header.html')-->
+<!--        .then(response => response.text())-->
+<!--        .then(data => {-->
+<!--            document.getElementById('header').innerHTML = data-->
+<!--        });-->
+<!--    fetch('footer.html')-->
+<!--        .then(response => response.text())-->
+<!--        .then(data => document.getElementById('footer').innerHTML = data);-->
+<!--    // Initialize page-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--        initializeHeader();-->
+<!--        initializeForm();-->
+<!--        animateElements();-->
+<!--    });-->
+
+<!--    // Header functionality-->
+<!--    function initializeHeader() {-->
+<!--        const header = document.getElementById('header');-->
+<!--        const menuToggle = document.getElementById('menuToggle');-->
+<!--        const nav = document.getElementById('nav');-->
+
+<!--        // Header scroll effect-->
+<!--        window.addEventListener('scroll', () => {-->
+<!--            if (window.scrollY > 50) {-->
+<!--                header.classList.add('scrolled');-->
+<!--            } else {-->
+<!--                header.classList.remove('scrolled');-->
+<!--            }-->
+<!--        });-->
+
+<!--        // Mobile menu toggle-->
+<!--        menuToggle.addEventListener('click', (e) => {-->
+<!--            e.stopPropagation();-->
+<!--            nav.classList.toggle('active');-->
+<!--        });-->
+
+<!--        // Close mobile menu when clicking outside-->
+<!--        document.addEventListener('click', (e) => {-->
+<!--            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {-->
+<!--                nav.classList.remove('active');-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+
+<!--    // Form functionality-->
+<!--    // function initializeForm() {-->
+<!--    //     const form = document.getElementById('quoteForm');-->
+<!--    //     const submitBtn = document.getElementById('submitBtn');-->
+<!--    //     const submitText = document.getElementById('submitText');-->
+<!--    //     const submitIcon = document.getElementById('submitIcon');-->
+<!--    //     const loadingSpinner = document.getElementById('loadingSpinner');-->
+<!--    //     const successMessage = document.getElementById('successMessage');-->
+<!--    //     const errorMessage = document.getElementById('errorMessage');-->
+<!--    //-->
+<!--    //     form.addEventListener('submit', async function(e) {-->
+<!--    //         e.preventDefault();-->
+<!--    //-->
+<!--    //         // Collect form data-->
+<!--    //         const formData = new FormData(form);-->
+<!--    //         const data = {-->
+<!--    //             firstName: formData.get('firstName'),-->
+<!--    //             lastName: formData.get('lastName'),-->
+<!--    //             email: formData.get('email'),-->
+<!--    //             phone: formData.get('phone'),-->
+<!--    //             company: formData.get('company'),-->
+<!--    //             country: formData.get('country'),-->
+<!--    //             products: formData.get('products'),-->
+<!--    //             quantity: formData.get('quantity'),-->
+<!--    //             frequency: formData.get('frequency'),-->
+<!--    //             message: formData.get('message'),-->
+<!--    //             timestamp: new Date().toISOString()-->
+<!--    //         };-->
+<!--    //-->
+<!--    //         // Show loading state-->
+<!--    //         setLoadingState(true);-->
+<!--    //         hideMessages();-->
+<!--    //-->
+<!--    //-->
+<!--    //         try {-->
+<!--    //             // Submit to Google Apps Script-->
+<!--    //             const response = await fetch('https://script.google.com/macros/s/AKfycbwjuK4r97Ly-wr6zrS1xzdBomfWa2GkAZWMX1BcgG0PIv6X-hJQvvkn8L9uSLPaJcO0qw/exec', {-->
+<!--    //                 method: 'POST',-->
+<!--    //                 mode: 'no-cors',-->
+<!--    //                 headers: {-->
+<!--    //                     'Content-Type': 'application/json'-->
+<!--    //                 },-->
+<!--    //                 body: JSON.stringify(data)-->
+<!--    //             });-->
+<!--    //-->
+<!--    //             // Show success message-->
+<!--    //             showSuccessMessage();-->
+<!--    //             form.reset();-->
+<!--    //-->
+<!--    //         } catch (error) {-->
+<!--    //             console.error('Error submitting form:', error);-->
+<!--    //             showErrorMessage();-->
+<!--    //         } finally {-->
+<!--    //             setLoadingState(false);-->
+<!--    //         }-->
+<!--    //     });-->
+<!--    //-->
+<!--    //     function setLoadingState(loading) {-->
+<!--    //         if (loading) {-->
+<!--    //             submitBtn.disabled = true;-->
+<!--    //             submitText.textContent = 'Submitting...';-->
+<!--    //             submitIcon.style.display = 'none';-->
+<!--    //             loadingSpinner.style.display = 'block';-->
+<!--    //         } else {-->
+<!--    //             submitBtn.disabled = false;-->
+<!--    //             submitText.textContent = 'Submit Quote Request';-->
+<!--    //             submitIcon.style.display = 'block';-->
+<!--    //             loadingSpinner.style.display = 'none';-->
+<!--    //         }-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     function showSuccessMessage() {-->
+<!--    //         successMessage.style.display = 'flex';-->
+<!--    //         errorMessage.style.display = 'none';-->
+<!--    //         // Scroll to message-->
+<!--    //         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });-->
+<!--    //         // Auto hide after 5 seconds-->
+<!--    //         setTimeout(() => {-->
+<!--    //             successMessage.style.display = 'none';-->
+<!--    //         }, 5000);-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     function showErrorMessage() {-->
+<!--    //         errorMessage.style.display = 'flex';-->
+<!--    //         successMessage.style.display = 'none';-->
+<!--    //         // Scroll to message-->
+<!--    //         errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });-->
+<!--    //         // Auto hide after 5 seconds-->
+<!--    //         setTimeout(() => {-->
+<!--    //             errorMessage.style.display = 'none';-->
+<!--    //         }, 5000);-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     function hideMessages() {-->
+<!--    //         successMessage.style.display = 'none';-->
+<!--    //         errorMessage.style.display = 'none';-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     // Add input validation and enhancement-->
+<!--    //     const inputs = form.querySelectorAll('.form-input, .form-select, .form-textarea');-->
+<!--    //     inputs.forEach(input => {-->
+<!--    //         // Add focus effects-->
+<!--    //         input.addEventListener('focus', function() {-->
+<!--    //             this.parentElement.classList.add('focused');-->
+<!--    //         });-->
+<!--    //-->
+<!--    //         input.addEventListener('blur', function() {-->
+<!--    //             this.parentElement.classList.remove('focused');-->
+<!--    //-->
+<!--    //             // Validate on blur-->
+<!--    //             if (this.hasAttribute('required') && !this.value.trim()) {-->
+<!--    //                 this.classList.add('error');-->
+<!--    //             } else {-->
+<!--    //                 this.classList.remove('error');-->
+<!--    //             }-->
+<!--    //         });-->
+<!--    //-->
+<!--    //         // Real-time validation-->
+<!--    //         input.addEventListener('input', function() {-->
+<!--    //             if (this.classList.contains('error') && this.value.trim()) {-->
+<!--    //                 this.classList.remove('error');-->
+<!--    //             }-->
+<!--    //         });-->
+<!--    //     });-->
+<!--    //-->
+<!--    //     // Email validation-->
+<!--    //     const emailInput = document.getElementById('email');-->
+<!--    //     emailInput.addEventListener('blur', function() {-->
+<!--    //         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;-->
+<!--    //         if (this.value && !emailRegex.test(this.value)) {-->
+<!--    //             this.classList.add('error');-->
+<!--    //             this.setCustomValidity('Please enter a valid email address');-->
+<!--    //         } else {-->
+<!--    //             this.classList.remove('error');-->
+<!--    //             this.setCustomValidity('');-->
+<!--    //         }-->
+<!--    //     });-->
+<!--    //-->
+<!--    //     // Phone validation-->
+<!--    //     const phoneInput = document.getElementById('phone');-->
+<!--    //     phoneInput.addEventListener('input', function() {-->
+<!--    //         // Remove non-numeric characters except +, -, (, ), and spaces-->
+<!--    //         this.value = this.value.replace(/[^\d\+\-\(\)\s]/g, '');-->
+<!--    //     });-->
+<!--    // }-->
+
+<!--    // Updated initializeForm function - merge both handlers-->
+<!--    function initializeForm() {-->
+<!--        const form = document.getElementById('quoteForm');-->
+<!--        const submitBtn = document.getElementById('submitBtn');-->
+<!--        const submitText = document.getElementById('submitText');-->
+<!--        const submitIcon = document.getElementById('submitIcon');-->
+<!--        const loadingSpinner = document.getElementById('loadingSpinner');-->
+<!--        const successMessage = document.getElementById('successMessage');-->
+<!--        const errorMessage = document.getElementById('errorMessage');-->
+
+<!--        form.addEventListener('submit', async function(e) {-->
+<!--            e.preventDefault();-->
+
+<!--            // Collect form data (using your original data structure from paste.txt)-->
+<!--            const formData = new FormData(form);-->
+<!--            const data = {-->
+<!--                name: formData.get('firstName') + ' ' + formData.get('lastName'), // Combine first and last name-->
+<!--                email: formData.get('email'),-->
+<!--                product: formData.get('products'), // Map to your original field name-->
+<!--                quantity: formData.get('quantity'),-->
+<!--                phone: formData.get('phone'),-->
+<!--                country: formData.get('country'),-->
+<!--                // Additional fields from the new form-->
+<!--                company: formData.get('company'),-->
+<!--                frequency: formData.get('frequency'),-->
+<!--                message: formData.get('message'),-->
+<!--                timestamp: new Date().toISOString()-->
+<!--            };-->
+
+<!--            // Show loading state (using your new UI elements)-->
+<!--            setLoadingState(true);-->
+<!--            hideMessages();-->
+
+<!--            try {-->
+<!--                // Use your original fetch request from paste.txt-->
+<!--                const response = await fetch('https://script.google.com/macros/s/AKfycbwjuK4r97Ly-wr6zrS1xzdBomfWa2GkAZWMX1BcgG0PIv6X-hJQvvkn8L9uSLPaJcO0qw/exec', {-->
+<!--                    method: 'POST',-->
+<!--                    mode: 'no-cors', // Keep this from your original code-->
+<!--                    headers: {-->
+<!--                        'Content-Type': 'application/json'-->
+<!--                    },-->
+<!--                    body: JSON.stringify(data)-->
+<!--                });-->
+
+<!--                // With no-cors, response is opaque; assume success if no network error-->
+<!--                showSuccessMessage();-->
+<!--                form.reset();-->
+
+<!--                // Show toast notification as well-->
+<!--                setTimeout(() => {-->
+<!--                    showToast('Quote request submitted successfully! We\'ll get back to you within 24 hours.', 'success');-->
+<!--                }, 500);-->
+
+<!--            } catch (error) {-->
+<!--                console.error('Error:', error);-->
+<!--                showErrorMessage();-->
+<!--                setTimeout(() => {-->
+<!--                    showToast('There was an error submitting your request. Please try again.', 'error');-->
+<!--                }, 500);-->
+<!--            } finally {-->
+<!--                setLoadingState(false);-->
+<!--            }-->
+<!--        });-->
+
+<!--        // Rest of your existing functions...-->
+<!--        function setLoadingState(loading) {-->
+<!--            if (loading) {-->
+<!--                submitBtn.disabled = true;-->
+<!--                submitText.textContent = 'Submitting...';-->
+<!--                submitIcon.style.display = 'none';-->
+<!--                loadingSpinner.style.display = 'block';-->
+<!--            } else {-->
+<!--                submitBtn.disabled = false;-->
+<!--                submitText.textContent = 'Submit Quote Request';-->
+<!--                submitIcon.style.display = 'block';-->
+<!--                loadingSpinner.style.display = 'none';-->
+<!--            }-->
+<!--        }-->
+
+<!--        function showSuccessMessage() {-->
+<!--            successMessage.style.display = 'flex';-->
+<!--            errorMessage.style.display = 'none';-->
+<!--            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });-->
+<!--            setTimeout(() => {-->
+<!--                successMessage.style.display = 'none';-->
+<!--            }, 5000);-->
+<!--        }-->
+
+<!--        function showErrorMessage() {-->
+<!--            errorMessage.style.display = 'flex';-->
+<!--            successMessage.style.display = 'none';-->
+<!--            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });-->
+<!--            setTimeout(() => {-->
+<!--                errorMessage.style.display = 'none';-->
+<!--            }, 5000);-->
+<!--        }-->
+
+<!--        function hideMessages() {-->
+<!--            successMessage.style.display = 'none';-->
+<!--            errorMessage.style.display = 'none';-->
+<!--        }-->
+
+<!--        // Keep all your existing input validation code...-->
+<!--        const inputs = form.querySelectorAll('.form-input, .form-select, .form-textarea');-->
+<!--        inputs.forEach(input => {-->
+<!--            input.addEventListener('focus', function() {-->
+<!--                this.parentElement.classList.add('focused');-->
+<!--            });-->
+
+<!--            input.addEventListener('blur', function() {-->
+<!--                this.parentElement.classList.remove('focused');-->
+<!--                if (this.hasAttribute('required') && !this.value.trim()) {-->
+<!--                    this.classList.add('error');-->
+<!--                } else {-->
+<!--                    this.classList.remove('error');-->
+<!--                }-->
+<!--            });-->
+
+<!--            input.addEventListener('input', function() {-->
+<!--                if (this.classList.contains('error') && this.value.trim()) {-->
+<!--                    this.classList.remove('error');-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+
+<!--        // Email validation-->
+<!--        const emailInput = document.getElementById('email');-->
+<!--        emailInput.addEventListener('blur', function() {-->
+<!--            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;-->
+<!--            if (this.value && !emailRegex.test(this.value)) {-->
+<!--                this.classList.add('error');-->
+<!--                this.setCustomValidity('Please enter a valid email address');-->
+<!--            } else {-->
+<!--                this.classList.remove('error');-->
+<!--                this.setCustomValidity('');-->
+<!--            }-->
+<!--        });-->
+
+<!--        // Phone validation-->
+<!--        const phoneInput = document.getElementById('phone');-->
+<!--        phoneInput.addEventListener('input', function() {-->
+<!--            this.value = this.value.replace(/[^\d\+\-\(\)\s]/g, '');-->
+<!--        });-->
+<!--    }-->
+<!--    // Animation functions-->
+<!--    function animateElements() {-->
+<!--        const observer = new IntersectionObserver((entries) => {-->
+<!--            entries.forEach(entry => {-->
+<!--                if (entry.isIntersecting) {-->
+<!--                    entry.target.style.opacity = '1';-->
+<!--                    entry.target.style.transform = 'translateY(0)';-->
+<!--                }-->
+<!--            });-->
+<!--        }, {-->
+<!--            threshold: 0.1,-->
+<!--            rootMargin: '0px 0px -50px 0px'-->
+<!--        });-->
+
+<!--        // Observe all animatable elements-->
+<!--        const animateElements = document.querySelectorAll('.info-card');-->
+<!--        animateElements.forEach((el, index) => {-->
+<!--            el.style.opacity = '0';-->
+<!--            el.style.transform = 'translateY(30px)';-->
+<!--            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;-->
+<!--            observer.observe(el);-->
+<!--        });-->
+<!--    }-->
+
+<!--    // Add some interactive effects-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--        // Add ripple effect to buttons-->
+<!--        const buttons = document.querySelectorAll('.submit-btn');-->
+<!--        buttons.forEach(button => {-->
+<!--            button.addEventListener('click', function(e) {-->
+<!--                const ripple = document.createElement('span');-->
+<!--                const rect = this.getBoundingClientRect();-->
+<!--                const size = Math.max(rect.width, rect.height);-->
+<!--                const x = e.clientX - rect.left - size / 2;-->
+<!--                const y = e.clientY - rect.top - size / 2;-->
+
+<!--                ripple.style.cssText = `-->
+<!--                        position: absolute;-->
+<!--                        border-radius: 50%;-->
+<!--                        background: rgba(255, 255, 255, 0.6);-->
+<!--                        transform: scale(0);-->
+<!--                        animation: ripple 0.6s linear;-->
+<!--                        left: ${x}px;-->
+<!--                        top: ${y}px;-->
+<!--                        width: ${size}px;-->
+<!--                        height: ${size}px;-->
+<!--                        pointer-events: none;-->
+<!--                    `;-->
+
+<!--                this.style.position = 'relative';-->
+<!--                this.style.overflow = 'hidden';-->
+<!--                this.appendChild(ripple);-->
+
+<!--                setTimeout(() => {-->
+<!--                    ripple.remove();-->
+<!--                }, 600);-->
+<!--            });-->
+<!--        });-->
+
+<!--        // Add CSS for ripple animation-->
+<!--        const style = document.createElement('style');-->
+<!--        style.textContent = `-->
+<!--                @keyframes ripple {-->
+<!--                    to {-->
+<!--                        transform: scale(4);-->
+<!--                        opacity: 0;-->
+<!--                    }-->
+<!--                }-->
+
+<!--                .form-group.focused .form-label {-->
+<!--                    color: var(&#45;&#45;primary-orange);-->
+<!--                }-->
+
+<!--                .form-input.error, .form-select.error, .form-textarea.error {-->
+<!--                    border-color: var(&#45;&#45;danger);-->
+<!--                    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);-->
+<!--                }-->
+
+<!--                .info-card:hover .info-icon {-->
+<!--                    transform: scale(1.1);-->
+<!--                    box-shadow: var(&#45;&#45;shadow-orange-lg);-->
+<!--                }-->
+
+<!--                .form-input:valid, .form-select:valid, .form-textarea:valid {-->
+<!--                    border-color: var(&#45;&#45;success);-->
+<!--                }-->
+
+<!--                /* Floating label effect */-->
+<!--                .form-group {-->
+<!--                    position: relative;-->
+<!--                }-->
+
+<!--                .form-input:focus + .form-label,-->
+<!--                .form-input:not(:placeholder-shown) + .form-label {-->
+<!--                    transform: translateY(-1.5rem) scale(0.8);-->
+<!--                    color: var(&#45;&#45;primary-orange);-->
+<!--                }-->
+
+<!--                /* Custom select styling */-->
+<!--                .form-select {-->
+<!--                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");-->
+<!--                    background-position: right 0.75rem center;-->
+<!--                    background-repeat: no-repeat;-->
+<!--                    background-size: 1.25rem;-->
+<!--                    padding-right: 2.5rem;-->
+<!--                    appearance: none;-->
+<!--                }-->
+
+<!--                /* Smooth page load */-->
+<!--                body {-->
+<!--                    opacity: 0;-->
+<!--                    animation: fadeIn 0.5s ease-in-out forwards;-->
+<!--                }-->
+
+<!--                @keyframes fadeIn {-->
+<!--                    to {-->
+<!--                        opacity: 1;-->
+<!--                    }-->
+<!--                }-->
+
+<!--                /* Enhanced hover effects */-->
+<!--                .nav-link {-->
+<!--                    position: relative;-->
+<!--                }-->
+
+<!--                .nav-link::after {-->
+<!--                    content: '';-->
+<!--                    position: absolute;-->
+<!--                    bottom: 0;-->
+<!--                    left: 50%;-->
+<!--                    width: 0;-->
+<!--                    height: 2px;-->
+<!--                    background: var(&#45;&#45;primary-orange);-->
+<!--                    transition: all 0.3s ease;-->
+<!--                    transform: translateX(-50%);-->
+<!--                }-->
+
+<!--                .nav-link:hover::after,-->
+<!--                .nav-link.active::after {-->
+<!--                    width: 80%;-->
+<!--                }-->
+
+<!--                /* Toast notifications */-->
+<!--                .toast {-->
+<!--                    position: fixed;-->
+<!--                    top: 20px;-->
+<!--                    right: 20px;-->
+<!--                    background: var(&#45;&#45;white);-->
+<!--                    color: var(&#45;&#45;primary-black);-->
+<!--                    padding: 1rem 1.5rem;-->
+<!--                    border-radius: var(&#45;&#45;border-radius-sm);-->
+<!--                    box-shadow: var(&#45;&#45;shadow-xl);-->
+<!--                    z-index: 3000;-->
+<!--                    transform: translateX(100%);-->
+<!--                    transition: transform 0.3s ease;-->
+<!--                    border-left: 4px solid var(&#45;&#45;success);-->
+<!--                }-->
+
+<!--                .toast.show {-->
+<!--                    transform: translateX(0);-->
+<!--                }-->
+
+<!--                .toast.error {-->
+<!--                    border-left-color: var(&#45;&#45;danger);-->
+<!--                }-->
+<!--            `;-->
+<!--        document.head.appendChild(style);-->
+<!--    });-->
+
+<!--    // Add toast notification function-->
+<!--    function showToast(message, type = 'success') {-->
+<!--        const toast = document.createElement('div');-->
+<!--        toast.className = `toast ${type}`;-->
+<!--        toast.innerHTML = `-->
+<!--                <div style="display: flex; align-items: center; gap: 0.75rem;">-->
+<!--                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>-->
+<!--                    <span>${message}</span>-->
+<!--                </div>-->
+<!--            `;-->
+
+<!--        document.body.appendChild(toast);-->
+
+<!--        // Trigger animation-->
+<!--        setTimeout(() => toast.classList.add('show'), 100);-->
+
+<!--        // Auto remove-->
+<!--        setTimeout(() => {-->
+<!--            toast.classList.remove('show');-->
+<!--            setTimeout(() => document.body.removeChild(toast), 300);-->
+<!--        }, 4000);-->
+<!--    }-->
+
+<!--    // Enhanced form submission with toast-->
+<!--    function enhanceFormSubmission() {-->
+<!--        const form = document.getElementById('quoteForm');-->
+<!--        const originalHandler = form.onsubmit;-->
+
+<!--        form.addEventListener('submit', function(e) {-->
+<!--            // Show toast on successful submission-->
+<!--            setTimeout(() => {-->
+<!--                showToast('Quote request submitted successfully! We\'ll get back to you within 24 hours.', 'success');-->
+<!--            }, 1000);-->
+<!--        });-->
+<!--    }-->
+
+
+<!--    // Initialize enhanced features-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--        enhanceFormSubmission();-->
+
+<!--        // Add smooth scrolling for all internal links-->
+<!--        document.querySelectorAll('a[href^="#"]').forEach(anchor => {-->
+<!--            anchor.addEventListener('click', function (e) {-->
+<!--                e.preventDefault();-->
+<!--                const target = document.querySelector(this.getAttribute('href'));-->
+<!--                if (target) {-->
+<!--                    target.scrollIntoView({-->
+<!--                        behavior: 'smooth',-->
+<!--                        block: 'start'-->
+<!--                    });-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,13 +1253,17 @@
             color: var(--primary-black);
             background: var(--light-gray);
             overflow-x: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         html {
             scroll-behavior: smooth;
         }
-
-
 
         /* Hero Section */
         .quote-hero {
@@ -83,7 +1278,6 @@
             position: relative;
             overflow: hidden;
         }
-
 
         .hero-content {
             max-width: 800px;
@@ -169,6 +1363,7 @@
 
         .form-group {
             margin-bottom: 1.5rem;
+            position: relative;
         }
 
         .form-group.full-width {
@@ -181,6 +1376,11 @@
             color: var(--dark-gray);
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-group.focused .form-label {
+            color: var(--primary-orange);
         }
 
         .form-input, .form-select, .form-textarea {
@@ -201,9 +1401,23 @@
             transform: translateY(-2px);
         }
 
+        .form-input.error, .form-select.error, .form-textarea.error {
+            border-color: var(--danger);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+        }
+
         .form-textarea {
             resize: vertical;
             min-height: 120px;
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.25rem;
+            padding-right: 2.5rem;
+            appearance: none;
         }
 
         .submit-btn {
@@ -222,9 +1436,11 @@
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: var(--shadow-orange-lg);
         }
@@ -245,6 +1461,10 @@
             display: none;
         }
 
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Info Section */
         .info-section {
             display: flex;
@@ -259,11 +1479,18 @@
             box-shadow: var(--shadow);
             border: 1px solid var(--border-gray);
             transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .info-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
+        }
+
+        .info-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .info-icon {
@@ -278,6 +1505,12 @@
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: var(--shadow-orange);
+            transition: var(--transition);
+        }
+
+        .info-card:hover .info-icon {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-orange-lg);
         }
 
         .info-title {
@@ -334,59 +1567,40 @@
             border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(1deg); }
-            66% { transform: translateY(10px) rotate(-1deg); }
+        /* Toast notifications */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            color: var(--primary-black);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-xl);
+            z-index: 3000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--success);
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .toast.show {
+            transform: translateX(0);
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        /* Ripple effect */
+        @keyframes ripple {
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: scale(4);
+                opacity: 0;
             }
-        }
-
-        .animate-in {
-            animation: slideIn 0.6s ease-out;
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .header-content {
-                padding: 0.75rem 0;
-            }
-
-            .nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(25px);
-                flex-direction: column;
-                padding: 1rem;
-                border-bottom: 1px solid var(--border-gray);
-            }
-
-            .nav.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
             .quote-hero {
                 padding: 6rem 1rem 3rem;
             }
@@ -434,11 +1648,6 @@
     </style>
 </head>
 <body>
-<!-- Header -->
-<header class="header" id="header">
-
-</header>
-
 <!-- Hero Section -->
 <section class="quote-hero">
     <div class="hero-content animate-in">
@@ -473,7 +1682,7 @@
                 <span>There was an error submitting your request. Please try again.</span>
             </div>
 
-            <form id="quoteForm">
+            <form id="quoteForm" novalidate>
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name *</label>
@@ -563,7 +1772,7 @@
 
         <!-- Information Section -->
         <div class="info-section">
-            <div class="info-card animate-in">
+            <div class="info-card">
                 <div class="info-icon">
                     <i class="fas fa-clock"></i>
                 </div>
@@ -576,7 +1785,7 @@
                 </ul>
             </div>
 
-            <div class="info-card animate-in">
+            <div class="info-card">
                 <div class="info-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
@@ -589,7 +1798,7 @@
                 </ul>
             </div>
 
-            <div class="info-card animate-in">
+            <div class="info-card">
                 <div class="info-icon">
                     <i class="fas fa-shipping-fast"></i>
                 </div>
@@ -602,87 +1811,35 @@
                 </ul>
             </div>
 
-            <div class="info-card animate-in">
-                <div class="info-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3 class="info-title">Dedicated Support</h3>
-                <p class="info-description">Our export specialists are here to help you throughout the entire process, from quote to delivery.</p>
-                <ul class="info-list">
-                    <li><i class="fas fa-check"></i> Personal account manager</li>
-                    <li><i class="fas fa-check"></i> Export documentation support</li>
-                    <li><i class="fas fa-check"></i> Multi-language support</li>
-                </ul>
-            </div>
+<!--            <div class="info-card">-->
+<!--                <div class="info-icon">-->
+<!--                    <i class="fas fa-headset"></i>-->
+<!--                </div>-->
+<!--                <h3 class="info-title">Dedicated Support</h3>-->
+<!--                <p class="info-description">Our export specialists are here to help you throughout the entire process, from quote to delivery.</p>-->
+<!--                <ul class="info-list">-->
+<!--                    <li><i class="fas fa-check"></i> Personal account manager</li>-->
+<!--                    <li><i class="fas fa-check"></i> Export documentation support</li>-->
+<!--                    <li><i class="fas fa-check"></i> Multi-language support</li>-->
+<!--                </ul>-->
+<!--            </div>-->
         </div>
     </div>
 </main>
-<div id="footer"></div>
 
-<!--<footer class="footer" id="footer"></footer>-->
+<div id="footer"></div>
 
 
 <script>
-    // fetch('header.html')
-    //     .then(response => response.text())
-    //     .then(data => document.getElementById('header').innerHTML = data);
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data
-            // Now run the "active link" code AFTER header is loaded
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            console.log('currentPage')
-            console.log('currentPage', currentPage)
-            const navLinks = document.querySelectorAll('.nav-link');
-            console.log('navLinks', navLinks)
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
     fetch('footer.html')
         .then(response => response.text())
         .then(data => document.getElementById('footer').innerHTML = data);
-    // Initialize page
     document.addEventListener('DOMContentLoaded', function() {
-        initializeHeader();
+        console.log('DOM loaded, initializing form...');
         initializeForm();
         animateElements();
     });
 
-    // Header functionality
-    function initializeHeader() {
-        const header = document.getElementById('header');
-        const menuToggle = document.getElementById('menuToggle');
-        const nav = document.getElementById('nav');
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nav.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-                nav.classList.remove('active');
-            }
-        });
-    }
-
-    // Form functionality
     function initializeForm() {
         const form = document.getElementById('quoteForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -692,31 +1849,64 @@
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
 
+        console.log('Form elements found:', {
+            form: !!form,
+            submitBtn: !!submitBtn,
+            successMessage: !!successMessage,
+            errorMessage: !!errorMessage
+        });
+
+        if (!form) {
+            console.error('Form not found!');
+            return;
+        }
+
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
+            console.log('Form submitted!');
+
+            // Validate required fields
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+
+            if (!isValid) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
+            }
 
             // Collect form data
             const formData = new FormData(form);
             const data = {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
+                name: formData.get('firstName') + ' ' + formData.get('lastName'),
                 email: formData.get('email'),
-                phone: formData.get('phone'),
-                company: formData.get('company'),
-                country: formData.get('country'),
-                products: formData.get('products'),
+                product: formData.get('products'),
                 quantity: formData.get('quantity'),
+                phone: formData.get('phone'),
+                country: formData.get('country'),
+                company: formData.get('company'),
                 frequency: formData.get('frequency'),
                 message: formData.get('message'),
                 timestamp: new Date().toISOString()
             };
+
+            console.log('Form data:', data);
 
             // Show loading state
             setLoadingState(true);
             hideMessages();
 
             try {
-                // Submit to Google Apps Script
+                console.log('Sending request to Google Apps Script...');
+
                 const response = await fetch('https://script.google.com/macros/s/AKfycbwjuK4r97Ly-wr6zrS1xzdBomfWa2GkAZWMX1BcgG0PIv6X-hJQvvkn8L9uSLPaJcO0qw/exec', {
                     method: 'POST',
                     mode: 'no-cors',
@@ -726,13 +1916,15 @@
                     body: JSON.stringify(data)
                 });
 
-                // Show success message
+                console.log('Request sent successfully');
                 showSuccessMessage();
+                showToast('Quote request submitted successfully! We\'ll get back to you within 24 hours.', 'success');
                 form.reset();
 
             } catch (error) {
                 console.error('Error submitting form:', error);
                 showErrorMessage();
+                showToast('There was an error submitting your request. Please try again.', 'error');
             } finally {
                 setLoadingState(false);
             }
@@ -755,9 +1947,7 @@
         function showSuccessMessage() {
             successMessage.style.display = 'flex';
             errorMessage.style.display = 'none';
-            // Scroll to message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Auto hide after 5 seconds
             setTimeout(() => {
                 successMessage.style.display = 'none';
             }, 5000);
@@ -766,9 +1956,7 @@
         function showErrorMessage() {
             errorMessage.style.display = 'flex';
             successMessage.style.display = 'none';
-            // Scroll to message
             errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Auto hide after 5 seconds
             setTimeout(() => {
                 errorMessage.style.display = 'none';
             }, 5000);
@@ -782,15 +1970,12 @@
         // Add input validation and enhancement
         const inputs = form.querySelectorAll('.form-input, .form-select, .form-textarea');
         inputs.forEach(input => {
-            // Add focus effects
             input.addEventListener('focus', function() {
                 this.parentElement.classList.add('focused');
             });
 
             input.addEventListener('blur', function() {
                 this.parentElement.classList.remove('focused');
-
-                // Validate on blur
                 if (this.hasAttribute('required') && !this.value.trim()) {
                     this.classList.add('error');
                 } else {
@@ -798,7 +1983,6 @@
                 }
             });
 
-            // Real-time validation
             input.addEventListener('input', function() {
                 if (this.classList.contains('error') && this.value.trim()) {
                     this.classList.remove('error');
@@ -822,18 +2006,42 @@
         // Phone validation
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', function() {
-            // Remove non-numeric characters except +, -, (, ), and spaces
             this.value = this.value.replace(/[^\d\+\-\(\)\s]/g, '');
+        });
+
+        // Add ripple effect to submit button
+        submitBtn.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            left: ${x}px;
+            top: ${y}px;
+            width: ${size}px;
+            height: ${size}px;
+            pointer-events: none;
+        `;
+
+            this.appendChild(ripple);
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
         });
     }
 
-    // Animation functions
     function animateElements() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animate-in');
                 }
             });
         }, {
@@ -841,171 +2049,26 @@
             rootMargin: '0px 0px -50px 0px'
         });
 
-        // Observe all animatable elements
         const animateElements = document.querySelectorAll('.info-card');
         animateElements.forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
             el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
             observer.observe(el);
         });
     }
 
-    // Add some interactive effects
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add ripple effect to buttons
-        const buttons = document.querySelectorAll('.submit-btn');
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-
-                ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.6);
-                        transform: scale(0);
-                        animation: ripple 0.6s linear;
-                        left: ${x}px;
-                        top: ${y}px;
-                        width: ${size}px;
-                        height: ${size}px;
-                        pointer-events: none;
-                    `;
-
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-
-                .form-group.focused .form-label {
-                    color: var(--primary-orange);
-                }
-
-                .form-input.error, .form-select.error, .form-textarea.error {
-                    border-color: var(--danger);
-                    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
-                }
-
-                .info-card:hover .info-icon {
-                    transform: scale(1.1);
-                    box-shadow: var(--shadow-orange-lg);
-                }
-
-                .form-input:valid, .form-select:valid, .form-textarea:valid {
-                    border-color: var(--success);
-                }
-
-                /* Floating label effect */
-                .form-group {
-                    position: relative;
-                }
-
-                .form-input:focus + .form-label,
-                .form-input:not(:placeholder-shown) + .form-label {
-                    transform: translateY(-1.5rem) scale(0.8);
-                    color: var(--primary-orange);
-                }
-
-                /* Custom select styling */
-                .form-select {
-                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-                    background-position: right 0.75rem center;
-                    background-repeat: no-repeat;
-                    background-size: 1.25rem;
-                    padding-right: 2.5rem;
-                    appearance: none;
-                }
-
-                /* Smooth page load */
-                body {
-                    opacity: 0;
-                    animation: fadeIn 0.5s ease-in-out forwards;
-                }
-
-                @keyframes fadeIn {
-                    to {
-                        opacity: 1;
-                    }
-                }
-
-                /* Enhanced hover effects */
-                .nav-link {
-                    position: relative;
-                }
-
-                .nav-link::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    width: 0;
-                    height: 2px;
-                    background: var(--primary-orange);
-                    transition: all 0.3s ease;
-                    transform: translateX(-50%);
-                }
-
-                .nav-link:hover::after,
-                .nav-link.active::after {
-                    width: 80%;
-                }
-
-                /* Toast notifications */
-                .toast {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: var(--white);
-                    color: var(--primary-black);
-                    padding: 1rem 1.5rem;
-                    border-radius: var(--border-radius-sm);
-                    box-shadow: var(--shadow-xl);
-                    z-index: 3000;
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease;
-                    border-left: 4px solid var(--success);
-                }
-
-                .toast.show {
-                    transform: translateX(0);
-                }
-
-                .toast.error {
-                    border-left-color: var(--danger);
-                }
-            `;
-        document.head.appendChild(style);
-    });
-
-    // Add toast notification function
     function showToast(message, type = 'success') {
+        // Remove any existing toasts
+        const existingToasts = document.querySelectorAll('.toast');
+        existingToasts.forEach(toast => toast.remove());
+
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                    <span>${message}</span>
-                </div>
-            `;
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
 
         document.body.appendChild(toast);
 
@@ -1015,29 +2078,223 @@
         // Auto remove
         setTimeout(() => {
             toast.classList.remove('show');
-            setTimeout(() => document.body.removeChild(toast), 300);
+            setTimeout(() => {
+                if (document.body.contains(toast)) {
+                    document.body.removeChild(toast);
+                }
+            }, 300);
         }, 4000);
     }
 
-    // Enhanced form submission with toast
-    function enhanceFormSubmission() {
-        const form = document.getElementById('quoteForm');
-        const originalHandler = form.onsubmit;
+    // Additional utility functions
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
 
-        form.addEventListener('submit', function(e) {
-            // Show toast on successful submission
-            setTimeout(() => {
-                showToast('Quote request submitted successfully! We\'ll get back to you within 24 hours.', 'success');
-            }, 1000);
+    function validatePhone(phone) {
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+    }
+
+    // Enhanced form validation
+    function validateForm(formData) {
+        const errors = [];
+
+        const requiredFields = {
+            firstName: 'First Name',
+            lastName: 'Last Name',
+            email: 'Email Address',
+            phone: 'Phone Number',
+            country: 'Country',
+            products: 'Products of Interest',
+            quantity: 'Estimated Quantity'
+        };
+
+        for (const [field, label] of Object.entries(requiredFields)) {
+            if (!formData.get(field) || !formData.get(field).toString().trim()) {
+                errors.push(`${label} is required`);
+            }
+        }
+
+        const email = formData.get('email');
+        if (email && !validateEmail(email)) {
+            errors.push('Please enter a valid email address');
+        }
+
+        const phone = formData.get('phone');
+        if (phone && !validatePhone(phone)) {
+            errors.push('Please enter a valid phone number');
+        }
+
+        return errors;
+    }
+
+    // Auto-save functionality (using in-memory storage)
+    let formDataStorage = {};
+
+    function autoSaveFormData() {
+        const form = document.getElementById('quoteForm');
+        if (!form) return;
+
+        const formData = new FormData(form);
+        const data = {};
+
+        for (let [key, value] of formData.entries()) {
+            data[key] = value;
+        }
+
+        if (Object.values(data).some(value => value && value.trim())) {
+            formDataStorage = data;
+            console.log('Form data auto-saved to memory');
+        }
+    }
+
+    function restoreFormData() {
+        if (Object.keys(formDataStorage).length > 0) {
+            const form = document.getElementById('quoteForm');
+
+            for (const [key, value] of Object.entries(formDataStorage)) {
+                const field = form.querySelector(`[name="${key}"]`);
+                if (field && value) {
+                    field.value = value;
+                }
+            }
+
+            console.log('Form data restored from memory');
+            showToast('Previously entered data has been restored', 'success');
+        }
+    }
+
+    function clearSavedFormData() {
+        formDataStorage = {};
+        console.log('Saved form data cleared');
+    }
+
+    // Enhanced initialization with auto-save
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Enhanced form initialization starting...');
+
+        // Check for saved form data after a delay
+        setTimeout(() => {
+            if (Object.keys(formDataStorage).length > 0) {
+                const userWantsRestore = confirm('We found previously entered form data. Would you like to restore it?');
+                if (userWantsRestore) {
+                    restoreFormData();
+                } else {
+                    clearSavedFormData();
+                }
+            }
+        }, 1000);
+
+        // Set up auto-save (save every 30 seconds)
+        setInterval(autoSaveFormData, 30000);
+
+        // Save form data when user leaves the page
+        window.addEventListener('beforeunload', autoSaveFormData);
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Enter or Cmd+Enter to submit form
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                const form = document.getElementById('quoteForm');
+                const submitBtn = document.getElementById('submitBtn');
+                if (form && submitBtn && !submitBtn.disabled) {
+                    e.preventDefault();
+                    form.dispatchEvent(new Event('submit'));
+                }
+            }
+
+            // Escape to clear form
+            if (e.key === 'Escape' && e.shiftKey) {
+                const form = document.getElementById('quoteForm');
+                if (form && confirm('Are you sure you want to clear the form?')) {
+                    form.reset();
+                    clearSavedFormData();
+                    showToast('Form cleared', 'success');
+                }
+            }
+        });
+
+        console.log('Enhanced form initialization complete');
+        console.log('Keyboard shortcuts: Ctrl+Enter to submit, Shift+Escape to clear');
+    });
+
+    // Advanced form submission with retry logic
+    async function submitFormWithRetry(data, maxRetries = 3) {
+        const url = 'https://script.google.com/macros/s/AKfycbwjuK4r97Ly-wr6zrS1xzdBomfWa2GkAZWMX1BcgG0PIv6X-hJQvvkn8L9uSLPaJcO0qw/exec';
+
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                console.log(`Submission attempt ${attempt}/${maxRetries}`);
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                console.log(`Attempt ${attempt} completed successfully`);
+                return { success: true, attempt };
+
+            } catch (error) {
+                console.error(`Attempt ${attempt} failed:`, error);
+
+                if (attempt === maxRetries) {
+                    throw error;
+                }
+
+                // Wait before retrying (exponential backoff)
+                const delay = Math.pow(2, attempt) * 1000;
+                console.log(`Retrying in ${delay}ms...`);
+                await new Promise(resolve => setTimeout(resolve, delay));
+            }
+        }
+    }
+
+    // Form analytics and tracking
+    function trackFormEvent(eventName, data = {}) {
+        console.log(`Form Event: ${eventName}`, data);
+
+        // Integration point for analytics services
+        if (typeof gtag !== 'undefined') {
+            gtag('event', eventName, {
+                event_category: 'Form',
+                ...data
+            });
+        }
+    }
+
+    // Performance monitoring
+    function measureFormPerformance() {
+        const startTime = performance.now();
+
+        return {
+            end: () => {
+                const endTime = performance.now();
+                const duration = endTime - startTime;
+                console.log(`Form submission took ${duration.toFixed(2)}ms`);
+                trackFormEvent('form_submission_time', { duration });
+                return duration;
+            }
+        };
+    }
+
+    // Error reporting
+    function reportError(error, context = {}) {
+        console.error('Form Error:', error, context);
+
+        trackFormEvent('form_error', {
+            error: error.message,
+            context: JSON.stringify(context)
         });
     }
 
-
-    // Initialize enhanced features
+    // Smooth scrolling for internal links
     document.addEventListener('DOMContentLoaded', function() {
-        enhanceFormSubmission();
-
-        // Add smooth scrolling for all internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1051,6 +2308,7 @@
             });
         });
     });
+
+    console.log('Complete quote form script loaded successfully');
+    console.log('Features: Validation, auto-save, retry logic, keyboard shortcuts, animations');
 </script>
-</body>
-</html>
